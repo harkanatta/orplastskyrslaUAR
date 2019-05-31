@@ -3,6 +3,8 @@ title: <span style="font-size:125%; font-family:Roboto; font-style:normal">Örpl
 subtitle: <span style="font-size:100%; font-family:Roboto; font-style:normal"> Helstu uppsprettur, magn og farvegir í umhverfinu</span>
 author:  |
   <a href='https://biopol.is/' class="uri"><img src="myndir/biopollogo.png" style="width:15%; padding:0px 0; display:block; margin: 0 left;" alt="BioPol logo"></a>
+  <a href='https://www.nnv.is/' class="uri"><img src="myndir/nnvlogo.png" style="width:15%; padding:0px 0; display:block; margin: 0 left;" alt="BioPol logo"></a>
+  
 date: "`r format(Sys.time(), '%e. %B %Y')`"
 site: bookdown::bookdown_site
 output:

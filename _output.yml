@@ -22,7 +22,7 @@ bookdown::gitbook:
                     <img src="myndir/skjldr.svg" style="width:25%; padding:0px 0; display:block; margin: 0 auto;" alt="Fara á forsíðu Stjórnarráðsins">
          </li>
              
-    download: ["pdf"]
+    download: 
     sharing: 
       github: yes
 bookdown::pdf_book:
@@ -35,9 +35,4 @@ bookdown::pdf_book:
 "ama.csl" ,
         "-V", "lang=is"
     ]
-bookdown::epub_book:
-  pandoc_args: [ "--csl",
-"ama.csl" ,
-        "-V", "lang=is"
-    ]
-#output_dir: "docs"
+
