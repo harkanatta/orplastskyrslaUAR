@@ -1,0 +1,136 @@
+---
+title: <span style="font-size:125%; font-family:Roboto; font-style:normal">Örplast í hafinu við Ísland</span>
+subtitle: <span style="font-size:100%; font-family:Roboto; font-style:normal"> Helstu uppsprettur, magn og farvegir í umhverfinu</span>
+author:  |
+  <a href='https://biopol.is/' class="uri"><img src="myndir/biopollogo.png" style="width:15%; padding:0px 0; display:block; margin: 0 left;" alt="BioPol logo"></a>
+date: "`r format(Sys.time(), '%e. %B %Y')`"
+site: bookdown::bookdown_site
+output:
+  bookdown::gitbook
+lot: yes
+lof: yes
+always_allow_html: yes
+documentclass: book
+bibliography: book.bib
+biblio-style: apalike
+link-citations: yes
+description: "Skýrsla um uppsprettur örplasts á Ísland og helstu farvegi í hafið"
+favicon: 'myndir/biofavicon.jpg'
+fig_caption: yes
+lang: is
+cls: IEEEtran
+---
+
+```{r include=FALSE}
+#xaringan::inf_mr("C:/Users/BioPol VS/Documents/Vinnumappa/Ymislegt/Bookdown/UAR-skyrsla/01-Inngangur.Rmd")#Til að vinna í einu skjali live
+library(BiocStyle)
+#install.packages("webshot")
+#webshot::install_phantomjs()
+
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown','DT','kableExtra','BiocStyle',"webshot","dplyr"
+), 'packages.bib')
+
+
+if(!knitr:::is_html_output())
+{
+  options("width"=156)
+  knitr::opts_chunk$set(tidy.opts=list(width.cutoff=156, indent = 2), tidy = TRUE)
+ # knitr::opts_chunk$set(fig.pos = 'H')
+}
+```
+# Útdráttur {-}
+
+**Í þessari skýrslu** er lagt mat á helstu uppsprettur örplasts á Íslandi og farleiðir þess í hafið. Uppsprettur eða upptök örplastslosunar eru aðallega þar sem stærra plast sundrast í smærri einingar sem almennt er talað um sem örplast. Þetta gerist að mestu við notkun og slit á plasthlutum eða hlutum sem innihalda plastblöndur. Í sumum tilfellum er örplast framleitt sem slíkt og bætt í ýmsar vörur sem geta borist beint í umhverfið en mengun af þeim sökum er af minni stærðargráðu. Örplastsuppspretturnar eru nátengdar athöfnum fólks þar sem plast er órjúfanlegur þáttur í samfélaginu og því eru þær stærstar í kringum þéttbýli.
+
+**Stærsta uppspretta örplasts** í umhverfinu á Íslandi, sem lagt var mat á, er tengd bifreiðaumferð. Slit á dekkjum og vegmerkingum er um 75-85% örplastslosunar í hafið á Íslandi en dekk eru gerð úr gúmmíblöndu með plastefnum og vegmerkingar eru með plastbindiefnum líkt og húsamálning. Aðrar stórar uppsprettur eru vegna utanhússmálningar og þvotta á fatnaði úr gerviefnum. Nokkrar minni uppsprettur eru einnig tilteknar í þessari skýrslu.
+
+```{r echo=FALSE, message=TRUE, warning=TRUE, cache=TRUE, fig.cap='Helstu uppsprettur örplasts á Íslandi og skipting þess eftir farleiðum í haf eða í jarðveg. Byggt á lægra mati (sjá meginmál).', fig.align='center'}
+
+# libs <- c("rgdal", "maptools", "gridExtra","tmap","tmaptools","sp")
+# lapply(libs, require, character.only = TRUE)
+# 
+# malbik <- rgdal::readOGR("C:/Users/BioPol VS/Documents/Vinnumappa/GIS/IS50V_SAMGONGUR_17062016_ISN2004/IS50V_SAMGONGUR_SHP/vegir1og5.shp",require_geomType = "wkbLineString")
+# byggd <- rgdal::readOGR("C:/Users/BioPol VS/Documents/Vinnumappa/GIS/IS50V_MANNVIRKI_17062016_ISN2004/IS50V_MANNVIRKI_SHP/is50v_mannvirki_flakar_17062016.shp")
+# clp1 <- raster::intersect(malbik,byggd)
+# sum(as.numeric(as.character(clp1@data$lengd)))/sum(as.numeric(as.character(malbik@data$lengd))) #Hlutfall lengdar malbiks innan þéttbýlis = 36%
+
+
+#losun <- (l+h)/2 #Meðaltal lægra og hærra mats á losun.
+value <- c(379, 41, 18.2+11.8+3.2, 3, 8.2, 0.34) #Uppspretta lægra mat
+losun <- c(164, 5.7, 12+3.2, 0.3, 8.2, 0.34) #losun lægra mat
+#value <- c(379,586,38,233,21,48,3,11,8,32,0.3,3)
+heiti <-c('Dekkjaslit','Vegmerkingar','Húsamálning','Gervigras','Þvottur','Snyrtivörur')
+land <- value-losun
+df <- data.frame(heiti,land,losun)
+df <- df[order(df$heiti),]
+
+library(networkD3)
+nodes <- c(levels(df$heiti), 'Land ','Haf ')
+nodes <- as.data.frame(nodes)
+names(nodes) <- "name"
+
+a <- list()
+for (i in 1:nrow(df)) {
+  a[i] <- list(rbind(matrix(c(df[i,c(2,3)]))))
+}
+b <- do.call(c,a)
+value <- unlist(b)
+
+links <- 
+  data.frame(
+    source=c(0,0,1,1,2,2,3,3,4,4,5,5),
+    target=c(6,7,6,7,6,7,6,7,6,7,6,7),
+    value=value)
+
+
+Sank <- list(nodes, links)
+names(Sank) <- c('nodes', 'links')
+sn <- sankeyNetwork(
+  Links = Sank$links,
+  Nodes = Sank$nodes,
+  Source = "source",
+  Target = "target",
+  Value = "value",
+  NodeID = "name",
+  units = "tonn",
+  colourScale = JS("d3.scaleOrdinal(d3.schemeCategory20);"),
+  fontSize = 12,
+  nodeWidth = 30
+)
+if (knitr::is_html_output()) {
+  htmlwidgets::onRender(sn, 'document.getElementsByTagName("svg")[0].setAttribute("viewBox", "")') #Svo að þetta sé ekki ofursmátt í Firefox
+} else{
+  B <- paste(nodes$name,c(df$land+df$losun,sum(df$land),sum(df$losun)), sep="- ")
+  nodes <- paste(B,"t")
+  nodes <- as.data.frame(nodes)
+  names(nodes) <- "name"
+  
+  Sank <- list(nodes,links)
+  names(Sank) <- c('nodes','links')
+  
+  sn <- sankeyNetwork(
+    Links = Sank$links,
+    Nodes = Sank$nodes,
+    Source = "source",
+    Target = "target",
+    Value = "value",
+    NodeID = "name",
+    units = "tonn",
+    colourScale = JS("d3.scaleOrdinal(d3.schemeCategory20);"),
+    fontSize = 12,
+    nodeWidth = 30)
+  
+  sn
+}
+```
+
+
+**Farleiðir örplasts** til hafs eru ólíkar eftir uppsprettum og misflókið er að meta stærð þeirra. Sumar farleiðir fara óhindraðar í hafið líkt og frárennsli úr þvottavélum (í öllum þéttbýlum landsins sem eru við sjó). Affallsvatn frá vegum í þéttbýli á einnig að miklu leyti greiða leið í hafið en vegryk lendir líka að stórum hluta í jarðvegi og ekki er gott að segja til um hvar það endar. Sama á við um málningarflyksur frá háþrýstiþvotti húsa og fleiri uppsprettur í þéttbýli. Það örplast sem lendir í jarðvegi er álitið standa fyrir utan svið þessarar skýrslu þar sem plast er ekki vatnsleysanlegt og situr því að öllum líkindum eftir í jarðveginum og berst ekki í hafið. Helstu farleiðir eru því með rennandi vatni gegnum skólp og ræsi.
+
+**Í hafinu** brotnar örplast mjög hægt niður þar sem hitastig er lágt í sjónum og útfjólubláir geislar sólar berast aðeins að takmörkuðu leyti í efstu sjávarlögin en ekki á meira dýpi. Það kemur því kannski ekki á óvart að mikil uppsöfnun örplasts er á hafsbotni en einhver mesti þéttleiki örplastagna sem fundist hefur á hafsbotni var við Svalbarða á yfir 2,5 km dýpi sem bendir til þess að örplast berist í miklu magni með sjávarstraumum og jafnvel hafís.
+
+**Afdrif örplasts** eru að miklu leyti enn ókunn. Það er vel þekkt að það tekur langan tíma fyrir plast að eyðast í umhverfinu og sérstaklega þar sem lítillar birtu gætir og hitastig er lágt. Sundrun plasts (í vatn og koltvísýring) er oftast ekki í það stórum stíl að vert sé á að minnast í skýrslu sem þessari. Sólarljós getur þó valdið talsverðri sundrun á plastefnum í vegmerkingum og utanhússmálningu svo að þær málningarflyksur sem staðið hafa úti í nokkurn tíma innihalda ekki það magn af plasti sem málningin innihélt upphaflega. Það er vandmeðfarið að ætla að skilgreina örplastagnir út frá hlutfallslegu plastinnihaldi þeirra en það er þó ein af fjöldamörgum áskorunum sem  rannsóknarfólk stendur frammi fyrir. Í þessari skýrslu er það gert varðandi málningu og vegmerkingar en ekki hjólbarða til dæmis.
+
+Sumar uppsprettur var ekki hægt að leggja mat á vegna skorts á gögnum eða rannsóknum á því hvernig plastrusl í umhverfinu verður að örplasti. Þar ber hæst að nefna losun örplasts úr fjörum en erfitt er að áætla heildarmagn plasts í fjörum og hraða sundrunar þess í örplast. Fjörur geta verið líkt og mulningsvélar fyrir örplast ef stórt plastrusl er ekki fjarlægt úr þeim. Þá ber að nefna að þó svo að almennt sé talin minni hætta fyrir lífverur að innbyrða örplast miðað við stærra plast eru áhrif þess á lífverur og vistkerfi enn óráðin.

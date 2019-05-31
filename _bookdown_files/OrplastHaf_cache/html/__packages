@@ -1,0 +1,10 @@
+base
+BiocStyle
+networkD3
+magrittr
+kableExtra
+RColorBrewer
+dplyr
+knitr
+plyr
+tidyr
