@@ -2,6 +2,12 @@
 title: <span style="font-size:125%; font-family:Roboto; font-style:normal">Örplast í hafinu við Ísland</span>
 subtitle: <span style="font-size:100%; font-family:Roboto; font-style:normal"> Helstu uppsprettur, magn og farvegir í umhverfinu</span>
 author:  |
+ <span style="font-size:100%; font-family:Roboto; font-style:normal" class="noem">Valtýr Sigurðsson</span>
+   <br>
+  <span style="font-size:100%; font-family:Roboto; font-style:normal" class="noem">Pétur Halldórsson</span>
+  <br>
+  <br>
+  
   <a href='https://biopol.is/' class="uri"><img src="myndir/biopollogo.png" style="width:15%; padding:0px 0; display:block; margin: 0 left;" alt="BioPol logo"></a>
   <a href='https://www.nnv.is/' class="uri"><img src="myndir/nnvlogo.png" style="width:15%; padding:0px 0; display:block; margin: 0 left;" alt="BioPol logo"></a>
   
@@ -130,6 +136,7 @@ if (knitr::is_html_output()) {
 
 
 **Farleiðir örplasts** til hafs eru ólíkar eftir uppsprettum og misflókið er að meta stærð þeirra. Sumar farleiðir fara óhindraðar í hafið líkt og frárennsli úr þvottavélum (í öllum þéttbýlum landsins sem eru við sjó). Affallsvatn frá vegum í þéttbýli á einnig að miklu leyti greiða leið í hafið en vegryk lendir líka að stórum hluta í jarðvegi og ekki er gott að segja til um hvar það endar. Sama á við um málningarflyksur frá háþrýstiþvotti húsa og fleiri uppsprettur í þéttbýli. Það örplast sem lendir í jarðvegi er álitið standa fyrir utan svið þessarar skýrslu þar sem plast er ekki vatnsleysanlegt og situr því að öllum líkindum eftir í jarðveginum og berst ekki í hafið. Helstu farleiðir eru því með rennandi vatni gegnum skólp og ræsi.
+
 
 **Í hafinu** brotnar örplast mjög hægt niður þar sem hitastig er lágt í sjónum og útfjólubláir geislar sólar berast aðeins að takmörkuðu leyti í efstu sjávarlögin en ekki á meira dýpi. Það kemur því kannski ekki á óvart að mikil uppsöfnun örplasts er á hafsbotni en einhver mesti þéttleiki örplastagna sem fundist hefur á hafsbotni var við Svalbarða á yfir 2,5 km dýpi sem bendir til þess að örplast berist í miklu magni með sjávarstraumum og jafnvel hafís.
 
