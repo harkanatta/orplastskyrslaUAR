@@ -260,7 +260,7 @@ Umhverfismælingar ná sjaldnast til minnstu agnanna [@loder2015methodology] en 
 Mestur þéttleiki örplasts í yfirborðslögum sjávar er nærri uppsprettum þess á landi við þéttbýli og árósa og um 80% þess er af gerðinni pólýetýlen og pólýprópýlen [@isobe2014selective; @Gewert2017] sem falla undir resín-kóða eitt, tvö, fjögur og fimm og eru yfir 60% af framleiddu plasti í heiminum (líkt og sést í töflu \@ref(tab:framleidsla)). Ólíkar gerðir plastefna hafa mismunandi eðlisþyngd og aðeins um helmingur af framleiddu plasti hefur hærri eðlisþyngd en sjór [@sherrington2016study] en það hefur áhrif á útbreiðslu þeirra í hafinu [@andrady2011microplastics]. 
 
 
-```{r DriftDensity, fig.cap='Þéttleiki smárra plastagna á reki í hafinu. Lárétti ásinn stendur fyrir fjarlægð frá landi og lóðrétti ásinn stærð plastagnanna sem fengust í háf við yfirborðið. Litaskalinn táknar þéttleika agnanna. Þéttleiki yfir 0,005 stk/m~3~ er innan línanna á myndinni [@isobe2014selective].', out.width='80%', fig.align='center', echo=FALSE}
+```{r DriftDensity, fig.cap='Þéttleiki smárra plastagna á reki í hafinu. Lárétti ásinn stendur fyrir fjarlægð frá landi og lóðrétti ásinn stærð plastagnanna sem fengust í háf við yfirborðið. Litaskalinn táknar þéttleika agnanna. Þéttleiki yfir 0,005 stk/m~3~ er innan línanna á myndinni (Isobe, 2014).', out.width='80%', fig.align='center', echo=FALSE}
 knitr::include_graphics("myndir/DriftDensity_isobe2014.png")
 ```
 

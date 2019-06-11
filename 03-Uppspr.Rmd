@@ -518,8 +518,8 @@ if (knitr::is_html_output()) {
 
 Fjórir stórir slippir eru á landinu, þar af þrír á SV-landi og einn á Akureyri. Minni slippir, eða dráttarbrautir sem geta tekið inn smærri báta, eru hér og þar um landið. Í slippum landsins eru nokkrir tugir skipa þjónustaðir árlega. Hver sem fær þjónustu hjá slippum getur haft sína hentisemi varðandi þykkt málningarlagsins og gerð málningar og sumir skaffa málningu sjálfir en aðrir kaupa af slippunum. Í stóru slippunum eru skip sprautumáluð en langflestir minni bátar eru málaðir með rúllum og penslum af eigendum þeirra. Þeir eru oft hífðir upp og málaðir nálægt bryggju. Mörg íslensk skip eru máluð í útlöndum og hérlendir slippir taka erlend skip á móti.
 
-```{r Slippur, fig.cap='Skip í slipp á Skagaströnd. Nokkrar smærri dráttarbrautir eru hér og þar um landið sem þjónusta eigendur smárra til meðalstórra skipa', out.width='60%', fig.align='center', echo=FALSE}
-knitr::include_graphics("myndir/slippur.jpg")
+```{r Slippur, fig.cap='Skip í slipp í höfninni á Skagaströnd. Nokkrar smærri dráttarbrautir eru hér og þar um landið sem þjónusta eigendur smárra til meðalstórra skipa. Ólík lögun skipanna og byggingarefniviður gerir það erfitt um vik að áætla magn skipamálningar.', out.width='100%', fig.align='center', echo=FALSE}
+knitr::include_graphics("myndir/slippurb.jpg")
 ```
 
 Málun er tíðust á botninum undir vatnslínunni og á þann flöt er notuð sérstök málning til varnar ásætum sem annars myndu auka viðnám skipsskrokksins. Skip eru máluð um það bil einu sinni á þriggja til fimm ára fresti en botninn er gjarnan málaður annað hvert ár eða árlega. Þegar bátar eru háþrýstiþvegnir losna málningarflyksur sem geta borist í hafið. Hlutfall plastefna getur verið milli 30% og 80% (skv. tækniblöðum frá Sérefnum ehf.) og allt að 40% fellur til við háþrýstiþvott [@Verschoor2016]. Það er þó misjafnt hve mikið losnar af og samkvæmt heimildarmönnum frá slippunum sjálfum væri nærri lagi að segja að um 10% málningar sé þvegin af við háþrýstiþvott.

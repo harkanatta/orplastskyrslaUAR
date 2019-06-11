@@ -43,7 +43,7 @@ knitr::include_graphics("myndir/map.png")
 
 ### Skólp og ræsi {-}
 
-Fæst bæjarfélög á Íslandi hreinsa skólp að nokkru leyti \@ref(fig:skolp) en þar sem skólphreinsistöðvar eru á höfuðborgarsvæðinu fer skólp frá flestum landsmönnum  í gegnum hreinsun og hefur því hlutfall þeirra sem búa á svæðum þar sem skólp er hreinsað margfaldast á síðustu áratugum [@Þorðarson2012].
+Fæst bæjarfélög á Íslandi hreinsa skólp að nokkru leyti (sjá mynd \@ref(fig:skolp)) en þar sem skólphreinsistöðvar eru á höfuðborgarsvæðinu fer skólp frá flestum landsmönnum  í gegnum hreinsun og hefur því hlutfall þeirra sem búa á svæðum þar sem skólp er hreinsað margfaldast á síðustu áratugum [@Þorðarson2012].
 
 ```{r skolphreins, eval=FALSE, fig.align='center', fig.cap='Skólphreinsun í þéttbýli 2010 flokkað eftir svæðum.', include=FALSE, out.width='100%'}
 knitr::include_graphics("myndir/skolphreinsun_Island.png")
