@@ -11,14 +11,13 @@ library(kableExtra)
 
 collapse_rows_dt <-
   data.frame(
-    A = c(rep('Rennandi vatn', 11),'Andrúmsloft',rep('Hafið', 3),rep('Annað', 3)),
-    B = c(rep('Fráveita: skólp og ofanvatn', 8),rep('Ár, lækir og skurðir',3),'Vindur',rep('Hafstraumar/sjávarföll', 3),'Sigvatn','Landgræðsla','Snjómokstur'),
+    A = c(rep('Rennandi vatn', 11),rep('Andrúmsloft',2),rep('Hafið', 3),rep('Annað', 2)),
+    B = c(rep('Fráveita: skólp og ofanvatn', 8),rep('Ár, lækir og skurðir',3),rep('Vindur',2),rep('Hafstraumar/sjávarföll', 3),'Sigvatn','Snjómokstur'),
     C = c(c('Fatnaður','Snyrtivörur','Plastframleiðsla','Gervigrasvellir','Leiksvæði','Skósólar'),
         c('Vegryk*','Málning','Heyrúlluplast','Haglaskot','Plastrusl'),
-          'Vegryk*',
+          c('Vegryk*', 'Áburður'),
         c('Veiðarfæri', 'Búnaður í sjókvíaeldi', 'Plastrusl í hafinu'),
         'Örplast frá urðunarstöðum',
-        'Áburður úr seyru',
         'Vegryk*'))
 
 colnames(collapse_rows_dt) <- c('Gerð farvegs', 'Farvegur', 'Uppsprettur í farvegi')
