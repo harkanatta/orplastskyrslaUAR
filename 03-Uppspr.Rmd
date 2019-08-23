@@ -383,7 +383,6 @@ snertilendingar=75497
 
 *Fyrirvari: Innlend framleiðsla er ekki tekin með í reikninginn hér því ekki fengust nákvæmar upplýsingar um innflutt magn þeirra efna sem eru notuð til að blanda málningu. Hægt er að nálgast lista yfir fyrirtæki sem kaupa inn vissar vörur og grennslast betur fyrir um hvaða efni um ræðir en Tollstjóri má ekki afhenda þann lista nema með lagaheimild.*
 
-Málnin sem er hellt niður í ræsi er aðeins solid content af örplasti en málningarflögur eru 100% örplast
 
 ### Utanhússmálning {-}
 
@@ -391,20 +390,20 @@ Flestar gerðir málningar eru með syntetískum fjölliðum sem bindiefni [@Dur
 
 Markaðshlutur innimálningar gagnvart útimálningu er ólíkur milli rannsókna í mismunandi löndum. Í Danmörku og Svíþjóð var útimálning metin 63% af heildarmagni en aðeins 27% í Evrópusambandsríkjunum [@Hann2018]. Í norsku örplastsskýrslunni má umreikna að þar sé hlutfallið um 35% [@sundt2014sources]. Munurinn á milli norðurlandanna og Evrópusambandsríkjanna getur skýrst af því að meiri veðrun í norðlægari byggðum krefjist meiri útimálningar [@Hann2018] en ólík menning spilar einnig inn í. Á Íslandi er veðrun útimálningar einnig mikið vandamál sem rökstyður samanburð við hin Norðurlöndin en hér er bygginarstíll þó um margt ólíkur þeim.
 
-Timburklædd hús þarf að mála oftar en steinhús. Á Íslandi er lítið um timburklædd hús en hér eru aftur á móti nánast engar ómálaðar múrsteinsbyggingar sem eru mjög algengar í Skandinavíu og víðar Evrópu. Þrátt fyrir þónokkurn fjölda steinaðra bygginga hér á landi (um 3000 byggingar um síðustu aldamót) sem ætti ekki að þurfa að mála [@Guðmundsson2003] eru flest hús máluð og ólíkt nágrannaþjóðunum mála Íslendingar næstum öll þök.
+Timburklædd hús þarf að mála oftar en steinhús. Á Íslandi er lítið um timburklædd hús en hér eru aftur á móti nánast engar ómálaðar múrsteinsbyggingar sem eru mjög algengar í Skandinavíu og víðar Evrópu. Þrátt fyrir þónokkurn fjölda steinaðra bygginga hér á landi (um 3000 byggingar um síðustu aldamót [@Guðmundsson2003]) sem ætti ekki að þurfa að mála eru flest hús máluð og ólíkt nágrannaþjóðunum mála Íslendingar næstum öll þök.
 
-Útimálun er framkvæmd vegna nýbygginga eða slits, bæði á þökum og veggjum en innimálun er hins vegar framkvæmd við eigendaskipti og nýbyggingu. Hlutfall sölu útimálningar hjá innlendum söluaðilum er mishátt eftir því hvort viðskiptin eru við fagmenn eða heimili.
-Samkvæmt tölvupósti er hlutfall útimálningar undir 30% hjá stórum söluaðila sem afgreiðir heimili að mestu en hærra hjá öðrum stórum söluaðila (yfir 60%) sem afgreiðir að mestu fagmenn.
+Útimálun er framkvæmd vegna nýbygginga eða slits, bæði á þökum og veggjum en innimálun er hins vegar framkvæmd við eigendaskipti og nýbyggingu. Hlutfall sölu útimálningar hjá innlendum söluaðilum er mishátt eftir því hvort viðskiptin eru við fagfólk eða heimili.
+Samkvæmt tölvupósti er hlutfall útimálningar undir 30% hjá stórum söluaðila sem afgreiðir heimili að mestu en hærra hjá öðrum stórum söluaðila (yfir 60%) sem afgreiðir að mestu fagfólk.
 
 Innflutt málning árin 2016 og 2017 var 3.15 þúsund tonn á ári [@tollur2017] eða um 9,3 kg á mann (hér er ekki tekið með efni sem notuð eru til framleiðslu á málningu hérlendis). Þetta er af sömu stærðargráðu og mat Hann [-@Hann2018] um málningarnotkun á mann í Evrópusambandsríkjunum (um 8,2 kg).
 
 Losun örplasts frá utanhússmálningu hefur ekki verið könnuð beint og er þetta mat því aðeins byggt á fræðilegum grunni. Veðrun og slit málningar veldur losun á syntetískum fjölliðum út í umhverfið þar sem þær verða fyrir útfjólublárri geislun og geta brotnað niður að miklu leyti. Miðað við eftirfarandi forsendur má áætla örplastmengun frá útimálningu með eftirfarandi hætti:
 
-  - frá 27-63% innfluttrar málningar séu notuð á fleti utanhúss (pers. heimildir)
-- að um 20% af innihaldi málningar séu plastefni [@Hann2018]
-- að 67% plastefnanna sundrist vegna veðrunar (og reiknist því ekki með) [@Hann2018]
-- að um 1.6% utanhússmálningar flagni af (vegna veðrunar eða háþrýstiþvottar) sem örplast [@Hann2018]
-- að um 2.5% af eftirstandandi málningu losni sem örplast vegna veðrunar [@Hann2018]
+  - 27-63% innfluttrar málningar séu notuð á fleti utanhúss (pers. heimildir)
+- 20% af innihaldi málningar séu plastefni [@Hann2018]
+- 67% plastefnanna sundrist vegna veðrunar (og reiknist því ekki með) [@Hann2018]
+- 1.6% utanhússmálningar flagni af (vegna veðrunar eða háþrýstiþvottar) sem örplast [@Hann2018]
+- 2.5% af eftirstandandi málningu losni sem örplast vegna veðrunar [@Hann2018]
 
 ```{r malningartafla, fig.cap='Tafla',echo=FALSE, message=FALSE, warning=FALSE}
 library(knitr)
@@ -416,7 +415,7 @@ lina <- as.data.frame(t(lina))
 names(lina) <- c("Tonn", "%", "Tonn", "%", "%", "Tonn", "%", "Tonn", "%", "Tonn")
 
 if (knitr::is_html_output()) {
-kable(lina, caption = 'Uppspretta örplasts í umhverfið frá útimálningu á Íslandi.' , align = "c") %>%
+kable(lina, caption = 'Áætluð árleg losun örplasts í hafið frá útimálningu á Íslandi.' , align = "c") %>%
 kable_styling(c("striped", "bordered", full_width = F, position = "center")) %>%
 add_header_above(
 c(
@@ -437,12 +436,12 @@ lina3 <- c("Innflutt málning","Hlutur utanhúss-málningar","","Plastefni","Sun
 lina <- data.frame(lina3,lina2,lina)
 lina <- unname(lina)
 
-kable(lina,align = "c",format = 'latex', caption = 'Uppspretta örplasts í umhverfið frá útimálningu á Íslandi.' , booktabs = T)
+kable(lina,align = "c",format = 'latex', caption = 'Áætluð árleg losun örplasts í hafið frá útimálningu á Íslandi.' , booktabs = T)
 
  }
 ```
 
-Áætluð uppspretta örplasts frá utanhússmálningu á ári er því um 30-70 tonn. Þar sem um 70% af flatarmáli bygginga er innan þéttbýlis^[hér er þéttbýli skilgreint eftir gagnalaginu mannvirki í IS 50V kortagrunninum frá landhelgisgæslunni] er aftur farið eftir áætluðu hlutfalli ofanvatns sem rennur í ræsi (60%) [@Verschoor2016]. Byggingar utan þéttbýlis þar sem fráveita er nánast engin eru ekki hafðar með. Áætluð losun örplasts í hafið frá útimálningu er því **12-29 t**
+Áætluð uppspretta örplasts frá utanhússmálningu á ári, vegna háþrýstiþvotta og flögnunar, slits og veðrunar, er því um 30-70 tonn. Þar sem um 70% af flatarmáli bygginga er innan þéttbýlis^[hér er þéttbýli skilgreint eftir gagnalaginu mannvirki í IS 50V kortagrunninum frá landhelgisgæslunni] er aftur farið eftir áætluðu hlutfalli ofanvatns sem rennur í ræsi (60%) [@Verschoor2016]. Byggingar utan þéttbýlis þar sem fráveita er nánast engin eru ekki hafðar með. Áætluð losun örplasts í hafið frá útimálningu er því **12-29 t**.
 
 ### Innimálning {-}
 Örplastmengun vegna málningar innandyra verður aðallega vegna þrifa á penslum. Sú málning berst beint í hafið um fráveitukerfi og er reiknað með að hún sé um 1,6 % [@Hann2018]. Innimálning verður ekki fyrir mikilli veðrun og hvert lag er málað yfir það sem fyrir var án þess að það sé þvegið af.
@@ -480,9 +479,9 @@ lina <- unname(lina)
 }
 ```
 
-Efmiðað er við að um 20% af innihaldi málningar sé syntetískar fjölliður [@Hann2018] er áætluð heildarlosun örplasts frá innimálningu á ári því **3,2-7,1** tonn.
+Ef miðað er við að um 20% af innihaldi málningar sé syntetískar fjölliður [@Hann2018] er áætluð heildarlosun örplasts frá innimálningu á ári því **3,2-7,1** tonn.
 
-Ekki er öll málning með plastbindiefnum því einnig eru alkýðbindiefni algeng í málningu sem eru með vatnssækna eiginleika og brotna á annan veg niður í náttúrunni. Mat á þrifum á verkfærum er byggt á lítilli þekkingu um vinnubrögð fagmanna (eru verkfæri skoluð, þeim hent). Nauðsynlegt er að gera markaðsrannsókn þar sem kannað er hve mikill hluti málningar er seldur til fagmanna og heimila. Einnig er nauðsynlegt að greinarmunur sé gerður á ólíkum bindiefnum í málningu og kannað verði til hlítar hve mikið af syntetískum fjölliðum til framleiðslu málningar er flutt inn í gegnum Tollstjóra.
+Ekki er öll málning með plastbindiefnum því einnig eru alkýðbindiefni algeng í málningu sem eru með vatnssækna eiginleika og brotna á annan veg niður í náttúrunni. Til þess að fá nákvæmara mat á losun örplasts frá innimálningu er nauðsynlegt að gera markaðsrannsókn þar sem kannað er hve mikill hluti málningar er seldur til fagfólks eða heimila. Á heimilum eru verkfæri skoluð oftar fyrir hvern lítra af málningu heldur en hjá fagfólki. Einnig er nauðsynlegt að greinarmunur sé gerður á ólíkum bindiefnum í málningu og kannað verði til hlítar hve mikið af syntetískum fjölliðum til framleiðslu málningar er flutt inn í gegnum Tollstjóra.
 
 ```{r echo=FALSE, fig.cap="Áætluð árleg heildarlosun örplasts frá húsamálningu er 15,2-36,1 tonn", message=FALSE, warning=FALSE, fig.align='center'}
 library(networkD3)
@@ -734,7 +733,11 @@ Gerviefni ^[Manngerð efni, annars vegar svokölluð syntetísk og hins vegar sv
 
 Nælon (pólýamíð) var sett á markað í Bandaríkjunum árið 1939 og var fyrsta efnið unnið úr jarðefnaeldsneyti ætlað í vefnað [@AmericanChemicalSociety1995]. Það greiddi leið fyrir önnur gerviefni sem fylgdu í kjölfarið eins og akríl 1949 [@masson1995acrylic] og pólýester 1951 [@brunnschweiler1993polyester]  sem ruddu sér leið inn á heimsmarkaðinn á sjöunda áratugnum og voru loks framleidd í meira magni en bómull í lok tuttugustu aldarinnar [@Shen2012].
 
-Plastþræðir gerviefna fara í skólp með niðurfalli þvottavéla til viðtakans, hvort sem það er rotþró [@mahon2016microplastics] eða sjórinn. Seyra sem notuð er í landgræðslu getur þar af leiðandi verið uppspretta örplastmengunar í jarðvegi [@mahon2016microplastics]. Mismunandi er hversu mikið af örplastþráðum hefur mælst í rennsli frá skólphreinsistöðvum [@magnusson2014mikroskrap; @napper2016release] eftir kröfum og tilkostnaði á hverju svæði. Á Íslandi er ekki gert ráð fyrir síun örplastagna í frárennsli en í (lögum um varnir gegn mengun hafs og stranda) [https://www.althingi.is/lagas/149b/2004033.html?fbclid=IwAR0kTaxBydzlzPiAR28GAEQzKjRNQxBKqk4VEKCAhNn6AqYz58nsfSKrQJw] segir að óheimilt sé að losa í hafið þrávirk gerviefni sem fljóta eða mara í hafinu en það er gert í miklum mæli í gegnum frárennsliskerfi hérlendis.
+Plastþræðir gerviefna fara í skólp með niðurfalli þvottavéla til viðtakans, hvort sem það er rotþró [@mahon2016microplastics] eða sjórinn. Seyra sem notuð er í landgræðslu getur þar af leiðandi verið uppspretta örplastmengunar í jarðvegi [@mahon2016microplastics]. Mismunandi er hversu mikið af örplastþráðum hefur mælst í rennsli frá skólphreinsistöðvum [@magnusson2014mikroskrap; @napper2016release] eftir kröfum og tilkostnaði á hverju svæði. Á Íslandi er ekki gert ráð fyrir síun örplastagna í frárennsli. 
+
+```{r eval=FALSE, include=FALSE}
+%en í (lögum um varnir gegn mengun hafs og stranda) [https://www.althingi.is/lagas/149b/2004033.html?fbclid=IwAR0kTaxBydzlzPiAR28GAEQzKjRNQxBKqk4VEKCAhNn6AqYz58nsfSKrQJw] segir að óheimilt sé að losa í hafið þrávirk gerviefni sem fljóta eða mara í hafinu en það er gert í miklum mæli í gegnum frárennsliskerfi hérlendis.%
+```
 
 Til að áætla örplastmengun frá fataþvotti til sjávar á Íslandi er íbúafjöldi margfaldaður með áætluðum fjölda þvotta á ári og áætlaðri meðallosun örplastþráða við hvern þvott. Samkvæmt rannsókn sem gerð var á fataþvotti heimila víða um heim árið 2010 [@Pakula2010] eru þvegnir 165 þvottar að meðaltali á heimili á Íslandi. Áætlað er að hver þvottur í Vestur-Evrópu sé að meðaltali 3-4 kg og að hlutfall gerviefna í hverjum þvotti sé á bilinu frá 30-50% [@Pakula2010]. Fyrir hvert kíló af þvegnum fötum úr gerviefnum losna 12-640 mg af örplastþráðum [@magnusson2016swedish]. Fjöldi heimila á Íslandi er um það bil 120 þúsund og samkvæmt neyslukönnun 2013-2016 er fjöldi í heimili 2,9 ^[Tölur fengnar af vef Hagstofunnar. (Mannfjöldi)[http://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__sveitarfelog/MAN02001.px/], (fjöldi heimila[http://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__manntal__1manntalfjolsk/CEN01050.px/]), (fjöldi í heimili[http://px.hagstofa.is/pxis/pxweb/is/Efnahagur/Efnahagur__visitolur__4a_neyslarannsokn/VIS05302.px/])].
 
@@ -812,7 +815,7 @@ Heildarmagn notaðra forhlaða árið 2017 var því 3,2 tonn en þar sem ákve�
 ### Sjávarútvegur {-}
 
 
-Veiðarfæri eru almennt úr plastefnum, hvort sem það eru línur, net, flotholt og eru því möguleg uppspretta örplastmengunar, annars vegar vegna slits við venjulega notkun og hins vegar vegna veiðarfæra sem tapast í hafið og veðrast. Í umhverfisskýrslu Samtaka fyrirtækja í sjávarútvegi er tekið fram að um 1.300 tonnum af veiðarfærum sé skilað til hafna og þaðan til endurvinnslu (eða viðeigandi förgunar). Ekki eru til upplýsingar um heildarmagn veiðarfæra í notkun á Íslandsmiðum. Magn veiðarfæra íslenska fiskveiðiflotans var gróflega áætlað um 7.313 tonn út frá heildarþyngd afla borið saman við önnur evrópuríki [@Hann2018]. Samkvæmt sérfræðingi Hafrannsóknarstofnunar er sú tala allt of há þar sem fæstar fiskveiðiþjóðir eru með eins fáa báta miðað við hvert veitt kíló af fiski og því betri nýtingu á veiðarfærum.
+Veiðarfæri eru almennt úr plastefnum, hvort sem það eru línur, net, flotholt og eru því möguleg uppspretta örplastmengunar, annars vegar vegna slits við venjulega notkun og hins vegar vegna veiðarfæra sem tapast í hafið og veðrast. Í umhverfisskýrslu Samtaka fyrirtækja í sjávarútvegi er tekið fram að um 1.300 tonnum af veiðarfærum sé skilað til hafna og þaðan til endurvinnslu (eða viðeigandi förgunar). Ekki eru til upplýsingar um heildarmagn veiðarfæra í notkun á Íslandsmiðum. Magn veiðarfæra íslenska fiskveiðiflotans var gróflega áætlað um 7.313 tonn út frá heildarþyngd afla borið saman við önnur evrópuríki [@Hann2018]. Samkvæmt sérfræðingi Hafrannsóknarstofnunar er sú tala allt of há þar sem hérlendis eru fáir bátar fyrir hvert veitt kíló af fiski, samanborið við aðrar fiskveiðiþjóðir, og því góð nýting á veiðarfærum.
 
 ```{r net, eval=FALSE,  fig.show='hold', message=FALSE, warning=FALSE, dev.args=list(bg="transparent"), include=FALSE, fig.cap='Samband skipslengdar og botnflatar. Kökuritið sýnir hlutfall flatarmáls íslenskra fiskiskipa í þremur stærðarflokkum: Undir 15 metra löng skip, milli 15 og 30 metra löng og yfir 30 metra löng. Fengið með jöfnu frá Moser 2016', fig.align='center', out.width='50%'}
 
@@ -843,7 +846,7 @@ Innflutningur heyrúlluplasts á árunum 2013-2018 var að meðaltali tæplega 2
 ### Plast í fjörum {-}
 Niðurbrot plastrusls gerist hve hraðast í orkumiklum kerfum líkt og fjörum en plastrusl í hafi og í fjörum er álitið vera með stærstu uppsprettum örplasts í hafinu [@andrady2011microplastics]. Ekki er hægt að meta magn af örplasti sem berst frá niðurbroti plastsrusls í fjörum í hafið. Magn rusls er ekki gott að áætla og svo vantar gögn um það hve hratt plasthlutir mást og eyðast í fjörum og sundrast frá stærra plasti í örplastsagnir.
 
-Skipulagðar hreinsanir á Íslandi eru framkvæmdar af félagasamtökunum Bláa hernum. Samkvæmt talsmanni þeirra er um eitt tonn af plastrusli á hverjum kílómetra af strandlengju sem þau hreinsa. Veiðarfæri og umbúðir úr plasti eru yfir 95% af þyngd hlutanna sem finnast. Veiðarfærin geta verið stórar einingar upp á hundruð kílóa en umbúðirnar eru oft smærri ílát fyrir neysluvöru.
+Skipulagðar hreinsanir á Íslandi eru framkvæmdar af félagasamtökunum Bláa hernum og fleirum. Samkvæmt talsmanni Bláa hersins er um eitt tonn af plastrusli á hverjum kílómetra af strandlengju sem þau hreinsa. Veiðarfæri og umbúðir úr plasti eru yfir 95% af þyngd hlutanna sem finnast. Veiðarfærin geta verið stórar einingar upp á hundruð kílóa en umbúðirnar eru oft smærri ílát fyrir neysluvöru.
 
 ```{r ospartafla, echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE,, dev.args=list(bg="transparent"), fig.cap='Rusl í fjörum á Íslandi. Unnið eftir gögnum frá OSPAR.'}
 ospar <- read.csv("skjol/ospar.csv")
@@ -890,7 +893,7 @@ plot(factor(ldf$Efni), ldf$fjoldi,ylab="Fjöldi hluta")
 Vaktanir á íslenskum fjörum eru gerðar eftir OSPAR samkomulaginu en þar eru 100 metra fjörukaflar teknir fyrir og skrásettur fjöldi hluta og hvers eðlis þeir eru en þeir eru ekki vigtaðir. Ábyggilegt er að við staðarval sé tekið mið af sjáanlegri mengun, sérstaklega hjá Bláa hernum en einnig hjá OSPAR og því eru gögnin þeirra skekkt í átt að meiri mengun en almennt finnst í íslenskum fjörum. Skráðar hafa verið 18 hreinsanir á fimm 100 metra strandlengjupörtum á Íslandi í [OSPAR gagnagrunninn](http://www.mcsuk.org/ospar/map) [@ospar2019]. Niðurstöður þeirra sýna að plast er meirihluti þeirra hluta sem finnast í fjörum eða um 83% (sjá mynd \@ref(fig:ospartafla)). 
 
 ### Sigvatn frá sorpurðunarstöðvum {-}
-Urðaður heimilisúrgangur er um 60.000 tonn á ári [@tollurinn2] á ýmsum urðunarstöðvum á Íslandi. Tugir urðunarstöðva eru vítt og breitt um landið, sumar þeirra eru þó ekki lengur í notkun. Stærsta urðunarstöðin á Álfsnesi í Reykjavík er með leyfi til að taka við 120.000 tonnum á ári en aðrar stórar stöðvar eru í Glerárdal í Eyjafirði og í Stekkjavík við Húnaflóa (báðar um 20.000 tonn) og við Ölfusá er stöð með leyfi fyrir 30.000 tonnum. Aðrar minni stöðvar hafa leyfi fyrir nokkrum hundruðum eða nokkur þúsundum tonna.
+Urðaður heimilisúrgangur er um 60.000 tonn á ári [@tollurinn2] á ýmsum urðunarstöðvum á Íslandi. Tugir urðunarstöðva eru vítt og breitt um landið, sumar þeirra eru ekki lengur í notkun en sigvatn rennur frá þeim engu að síður. Stærsta urðunarstöðin á Álfsnesi í Reykjavík er með leyfi til að taka við 120.000 tonnum á ári en aðrar stórar stöðvar eru í Glerárdal í Eyjafirði og í Stekkjavík við Húnaflóa (báðar um 20.000 tonn) en við Ölfusá var stöð þar til nýlega með leyfi fyrir 30.000 tonnum. Aðrar minni stöðvar hafa leyfi fyrir nokkrum hundruðum eða þúsundum tonna.
 
 Rannsóknir á örplastinnihaldi í sigvatni benda ekki til þess að það sé mikilvæg uppspretta örplasts [@Praagh1277395]. Talningar á örplastsögnum úr sigvatni nokkurra urðunarstöðva á Íslandi voru til dæmis lægri en talningar úr skólpi [@Praagh1277395]. Í stærstu urðunarstöðinni á Álfsnesi mældist örplast í mestu magni (frá 50-5000 μm að stærð) og var árleg losun metin á bilinu **0,002 - 177 kg** [@Praagh1277395].
 
