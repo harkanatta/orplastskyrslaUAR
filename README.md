@@ -1,6 +1,6 @@
 # Uppsprettur örplasts á Íslandi og farleiðir þess í hafið
 
-[Hér má sjá skýrsluna](https://harkanatta.github.io/orplastskyrslaUAR/)
+## [Hér má sjá skýrsluna](https://harkanatta.github.io/orplastskyrslaUAR/)
 
 Þessi skýrsla er unnin af [BioPol](https://biopol.is/) og [Nnv](https://www.nnv.is/) fyrir [Umhverfisráðuneytið](https://www.uar.is/). Hér að ofan má sjá vinnusvæði skýrslunnar. Þar er texti skýrslunnar og uppsetning í R öllum opinn og eitthvað af þeim gögnum sem stuðst var við. 
 
