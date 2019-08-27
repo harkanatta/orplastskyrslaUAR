@@ -441,8 +441,7 @@ kable(lina,align = "c",format = 'latex', caption = 'Áætluð árleg losun örpl
 Áætluð uppspretta örplasts frá utanhússmálningu á ári, vegna háþrýstiþvotta og flögnunar, slits og veðrunar, er því um 30-70 tonn. Þar sem um 70% af flatarmáli bygginga er innan þéttbýlis^[hér er þéttbýli skilgreint eftir gagnalaginu mannvirki í IS 50V kortagrunninum frá landhelgisgæslunni] er aftur farið eftir áætluðu hlutfalli ofanvatns sem rennur í ræsi (60%) [@Verschoor2016]. Byggingar utan þéttbýlis þar sem fráveita er nánast engin eru ekki hafðar með. Áætluð losun örplasts í hafið frá útimálningu er því **12-29 t**.
 
 ### Innimálning {-}
-Örplastmengun vegna málningar innandyra verður aðallega vegna þrifa á penslum. Sú málning berst beint í hafið um fráveitukerfi og er reiknað með að hún sé um 1,6 % [@Hann2018]. Innimálning verður ekki fyrir mikilli veðrun og hvert lag er málað yfir það sem fyrir var án þess að það sé þvegið af.
-
+Innimálning verður ekki fyrir mikilli veðrun og hvert lag er málað yfir það sem fyrir var án þess að það sé þvegið af. Örplastmengun vegna málningar innandyra verður því aðallega vegna þrifa á penslum. Sú málning berst beint í hafið um fráveitukerfi og má reikna með að hún sé um 1,6 % af innkeyptri innimálningu og fjölliðuinnihald hennar sé um 20 % [@Hann2018].
 
 
 ```{r innimalningartafla, fig.cap='Tafla', echo=FALSE, message=FALSE, warning=FALSE}
@@ -476,9 +475,9 @@ lina <- unname(lina)
 }
 ```
 
-Ef miðað er við að um 20% af innihaldi málningar sé syntetískar fjölliður [@Hann2018] er áætluð heildarlosun örplasts frá innimálningu á ári því **3,2-7,1** tonn.
+Áætluð heildarlosun örplasts frá innimálningu á ári **3,2-7,1** tonn.
 
-Ekki er öll málning með plastbindiefnum því einnig eru alkýðbindiefni algeng í málningu sem eru með vatnssækna eiginleika og brotna á annan veg niður í náttúrunni. Til þess að fá nákvæmara mat á losun örplasts frá innimálningu er nauðsynlegt að gera markaðsrannsókn þar sem kannað er hve mikill hluti málningar er seldur til fagfólks eða heimila. Á heimilum eru verkfæri skoluð oftar fyrir hvern lítra af málningu heldur en hjá fagfólki. Einnig er nauðsynlegt að greinarmunur sé gerður á ólíkum bindiefnum í málningu og kannað verði til hlítar hve mikið af syntetískum fjölliðum til framleiðslu málningar er flutt inn í gegnum Tollstjóra.
+Ekki er öll málning með plastbindiefnum og einnig eru algeng bindiefni í málningu með vatnssækna eiginleika og brotna niður í náttúrunni á misjafnan máta. Til þess að fá nákvæmara mat á losun örplasts frá innimálningu er nauðsynlegt að hafa upplýsingar um ólík bindiefi í málningu og kannað verði til hlítar hve mikið af syntetískum fjölliðum til framleiðslu málningar er flutt inn í gegnum Tollstjóra. Einnig þyrfti að gera markaðsrannsókn þar sem kannað er hve mikill hluti málningar er seldur til fagfólks eða heimila þar sem að á heimilum eru verkfæri gjarnan skoluð oftar fyrir hvern lítra af málningu heldur en hjá fagfólki.
 
 ```{r echo=FALSE, fig.cap="Áætluð árleg heildarlosun örplasts frá húsamálningu er 15,2-36,1 tonn", message=FALSE, warning=FALSE, fig.align='center'}
 library(networkD3)

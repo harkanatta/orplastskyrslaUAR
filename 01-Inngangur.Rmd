@@ -15,7 +15,7 @@ library(magrittr)
 
 Það sem við köllum plast í daglegu tali er almennt blanda af fjölliðum plastefna og bætiefnum en hin síðarnefndu gefa plastinu ýmsa eiginleika sem auka notagildi þess. Fjölliður plastefna eru framleiddar úr einliðum sem eru yfirleitt ekki nema nokkur atóm að stærð eins og t.d. etylen sem hefur efnaformúluna $C~2H~4$. Hver fjölliða getur verið samsett úr þúsundum einliða og er hægt að framleiða fjölmargar ólíkar plastgerðir úr mismunandi samsetningum einliða. Fjölliða etýlens kallast því t.d. pólýetýlen og hefur efnaformúluna $(C~2H~4)~n$.
 
-Til að taka dæmi um fjölbreytta eðliseiginleika mismunandi lengda fjölliða þá er pólýetýlen vaxkennt þegar fjölliðan er samsett úr nokkur hundruð einliðum en þegar þær eru í hundruð þúsunda tali er pólýetýlenið hart plast [@Andrady2017]. Annað dæmi er stýren sem er einliða á vökvaformi við stofuhita en þegar margar einliður eru settar saman með efnahvörfum verða til fjölliður efnisins, pólýstýren, sem er betur þekkt á íslensku sem frauðplast \@ref(fig:styren)). Sama á við um bútadíen sem er gaskennt efni í einliðuformi en í fjölliðuformi er það byggingareining gervigúmmís. Einnig er hægt að blanda mismunandi plastefnum saman og sem dæmi er hægt að blanda bútadíen og stýren saman til að mynda stýren-bútadíen gúmmí, sem er ein af grunneiningum hjólbarða. Þetta eru einungis örfá dæmi af fjölmörgum um hvernig fjölliður eru samsettar á mismunandi vegu til að framleiða mismunandi plastgerðir [@Gowariker2005].
+Til að taka dæmi um fjölbreytta eðliseiginleika mismunandi lengda fjölliða þá er pólýetýlen vaxkennt þegar fjölliðan er samsett úr nokkur hundruð einliðum en þegar þær eru í hundruð þúsunda tali er pólýetýlenið hart plast [@Andrady2017]. Annað dæmi er stýren sem er einliða á vökvaformi við stofuhita en þegar margar einliður eru settar saman með efnahvörfum verða til fjölliður efnisins, pólýstýren, sem er betur þekkt á íslensku sem frauðplast (sjá mynd \@ref(fig:styren)). Sama á við um bútadíen sem er gaskennt efni í einliðuformi en í fjölliðuformi er það byggingareining gervigúmmís. Einnig er hægt að blanda mismunandi plastefnum saman og sem dæmi er hægt að blanda bútadíen og stýren saman til að mynda stýren-bútadíen gúmmí, sem er ein af grunneiningum hjólbarða. Þetta eru einungis örfá dæmi af fjölmörgum um hvernig fjölliður eru samsettar á mismunandi vegu til að framleiða mismunandi plastgerðir [@Gowariker2005].
 
 ```{r styren, fig.cap='Einliður stýrens má setja saman með efnahvarfi í langar fjölliður og mynda pólýstýren sem frauðplast er framleitt úr.', out.width='70%', fig.align='center', echo=FALSE}
 knitr::include_graphics("myndir/polystyrene.png")
@@ -156,16 +156,16 @@ if (knitr::is_html_output()) {
     collapse_rows(columns = 1:2, valign = "middle")
 
 } else {
-  # kable(
-  #   collapse_rows_dt,
-  #   align = "l",
-  #   booktabs = T,
-  #   caption = 'Algengt er að vissar gerðir plasts séu ýmist hitadeigt plast eða hitafast (e. thermoplastic og thermoset)',
-  #   format= "latex") #%>%
-  #   #kable_styling("striped", full_width = F) %>%
-  #   #column_spec(1, width = "10em", bold = T) %>%
-  #   #column_spec(3, width = "15em") #%>%
-  #   #collapse_rows(columns = 1:2)
+  kable(
+    collapse_rows_dt,
+    align = "l",
+    booktabs = T,
+    caption = 'Algengt er að vissar gerðir plasts séu ýmist hitadeigt plast eða hitafast (e. thermoplastic og thermoset)',
+    format= "latex") #%>%
+    #kable_styling("striped", full_width = F) %>%
+    #column_spec(1, width = "10em", bold = T) %>%
+    #column_spec(3, width = "15em") #%>%
+    #collapse_rows(columns = 1:2)
 
 }
 
