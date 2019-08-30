@@ -12,6 +12,39 @@ Uppsprettur örplasts á Íslandi eru metnar á misjafnan hátt eftir því hvor
 4. Matvælaframleiðsla
 5. Umhverfi
 
+```{r smantekt, echo=FALSE, message=FALSE, warning=FALSE}
+nafn <- c('Bifreiðahjólbarðar',
+'Vegmerkingar',
+'Flugvélahjólbarðar',
+'Húsamálning',
+'Skipamálning',
+'Gervigras',
+'Leikvellir',
+'Þvottur',
+'Snyrtivörur',
+'Haglaskot',
+'Sigvatn')
+
+lagt <- c(371, 41, 26, 33.2, 60, 3, 0.2, 8.2, 0.34, 1, 0.002)
+hatt <- c(586, 256, 50, 77.1, 260, 11, 2, 32, 3.4, 3, 0.177)
+losun <- c(164, 5.7,  "", 15.2, 3.2, 0.3, "", 8.2, 0.34, "", 0.002)
+losunb <- c(234, 42.6, "", 36.1, 10, 1.1, "", 32, 3.4, "", 0.177)
+
+tafla <- data.frame(nafn,lagt,hatt,losun,losunb)
+names(tafla) <- c('','Lægra mat','Hærra mat','Lægra mat','Hærra mat')
+tafla <- format(tafla,  decimal.mark=",", big.mark=".", drop0trailing=T)
+require(kableExtra)
+
+if (knitr::is_html_output()) {
+  knitr::kable(tafla, booktabs=T, align = "c", caption = 'Samantekt á þeim uppsprettum örplasts sem kannaðar voru og mat á losun frá þeim í hafið' ) %>%
+  kable_styling("striped",full_width = T) %>%
+  add_header_above(c(" "=1,'Uppspretta (t)'=2, 'Losun í haf (t)'=2)) %>% 
+  column_spec(1, bold = T)
+} else{
+  knitr::kable(tafla, booktabs=T, align = "c", caption = 'Samantekt á þeim uppsprettum örplasts sem kannaðar voru og mat á losun frám þeim í hafið.' )
+  
+}  
+```
 
 ```{r echo=FALSE, message=TRUE, warning=TRUE, cache=TRUE, fig.cap='Helstu uppsprettur örplasts á Íslandi og skipting í haf eða í jarðveg. Byggt á lægra mati.', fig.align='center'}
 
@@ -379,6 +412,7 @@ snertilendingar=75497
 (53390)*c(278/3,514/3)+(75497/2)*c(278/3,514/3)
 ```
 
+Erlendar rannsóknir sem tengjast örplastlosun frá samgöngum og iðnaði er hægt að yfirfæra á Ísland þar sem þær eru byggðar á sterkari grunni þó svo vikmörkin séu stór, sérstaklega hvað varðar farleiðir til sjávar. Óvissa er hve mest um farleiðir örplasts frá dekkjaögnum, vegmerkingum, húsamálningu og fleiri þátta sem berast aðallega til sjávar með ofanvatni og um fráveitukerfi en ekki beina leið gegnum niðurföll. Með sýnatökum úr vegaskurðum og settjörnum tengdum frárennsli vega og jarðvegi í kringum vegi, flugvelli og aðrar uppsprettur í þéttbýli verður hægt að minnka þá óvissu. 
 
 ## Málning {-}
 
@@ -475,7 +509,7 @@ lina <- unname(lina)
 }
 ```
 
-Áætluð heildarlosun örplasts frá innimálningu á ári **3,2-7,1** tonn.
+Áætluð heildarlosun örplasts frá innimálningu á ári **3,2-7,1 tonn**.
 
 Ekki er öll málning með plastbindiefnum og einnig eru algeng bindiefni í málningu með vatnssækna eiginleika og brotna niður í náttúrunni á misjafnan máta. Til þess að fá nákvæmara mat á losun örplasts frá innimálningu er nauðsynlegt að hafa upplýsingar um ólík bindiefi í málningu og kannað verði til hlítar hve mikið af syntetískum fjölliðum til framleiðslu málningar er flutt inn í gegnum Tollstjóra. Einnig þyrfti að gera markaðsrannsókn þar sem kannað er hve mikill hluti málningar er seldur til fagfólks eða heimila þar sem að á heimilum eru verkfæri gjarnan skoluð oftar fyrir hvern lítra af málningu heldur en hjá fagfólki.
 
@@ -762,7 +796,10 @@ kable(lina, format = "latex", align = "c", caption = 'Áætluð árleg losun ör
   }
 ```
 
-Áætluð heildarlosun örplasts frá þvotti á Íslandi á ári er því **8,2-32 tonn**, með þeim fyrirvara að gögnin eru komin til ára sinna og gerviefni verða æ algengari í þvotti ásamt því að losun örplasts við hvern þvott er ekki föst stærð heldur breytileg eftir hversu notuð fötin eru.
+Áætluð heildarlosun örplasts frá þvotti á Íslandi á ári er því **8,2-32 tonn**, með þeim fyrirvara að gögnin eru komin til ára sinna og gerviefni verða æ algengari í þvotti ásamt því að losun örplasts við hvern þvott er ekki föst stærð heldur breytileg eftir hversu notuð fötin eru. Tölurar sem hér er stuðst við um örplastlosun frá þvotti á fatnaði eru frá því 2010 [@pakula2010electricity] en þar sem fatnaður úr náttúrulegum efnum er á undanhaldi og notkun gerviefna í fatnaði eykst ár hvert er líklegt að hér sé um vanmat að ræða. 
+
+Mikið af gerviefnum er á vinnustöðum og á heimilum fólks, alls konar vefnaður, teppi og mottur, áklæði utan um sófa og stóla, tuskudýr og fleira er innadyra sem ekki er minnst á í þessari skýrslu. Ryk innanhúss getur talist til uppsprettu örplasts í hafið, sérstaklega berist það með í niðurföll en ætla má að innanhúsryk endi að miklu leyti í sorpi.
+
 
 ### Skósólar {-}
 
@@ -896,46 +933,13 @@ Rannsóknir á örplastinnihaldi í sigvatni benda ekki til þess að það sé 
 
 ## Samantekt og lokaorð {-}
 
+Afdrif örplasts eru að miklu leyti enn ókunn. Það er vel þekkt að það tekur langan tíma fyrir plast að eyðast í umhverfinu og sérstaklega þar sem lítillar birtu gætir og hitastig er lágt. Sundrun plasts (í vatn og koltvísýring) er oftast ekki í það stórum stíl að vert sé á að minnast í skýrslu sem þessari. Sólarljós getur þó valdið talsverðri sundrun á plastefnum í vegmerkingum og utanhússmálningu svo að þær málningarflyksur sem staðið hafa úti í nokkurn tíma innihalda ekki það magn af plasti sem málningin innihélt upphaflega. Það er vandmeðfarið að ætla að skilgreina örplastagnir út frá hlutfallslegu plastinnihaldi þeirra en það er þó ein af fjöldamörgum áskorunum sem  rannsóknarfólk stendur frammi fyrir. Í þessari skýrslu er það gert varðandi málningu og vegmerkingar en ekki hjólbarða til dæmis.
+
+Sumar uppsprettur var ekki hægt að leggja mat á vegna skorts á gögnum eða rannsóknum á því hvernig plastrusl í umhverfinu verður að örplasti. Þar ber hæst að nefna losun örplasts úr fjörum en erfitt er að áætla heildarmagn plasts í fjörum og hraða sundrunar þess í örplast. Fjörur geta verið líkt og mulningsvélar fyrir örplast ef stórt plastrusl er ekki fjarlægt úr þeim. Þá ber að nefna að þó svo að almennt sé talin minni hætta fyrir lífverur að innbyrða örplast miðað við stærra plast eru áhrif þess á lífverur og vistkerfi enn óráðin.
 
 
-```{r smantekt, echo=FALSE, message=FALSE, warning=FALSE}
-nafn <- c('Bifreiðahjólbarðar',
-'Vegmerkingar',
-'Flugvélahjólbarðar',
-'Húsamálning',
-'Skipamálning',
-'Gervigras',
-'Leikvellir',
-'Þvottur',
-'Snyrtivörur',
-'Haglaskot',
-'Sigvatn')
-
-lagt <- c(371, 41, 26, 33.2, 60, 3, 0.2, 8.2, 0.34, 1, 0.002)
-hatt <- c(586, 256, 50, 77.1, 260, 11, 2, 32, 3.4, 3, 0.177)
-losun <- c(164, 5.7,  "", 15.2, 3.2, 0.3, "", 8.2, 0.34, "", 0.002)
-losunb <- c(234, 42.6, "", 36.1, 10, 1.1, "", 32, 3.4, "", 0.177)
-
-tafla <- data.frame(nafn,lagt,hatt,losun,losunb)
-names(tafla) <- c('','Hærra mat','Lægra mat','Hærra mat','Lægra mat')
-tafla <- format(tafla,  decimal.mark=",", big.mark=".", drop0trailing=T)
-require(kableExtra)
-
-if (knitr::is_html_output()) {
-  knitr::kable(tafla, booktabs=T, align = "c", caption = 'Samantekt á þeim uppsprettum örplasts sem kannaðar voru og mat á losun frá þeim í hafið' ) %>%
-  kable_styling("striped",full_width = T) %>%
-  add_header_above(c(" "=1,'Uppspretta (t)'=2, 'Losun í haf (t)'=2)) %>% 
-  column_spec(1, bold = T)
-} else{
-  knitr::kable(tafla, booktabs=T, align = "c", caption = 'Samantekt á þeim uppsprettum örplasts sem kannaðar voru og mat á losun frám þeim í hafið' )
-  
-}  
-```
 
 
-Tölur um örplastlosun frá þvotti á fatnaði eru frá því 2010 [@pakula2010electricity] og eru þær því líklega vanmetnar þar sem fatnaður úr náttúrulegum efnum er á undanhaldi. Mikið af gerviefnum er á heimilum fólks, alls konar teppi og mottur, áklæði utan um sófa og stóla, tuskudýr og fleira í umhverfinu innadyra sem ekki er minnst á í þessari skýrslu getur talist til uppsprettu örplasts í hafið en ryk af heimilum fer mest í sorphirðu eða niðurföll. 
-
-Erlendar rannsóknir sem tengjast örplastlosun frá samgöngum og iðnaði er hægt að yfirfæra á Ísland þar sem þær eru byggðar á sterkari grunni þó svo vikmörkin séu stór, sérstaklega hvað varðar farleiðir til sjávar. Óvissa er hve mest um farleiðir örplasts frá dekkjaögnum, vegmerkingum, húsamálningu og fleiri þátta sem berast aðallega til sjávar með ofanvatni og um fráveitukerfi en ekki beina leið gegnum niðurföll. Með sýnatökum úr vegaskurðum og settjörnum tengdum frárennsli vega og jarðvegi í kringum vegi, flugvelli og aðrar uppsprettur í þéttbýli verður hægt að minnka þá óvissu. 
 
 Gera þarf könnun á innflutningi málningar og efna til framleiðslu á málningu þar sem mikil óvissa ríkir um hlutfallslegt magn ólíkrar málningar, til dæmis skipa- og húsamálningar og málningar með misháu fjölliðuinnihaldi hérlendis. Skýrsluhöfundum er ekki kunnugt um hvernig eftirliti með slippum er háttað en við matið á örplastlosun frá þeim var stuðst við tölur frá Hollandi [@Verschoor2016] en engar samantektir á þeirra starfsemi fengust afhendar. Mesti munur á mögulegri uppsprettu og losun í hafið var frá slippunum fjórum en að sögn starfsmanna mismunandi slippa er nánast allt hreinsað upp sem fellur til vegna viðhalds skipa.
 
