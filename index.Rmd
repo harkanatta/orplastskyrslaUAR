@@ -50,9 +50,9 @@ if(!knitr:::is_html_output())
 ```
 # Útdráttur {-}
 
-**Þessi skýrsla** er unnin af BioPol ehf. og Náttúrustofu Norðurlands vestra fyrir Umhverfisráðuneytið. Markmið verkefnisins er að fá greinargóðar upplýsingar um losun örplasts á Íslandi þar sem greint er frá helstu uppsprettum örplasts, lagt mat á umfang þeirra og eftir hvaða leiðum plastið berst til sjávar. Í skýrslunni eru ekki gerðar tillögur um aðgerðir, heldur aðeins tekin saman gögn svo hægt sé að draga ályktanir um mikilvægi einstakra uppsprettna örplastsmengunar. Þær upplýsingar má síðar nota til að forgangsraða hugsanlegum aðgerðum. Fram kemur lýsing á óvissu í matinu og hvaða gagna þurfi að afla til þess að draga úr henni. Í skýrslunni er einnig upplýsandi inngangskafli með yfirliti yfir stöðu þekkingar á örplasti, sérstaklega með tilliti til mengunar sjávar.
+**Þessi skýrsla** er unnin af BioPol ehf. og Náttúrustofu Norðurlands vestra fyrir Umhverfisráðuneytið. Markmið verkefnisins er að fá greinargóðar upplýsingar um losun örplasts á Íslandi þar sem greint er frá helstu uppsprettum örplasts, lagt mat á umfang þeirra og eftir hvaða leiðum örplast getur borist til sjávar. Í skýrslunni eru ekki gerðar tillögur um aðgerðir, heldur aðeins tekin saman gögn svo hægt sé að draga ályktanir um mikilvægi einstakra uppsprettna örplastsmengunar. Þær upplýsingar má síðar nota til að forgangsraða hugsanlegum aðgerðum. Fram kemur lýsing á óvissu í matinu og hvaða gagna þurfi að afla til þess að draga úr henni. Í skýrslunni er einnig upplýsandi inngangskafli með yfirliti yfir stöðu þekkingar á örplasti, sérstaklega með tilliti til mengunar sjávar.
 
-**Stærsta uppspretta örplasts** í umhverfinu á Íslandi, sem lagt var mat á hér, er tengd bifreiðaumferð. Slit á dekkjum og vegmerkingum er um 75-85% örplastslosunar í hafið á Íslandi en dekk eru gerð úr gúmmíblöndu með plastefnum og vegmerkingar eru með plastbindiefnum. Aðrar stórar uppsprettur eru einna helst vegna málningar og þvotta á fatnaði úr gerviefnum en einnig eru tilteknar í þessari skýrslu nokkrar minni uppsprettur.
+**Stærsta uppspretta örplasts** í umhverfinu á Íslandi tengist bifreiðaumferð en slit á dekkjum og vegmerkingum er um 4/5 allrar örplastslosunar í hafið hérlendis. Aðrar stórar uppsprettur eru einna helst vegna málningar og affalls frá þvotti á fatnaði úr gerviefnum en einnig eru tilteknar í þessari skýrslu nokkrar minni uppsprettur.
 
 ```{r smantekt, echo=FALSE, message=FALSE, warning=FALSE}
 nafn <- c('Bifreiðahjólbarðar',
@@ -91,7 +91,7 @@ if (knitr::is_html_output()) {
 
 
 
-**Farleiðir örplasts** til hafs eru ólíkar eftir uppsprettum og misflókið er að meta stærð þeirra. Sumar farleiðir fara óhindraðar í hafið líkt og frárennsli úr þvottavélum (í öllum þéttbýlum landsins sem eru við sjó). Affallsvatn frá vegum í þéttbýli á einnig að miklu leyti greiða leið í hafið en vegryk lendir líka að stórum hluta í jarðvegi og ekki er gott að segja til um hvar það endar líkt og við á um málningarflyksur frá háþrýstiþvotti húsa og fleiri uppsprettur í þéttbýli. Það örplast sem lendir í jarðvegi situr að öllum líkindum eftir í jarðveginum og berst ekki í hafið þar sem plast er ekki vatnsleysanlegt. Helstu farleiðir eru því með rennandi vatni gegnum skólp og ræsi.
+**Farleiðir örplasts** til hafs eru ólíkar eftir uppsprettum og misflókið er að meta stærð þeirra. Sumar farleiðir fara óhindraðar í hafið líkt og frárennsli úr þvottavélum (í öllum þéttbýlum landsins sem eru við sjó). Affallsvatn frá vegum í þéttbýli á einnig að miklu leyti greiða leið í hafið en vegryk lendir líka að stórum hluta í jarðvegi og ekki er gott að segja til um hvar það endar líkt og við á um málningarflyksur frá háþrýstiþvotti húsa og fleiri uppsprettur í þéttbýli. Það örplast sem lendir í jarðvegi situr að öllum líkindum eftir í jarðveginum og berst ekki í hafið þar sem plast er ekki vatnsleysanlegt. Helstu farleiðir örplasts í hafið eru því með rennandi vatni gegnum skólp og ræsi.
 
 ```{r echo=FALSE, message=TRUE, warning=TRUE, cache=TRUE, fig.cap='Helstu uppsprettur örplasts á Íslandi og skipting þess eftir farleiðum í haf eða í jarðveg. Byggt á lægra mati (sjá meginmál).', fig.align='center'}
 
@@ -173,6 +173,6 @@ if (knitr::is_html_output()) {
 }
 ```
 
-**Í hafinu** brotnar örplast mjög hægt niður þar sem hitastig er lágt í sjónum og útfjólubláir geislar sólar berast aðeins að takmörkuðu leyti í efstu sjávarlögin en ekki á meira dýpi. Það kemur því kannski ekki á óvart að mikil uppsöfnun örplasts er á hafsbotni en einhver mesti þéttleiki örplastagna sem fundist hefur á hafsbotni var við Svalbarða á yfir 2,5 km dýpi sem bendir til þess að örplast berist í miklu magni með sjávarstraumum og jafnvel hafís.
+**Í hafinu** brotnar örplast mjög hægt niður þar sem hitastig í sjónum er lágt og útfjólubláir geislar sólar berast aðeins að takmörkuðu leyti í efstu sjávarlögin en ekki á meira dýpi. Það kemur því kannski ekki á óvart að mikil uppsöfnun örplasts geti verið á hafsbotni en einhver mesti þéttleiki örplastagna sem fundist hefur á hafsbotni var við Svalbarða á yfir 2,5 km dýpi sem bendir til þess að örplast berist í miklu magni með sjávarstraumum.
 
 

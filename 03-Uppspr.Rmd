@@ -36,7 +36,7 @@ tafla <- format(tafla,  decimal.mark=",", big.mark=".", drop0trailing=T)
 require(kableExtra)
 
 if (knitr::is_html_output()) {
-  knitr::kable(tafla, booktabs=T, align = "c", caption = 'Samantekt á þeim uppsprettum örplasts sem kannaðar voru og mat á losun frá þeim í hafið' ) %>%
+  knitr::kable(tafla, booktabs=T, align = "c", caption = 'Samantekt á þeim uppsprettum örplasts sem kannaðar voru og mat á losun frá þeim í hafið.' ) %>%
   kable_styling("striped",full_width = T) %>%
   add_header_above(c(" "=1,'Uppspretta (t)'=2, 'Losun í haf (t)'=2)) %>% 
   column_spec(1, bold = T)
@@ -46,7 +46,7 @@ if (knitr::is_html_output()) {
 }  
 ```
 
-```{r echo=FALSE, message=TRUE, warning=TRUE, cache=TRUE, fig.cap='Helstu uppsprettur örplasts á Íslandi og skipting í haf eða í jarðveg. Byggt á lægra mati.', fig.align='center'}
+```{r echo=FALSE, message=TRUE, warning=TRUE, cache=TRUE, fig.cap='Helstu uppsprettur örplasts á Íslandi og skipting eftir farleiðum í haf eða í jarðveg. Byggt á lægra mati í töflu \@ref(tab:samantekt).', fig.align='center'}
 
 # libs <- c("rgdal", "maptools", "gridExtra","tmap","tmaptools","sp")
 # lapply(libs, require, character.only = TRUE)
@@ -161,7 +161,7 @@ bp <- barplot(1.5:14.5,rass+10000, col = NA, border = NA,axes = F)
 par(new=TRUE)
 barplot(rass,beside = T,axes = F,col = c(liturb,litura), border = NA, axisnames = F, ylim = c(0, max(rvk) * 1.1))
 axis(4,nicebil,labels = nicebil/1000,las=2)
-mtext("Meðalumferð á dag yfir árið",side=4,line = 3)
+mtext("Meðalumferð á dag yfir árið (þús. bifr.)",side=4,line = 3)
 par(new=TRUE)
 
 hofb <- c(100.00,103.90,113.31,114.30,111.61,110.06,107.63,109.18,112.26,115.61,120.50,129.18,139.52,143.55)
@@ -247,7 +247,7 @@ rownames(bifreidar)<- c("Fjöldi","Meðalþyngd (t)","Meðalakstur (þús. km/á
 bifreidar <- format(bifreidar,  decimal.mark=",", big.mark=".", scientific=FALSE)
 
 if (knitr::is_html_output()) {
-   knitr::kable(bifreidar, booktabs=T, caption = "Áætluð árleg losun örplasts í hafið vegna slits á hjólbörðum bifreiða. Fjöldi bíla af mismunandi gerðum í umferð á Íslandi þann 14. ágúst 2018 og meðalakstur skv. Umferðastofu. Með meðalþyngd er átt við heildarþyngd [skv. reglugerð](https://www.reglugerd.is/reglugerdir/allar/nr/155-2007). Byggt á mati Klein (2017) [-@klein2017methods]")
+   knitr::kable(bifreidar, booktabs=T, caption = "Áætluð árleg losun örplasts í hafið vegna slits á hjólbörðum bifreiða. Fjöldi bíla af mismunandi gerðum í umferð á Íslandi þann 14. ágúst 2018 og meðalakstur skv. Umferðastofu. Með meðalþyngd er átt við heildarþyngd [skv. reglugerð](https://www.reglugerd.is/reglugerdir/allar/nr/155-2007). Byggt á mati Klein (2017) [-@klein2017methods] og Verschoor (2016) [-@Verschoor2016].")
 
 } else {
   rownames(bifreidar)<- c("Fjöldi","Meðalþyngd (t)","Meðalakstur (þús. km/ár)","Slit (mg/km)", "Slit (t/ár)", "Losun í hafið (t/ár)")
@@ -338,14 +338,14 @@ require(kableExtra)
 
 if (knitr::is_html_output()) {
   
-kable(linur, caption = 'Áætluð árleg uppspretta örplasts frá vegmerkingum á Íslandi árið 2017', align = "c") %>%
+kable(linur, caption = 'Áætluð árleg uppspretta örplasts frá vegmerkingum á Íslandi árið 2017.', align = "c") %>%
   kable_styling(full_width = T) %>%
   column_spec(1, bold = T) %>%
   add_header_above(haus) %>%
   collapse_rows(columns = 1:6, valign = "middle")
 
  } else {
- kable(linur, caption = 'Áætluð árleg uppspretta örplasts frá vegmerkingum á Íslandi árið 2017', align = "c",format = 'latex', booktabs=T) #%>%
+ kable(linur, caption = 'Áætluð árleg uppspretta örplasts frá vegmerkingum á Íslandi árið 2017.', align = "c",format = 'latex', booktabs=T) #%>%
 #   kable_styling(full_width = T) %>%
 #   column_spec(1, bold = T) %>%
 #   add_header_above(haus) %>%

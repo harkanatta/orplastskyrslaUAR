@@ -17,7 +17,7 @@ library(magrittr)
 
 Til að taka dæmi um fjölbreytta eðliseiginleika mismunandi lengda fjölliða þá er pólýetýlen vaxkennt þegar fjölliðan er samsett úr nokkur hundruð einliðum en þegar þær eru í hundruð þúsunda tali er pólýetýlenið hart plast [@Andrady2017]. Annað dæmi er stýren sem er einliða á vökvaformi við stofuhita en þegar margar einliður eru settar saman með efnahvörfum verða til fjölliður efnisins, pólýstýren, sem er betur þekkt á íslensku sem frauðplast (sjá mynd \@ref(fig:styren)). Sama á við um bútadíen sem er gaskennt efni í einliðuformi en í fjölliðuformi er það byggingareining gervigúmmís. Einnig er hægt að blanda mismunandi plastefnum saman og sem dæmi er hægt að blanda bútadíen og stýren saman til að mynda stýren-bútadíen gúmmí, sem er ein af grunneiningum hjólbarða. Þetta eru einungis örfá dæmi af fjölmörgum um hvernig fjölliður eru samsettar á mismunandi vegu til að framleiða mismunandi plastgerðir [@Gowariker2005].
 
-```{r styren, fig.cap='Einliður stýrens má setja saman með efnahvarfi í langar fjölliður og mynda pólýstýren sem frauðplast er framleitt úr.', out.width='70%', fig.align='center', echo=FALSE}
+```{r styren, fig.cap='Einliður stýrens má setja saman með efnahvarfi í langar fjölliður og mynda pólýstýren sem frauðplast, meðal annars, er framleitt úr.', out.width='70%', fig.align='center', echo=FALSE}
 knitr::include_graphics("myndir/polystyrene.png")
 ```
 
@@ -149,7 +149,7 @@ colnames(collapse_rows_dt) <-
   c('Plast', 'Flokkur', 'Dæmi um notkun')
 
 if (knitr::is_html_output()) {
-  kable(collapse_rows_dt, align = "l", caption = 'Algengt er að vissar gerðir plasts séu ýmist hitadeigt plast eða hitafast (e. thermoplastic og thermoset)',
+  kable(collapse_rows_dt, align = "l", caption = 'Algengt er að vissar gerðir plasts séu ýmist hitadeigt plast eða hitafast (e. thermoplastic og thermoset).',
     "html") %>%
     kable_styling("striped", full_width = F) %>%
     column_spec(1, width = "15em", bold = T) %>%
@@ -187,7 +187,7 @@ Plastefni án bætiefna hafa takmarkað notagildi og eru bætiefni nauðsynleg t
 
 Fyrstu staðfestu dæmin um örplast í hafi eru frá því snemma á áttunda áratugnum [@Waters1972; @Colton1974] þegar tilkynnt var um litlar pólýstýrenkúlur fljótandi í hafi. Áður hafði fólk gefið því gaum hve plast var slitþolið í sjónum og það fannst æ oftar í maga fugla og annarra dýra. Árið 1991 var bent á að smáar plastagnir úr snyrtivörum bærust út í hafið og olli það áhyggjum fólks [@zitko1991another]. Hugtakið míkróplast eða örplast var sett fram 2004 [@Thompson2004lost] þegar sýni úr sjávarseti voru skoðuð með litrófssjá og um 9 gerðir plasts fundust í þeim. Einnig voru gömul þörungasýni ^[þörungasnið eru tekin með háfum með fínum möskva úr efri lögum sjávar úti á opnu hafi sem og nærri ströndum] greind (allt aftur til 1960) og í þeim sást skýrt að eftir því sem framleiðsla á plasti jókst í heiminum fjölgaði plastögnum í hafinu. Birtum vísindagreinum um örplast hefur fjölgað mikið síðustu árin (sjá mynd \@ref(fig:pubtrend)) og það hefur fengið mikla athygli yfirvalda og almennings.
 
-```{r pubtrend, echo=FALSE, fig.cap='Birtingar alþjóðlegra vísindagreina með örplast sem meginviðfangsefni á árunum 2008 til 2018. Fengið af vef [Web of Knowledge](https://webofknowledge.com).', message=FALSE, warning=FALSE, dev=switch(output(), html = "svg", latex = "pdf"), dev.args=list(bg="transparent"), out.width='80%', fig.align='center'}
+```{r pubtrend, echo=FALSE, fig.cap='Birtingar alþjóðlegra vísindagreina með örplast sem meginviðfangsefni á árunum 2008 til 2018. Fengið af vef [WOS](https://webofknowledge.com).', message=FALSE, warning=FALSE, dev=switch(output(), html = "svg", latex = "pdf"), dev.args=list(bg="transparent"), out.width='80%', fig.align='center'}
 
 par(mar=c(4,4,4,2))
 
