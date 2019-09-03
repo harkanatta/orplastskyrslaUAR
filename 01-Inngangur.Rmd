@@ -285,7 +285,7 @@ Niðurbrotsferli plasts, þ.m.t. örplasts, er breytilegt eftir efnabyggingu þe
 
 Fjölmargir þættir hafa áhrif á eðli niðurbrotsins en sem dæmi hefur gerð grunneiningar fjölliðukeðjunnar plastsins mikil áhrif, þ.e. eftir því hvort grunnkeðjan er eingöngu kolefniskeðja eða með heterófrumeind (t.d. pólýetýlen terefþalat og pólýúretön) sem gerir fjölliðurnar mis-berskjaldaðar fyrir niðurbroti [@Singh2008].
 
-```{r flowchart, fig.cap='Niðurbrot plasts í hafinu, helstu leiðir. Mynd unnin eftir (Fotopoulou 2017 og af [vefnum](https://www.nurdlehunt.org.uk/)) [@Fotopoulou2017; @nurdle].', out.width='100%', fig.align='center', echo=FALSE}
+```{r flowchart, fig.cap='Niðurbrot plasts í hafinu, helstu leiðir. Mynd unnin eftir (Fotopoulou 2017 og af [vefnum](https://www.nurdlehunt.org.uk/)) [@Fotopoulou2017; @nurdlehunt.org].', out.width='100%', fig.align='center', echo=FALSE}
 knitr::include_graphics("myndir/small-plastics_FLAEDIRIT.png")
 ```
 

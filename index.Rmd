@@ -54,7 +54,7 @@ if(!knitr:::is_html_output())
 
 **Stærsta uppspretta örplasts** í umhverfinu á Íslandi tengist bifreiðaumferð en slit á dekkjum og vegmerkingum er um 4/5 allrar örplastslosunar í hafið hérlendis. Aðrar stórar uppsprettur eru einna helst vegna málningar og affalls frá þvotti á fatnaði úr gerviefnum en einnig eru tilteknar í þessari skýrslu nokkrar minni uppsprettur.
 
-```{r smantekt, echo=FALSE, message=FALSE, warning=FALSE}
+```{r smantekta, echo=FALSE, message=FALSE, warning=FALSE}
 nafn <- c('Bifreiðahjólbarðar',
 'Vegmerkingar',
 'Flugvélahjólbarðar',
@@ -93,7 +93,7 @@ if (knitr::is_html_output()) {
 
 **Farleiðir örplasts** til hafs eru ólíkar eftir uppsprettum og misflókið er að meta stærð þeirra. Sumar farleiðir fara óhindraðar í hafið líkt og frárennsli úr þvottavélum (í öllum þéttbýlum landsins sem eru við sjó). Affallsvatn frá vegum í þéttbýli á einnig að miklu leyti greiða leið í hafið en vegryk lendir líka að stórum hluta í jarðvegi og ekki er gott að segja til um hvar það endar líkt og við á um málningarflyksur frá háþrýstiþvotti húsa og fleiri uppsprettur í þéttbýli. Það örplast sem lendir í jarðvegi situr að öllum líkindum eftir í jarðveginum og berst ekki í hafið þar sem plast er ekki vatnsleysanlegt. Helstu farleiðir örplasts í hafið eru því með rennandi vatni gegnum skólp og ræsi.
 
-```{r echo=FALSE, message=TRUE, warning=TRUE, cache=TRUE, fig.cap='Helstu uppsprettur örplasts á Íslandi og skipting þess eftir farleiðum í haf eða í jarðveg. Byggt á lægra mati (sjá meginmál).', fig.align='center'}
+```{r echo=FALSE, message=TRUE, warning=TRUE, cache=TRUE, fig.cap='Helstu uppsprettur örplasts á Íslandi og skipting þess eftir farleiðum í haf eða í jarðveg. Byggt á lægra mati í töflu 1.', fig.align='center'}
 
 # libs <- c("rgdal", "maptools", "gridExtra","tmap","tmaptools","sp")
 # lapply(libs, require, character.only = TRUE)

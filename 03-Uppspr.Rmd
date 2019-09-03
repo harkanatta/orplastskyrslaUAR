@@ -46,7 +46,7 @@ if (knitr::is_html_output()) {
 }  
 ```
 
-```{r echo=FALSE, message=TRUE, warning=TRUE, cache=TRUE, fig.cap='Helstu uppsprettur örplasts á Íslandi og skipting eftir farleiðum í haf eða í jarðveg. Byggt á lægra mati í töflu \@ref(tab:samantekt).', fig.align='center'}
+```{r echo=FALSE, message=TRUE, warning=TRUE, cache=TRUE, fig.cap='Helstu uppsprettur örplasts á Íslandi og skipting eftir farleiðum í haf eða í jarðveg. Byggt á lægra mati.', fig.align='center'}
 
 # libs <- c("rgdal", "maptools", "gridExtra","tmap","tmaptools","sp")
 # lapply(libs, require, character.only = TRUE)
@@ -129,6 +129,8 @@ if (knitr::is_html_output()) {
 
 
 ## Samgöngur, byggingar og iðnaður {-}
+
+Erlendar rannsóknir sem tengjast örplastlosun frá samgöngum og iðnaði er hægt að yfirfæra á Ísland þar sem þær eru byggðar á sterkum grunni þó svo vikmörkin séu stór, sérstaklega hvað varðar farleiðir til sjávar. Óvissa er hve mest um farleiðir örplasts frá dekkjaögnum, vegmerkingum, húsamálningu og fleiri þátta sem berast aðallega til sjávar með ofanvatni og um fráveitukerfi en ekki beina leið gegnum niðurföll. Með sýnatökum úr vegaskurðum og settjörnum tengdum frárennsli vega og jarðvegi í kringum vegi, flugvelli og aðrar uppsprettur í þéttbýli verður hægt að minnka þá óvissu. 
 
 Slit á hjólbörðum er ein af stærstu einstöku uppsprettum örplasts í heiminum [@lassen2015microplastics; @essel2015sources; @sundt2014sources] og stærstu uppsprettur örplasts á Íslandi eru frá umferð um malbikaða vegi. Hjólbarðar og vegamálning innihalda plast sem verður að örplasti við slit [@kreider2010physical]. Farleiðir dekkjaagna (dekkja- og vegaagna) af vegum til sjávar eru annars vegar með vindum og hins vegar með ofanvatni^[„Uppbygging byggðar hefur þau áhrif að ógegndræpt yfirborð lands eykst, og vatn sem áður átti greiða leið ofan í jarðveg safnast saman á yfirborði ef ekkert er að gert. Úrkomuvatn sem fellur af húsþökum, götum, gangstéttum, bílastæðum og öðru þéttu yfirborði niður í fráveitukerfi er oft kallað „ofanvatn“. Hefðbundnar lausnir fela jafnan í sér að safna ofanvatni í fráveitukerfi sem er neðanjarðar, og leiða það þannig í pípum útaf svæðinu, oftast alla leið til sjávar.“ [@StefanFreyr]] en óvissa um afdrif þeirra er umtalsverð.
 
@@ -412,9 +414,12 @@ snertilendingar=75497
 (53390)*c(278/3,514/3)+(75497/2)*c(278/3,514/3)
 ```
 
-Erlendar rannsóknir sem tengjast örplastlosun frá samgöngum og iðnaði er hægt að yfirfæra á Ísland þar sem þær eru byggðar á sterkari grunni þó svo vikmörkin séu stór, sérstaklega hvað varðar farleiðir til sjávar. Óvissa er hve mest um farleiðir örplasts frá dekkjaögnum, vegmerkingum, húsamálningu og fleiri þátta sem berast aðallega til sjávar með ofanvatni og um fráveitukerfi en ekki beina leið gegnum niðurföll. Með sýnatökum úr vegaskurðum og settjörnum tengdum frárennsli vega og jarðvegi í kringum vegi, flugvelli og aðrar uppsprettur í þéttbýli verður hægt að minnka þá óvissu. 
+
 
 ## Málning {-}
+
+Gera þarf könnun á innflutningi málningar og efna til framleiðslu á málningu þar sem óvissa er um hlutfallslegt magn ólíkrar málningar, til dæmis skipa- og húsamálningar og málningar með misháu fjölliðuinnihaldi hérlendis. Skýrsluhöfundum er ekki kunnugt um hvernig eftirliti með slippum er háttað en við matið á örplastlosun frá þeim var stuðst við tölur frá Hollandi [@Verschoor2016] en engar samantektir á þeirra starfsemi fengust afhendar. Mesti munur á mögulegri uppsprettu og losun í hafið var frá stærstu slippunum en að sögn starfsmanna nokkurra slippa er nánast allt hreinsað upp sem fellur til vegna viðhalds skipa.
+
 
 ### Utanhússmálning {-}
 
@@ -513,7 +518,7 @@ lina <- unname(lina)
 
 Ekki er öll málning með plastbindiefnum og einnig eru algeng bindiefni í málningu með vatnssækna eiginleika og brotna niður í náttúrunni á misjafnan máta. Til þess að fá nákvæmara mat á losun örplasts frá innimálningu er nauðsynlegt að hafa upplýsingar um ólík bindiefi í málningu og kannað verði til hlítar hve mikið af syntetískum fjölliðum til framleiðslu málningar er flutt inn í gegnum Tollstjóra. Einnig þyrfti að gera markaðsrannsókn þar sem kannað er hve mikill hluti málningar er seldur til fagfólks eða heimila þar sem að á heimilum eru verkfæri gjarnan skoluð oftar fyrir hvern lítra af málningu heldur en hjá fagfólki.
 
-```{r echo=FALSE, fig.cap="Áætluð árleg heildarlosun örplasts frá húsamálningu er 15,2-36,1 tonn", message=FALSE, warning=FALSE, fig.align='center'}
+```{r echo=FALSE, fig.cap="Áætluð árleg heildarlosun örplasts frá húsamálningu er 15,2-36,1 tonn.", message=FALSE, warning=FALSE, fig.align='center'}
 library(networkD3)
 nodes <- c("Útimálning","Innimálning",'Land','Haf')
 nodes <- as.data.frame(nodes)
@@ -563,7 +568,7 @@ Málun er tíðust á botninum undir vatnslínunni og á þann flöt er notuð s
 (þar sem a = 15,8 ± 0,25 og b = 0,602 ± 0,002 og R^2^ = 0.92) frá Moser (2016)[-@Moser2016] en aðhvarfsjafnan er byggð á mælingum á um 28.000 skipum. Samkvæmt jöfnunni er heildarflötur íslenskra fiskiskipa undir vatnslínu um 169.000 m^2^. Algengt er að í öryggisleiðbeiningum fyrir botnmálningu sé reiknað með um 7 m^2^/L og því má áætla að um 20.000 L af botnmálningu þurfi á skipaflotann hérlendis eða um 36 tonn miðað við lauslega áætlun á þyngd málningarinnar um 1,5 kg/L. Aðhvarfsjafnan fellur misvel að bátum eftir lögun þeirra. Hún vanáætlar t.d. botnflöt lítilla plastbáta (s.s. Sómabáta) sem eru algengir hérlendis en út frá henni má þó sjá að meirihluti botnmálningar fer almennt á stór skip þó þau séu svo fá (sjá mynd \@ref(fig:slippur)).
 
 
-```{r slippur, echo=FALSE, message=FALSE, warning=FALSE, fig.show='hold',out.width = '50%', dev.args=list(bg="transparent"),fig.cap='Samband skipslengdar og botnflatar. Kökuritið sýnir hlutfall botnflatar íslenskra fiskiskipa í þremur stærðarflokkum: Undir 15 metra löng skip, milli 15 og 30 metra löng og yfir 30 metra löng. Fengið með jöfnu frá Moser (2016)', fig.align='center' }
+```{r slippur, echo=FALSE, message=FALSE, warning=FALSE, fig.show='hold',out.width = '50%', dev.args=list(bg="transparent"),fig.cap='Samband skipslengdar og botnflatar. Kökuritið sýnir hlutfall botnflatar íslenskra fiskiskipa í þremur stærðarflokkum: Undir 15 metra löng skip, milli 15 og 30 metra löng og yfir 30 metra löng. Fengið með jöfnu frá Moser (2016).', fig.align='center' }
 par(mar = c(4.6, 6, 0, 0))
 Batar <- read.csv("skjol/batar.csv",fileEncoding = "UTF-8")
 litlir <- Batar[Batar$Lengd<15,]
@@ -925,26 +930,17 @@ plot(factor(ldf$Efni), ldf$fjoldi,ylab="Fjöldi hluta")
 
 Vaktanir á íslenskum fjörum eru gerðar eftir OSPAR samkomulaginu en þar eru 100 metra fjörukaflar teknir fyrir og skrásettur fjöldi hluta og hvers eðlis þeir eru en þeir eru ekki vigtaðir. Ábyggilegt er að við staðarval sé tekið mið af sjáanlegri mengun, sérstaklega hjá Bláa hernum en einnig hjá OSPAR og því eru gögnin þeirra skekkt í átt að meiri mengun en almennt finnst í íslenskum fjörum. Skráðar hafa verið 18 hreinsanir á fimm 100 metra strandlengjupörtum á Íslandi í [OSPAR gagnagrunninn](http://www.mcsuk.org/ospar/map) [@ospar2019]. Niðurstöður þeirra sýna að plast er meirihluti þeirra hluta sem finnast í fjörum eða um 83% (sjá mynd \@ref(fig:ospartafla)). 
 
+Í flokkunum tengdum matvælaframleiðslu og umhverfi var hve minnstar upplýsingar að finna um uppsprettur örplasts. Þó svo að einhverjar rannsóknir á magni og niðurbroti plasts í sjávarumhverfinu hafi verið framkvæmdar [@Andrady2017] þá er þekkingin til að meta örplastlosun í fjörum hérlendis enn ekki næg. Það er þó eflaust tilfinnanlegt magn. Svipaða sögu er að segja af heyrúlluplasti og veiðarfærum en magn þess sem er flutt inn og fært til endurvinnslu er ágætlega þekkt en afdrif þess sem lendir í umhverfinu eru ókunn enn. 
+
 ### Sigvatn frá sorpurðunarstöðvum {-}
 Urðaður heimilisúrgangur er um 60.000 tonn á ári [@tollurinn2] á ýmsum urðunarstöðvum á Íslandi. Tugir urðunarstöðva eru vítt og breitt um landið, sumar þeirra eru ekki lengur í notkun en sigvatn rennur frá þeim engu að síður. Stærsta urðunarstöðin á Álfsnesi í Reykjavík er með leyfi til að taka við 120.000 tonnum á ári en aðrar stórar stöðvar eru í Glerárdal í Eyjafirði og í Stekkjavík við Húnaflóa (báðar um 20.000 tonn) en við Ölfusá var stöð þar til nýlega með leyfi fyrir 30.000 tonnum. Aðrar minni stöðvar hafa leyfi fyrir nokkrum hundruðum eða þúsundum tonna.
 
 Rannsóknir á örplastinnihaldi í sigvatni benda ekki til þess að það sé mikilvæg uppspretta örplasts [@Praagh1277395]. Talningar á örplastsögnum úr sigvatni nokkurra urðunarstöðva á Íslandi voru til dæmis lægri en talningar úr skólpi [@Praagh1277395]. Í stærstu urðunarstöðinni á Álfsnesi mældist örplast í mestu magni (frá 50-5000 μm að stærð) og var árleg losun metin á bilinu **0,002 - 177 kg** [@Praagh1277395].
 
 
-## Samantekt og lokaorð {-}
+## Niðurlag {-}
 
-Afdrif örplasts eru að miklu leyti enn ókunn. Það er vel þekkt að það tekur langan tíma fyrir plast að eyðast í umhverfinu og sérstaklega þar sem lítillar birtu gætir og hitastig er lágt. Sundrun plasts (í vatn og koltvísýring) er oftast ekki í það stórum stíl að vert sé á að minnast í skýrslu sem þessari. Sólarljós getur þó valdið talsverðri sundrun á plastefnum í vegmerkingum og utanhússmálningu svo að þær málningarflyksur sem staðið hafa úti í nokkurn tíma innihalda ekki það magn af plasti sem málningin innihélt upphaflega. Það er vandmeðfarið að ætla að skilgreina örplastagnir út frá hlutfallslegu plastinnihaldi þeirra en það er þó ein af fjöldamörgum áskorunum sem  rannsóknarfólk stendur frammi fyrir. Í þessari skýrslu er það gert varðandi málningu og vegmerkingar en ekki hjólbarða til dæmis.
+Afdrif örplasts eru að miklu leyti enn ókunn. Það er vel þekkt að það tekur langan tíma fyrir plast að eyðast í umhverfinu og sérstaklega þar sem lítillar birtu gætir og hitastig er lágt. Sundrun plasts (í vatn og koltvísýring) er sjaldnast í það stórum stíl að vert sé á að minnast í skýrslu sem þessari. Það er þó talið að sólarljós geti valdið talsverðri sundrun á plastefnum í vegmerkingum og utanhússmálningu til dæmis svo að plastefnainnihald minnkar með tímanum. Það er vandmeðfarið að ætla að skilgreina örplastagnir út frá hlutfallslegu plastinnihaldi þeirra en það er þó ein af fjöldamörgum áskorunum sem  rannsóknarfólk stendur frammi fyrir. Í þessari skýrslu er það gert varðandi málningu og vegmerkingar en ekki hjólbarða til dæmis.
 
 Sumar uppsprettur var ekki hægt að leggja mat á vegna skorts á gögnum eða rannsóknum á því hvernig plastrusl í umhverfinu verður að örplasti. Þar ber hæst að nefna losun örplasts úr fjörum en erfitt er að áætla heildarmagn plasts í fjörum og hraða sundrunar þess í örplast. Fjörur geta verið líkt og mulningsvélar fyrir örplast ef stórt plastrusl er ekki fjarlægt úr þeim. Þá ber að nefna að þó svo að almennt sé talin minni hætta fyrir lífverur að innbyrða örplast miðað við stærra plast eru áhrif þess á lífverur og vistkerfi enn óráðin.
-
-
-
-
-
-Gera þarf könnun á innflutningi málningar og efna til framleiðslu á málningu þar sem mikil óvissa ríkir um hlutfallslegt magn ólíkrar málningar, til dæmis skipa- og húsamálningar og málningar með misháu fjölliðuinnihaldi hérlendis. Skýrsluhöfundum er ekki kunnugt um hvernig eftirliti með slippum er háttað en við matið á örplastlosun frá þeim var stuðst við tölur frá Hollandi [@Verschoor2016] en engar samantektir á þeirra starfsemi fengust afhendar. Mesti munur á mögulegri uppsprettu og losun í hafið var frá slippunum fjórum en að sögn starfsmanna mismunandi slippa er nánast allt hreinsað upp sem fellur til vegna viðhalds skipa.
-
-
-
-Í flokkunum tengdum matvælaframleiðslu og umhverfi var hve minnstar upplýsingar að finna um uppsprettur örplasts. Þó svo að rannsóknir á magni og niðurbroti plasts í sjávarumhverfinu hafi verið rannsakaðar að einhverju leyti [@Andrady2017] þá eru upplýsingar enn af of skornum skammti til að meta örplastlosun í fjörum hérlendis. Það er þó eflaust tilfinnanlegt magn. Svipaða sögu er að segja af heyrúlluplasti og veiðarfærum en magn þess sem er flutt inn og fært til endurvinnslu er ágætlega þekkt en afdrif þess sem lendir í umhverfinu eru ókunn enn. 
-
 
