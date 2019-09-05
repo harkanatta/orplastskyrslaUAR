@@ -370,20 +370,27 @@ names(rass) <- c('nodes','links')
 sn <- sankeyNetwork(Links = rass$links, Nodes = rass$nodes, Source = "source",
               Target = "target", Value = "value", NodeID = "name",
               units = "Tonn", fontSize = 12, nodeWidth = 30)
-if (knitr::is_html_output()) {
-  htmlwidgets::onRender(sn, 'document.getElementsByTagName("svg")[0].setAttribute("viewBox", "")') #Svo að þetta sé ekki ofursmátt í Firefox
-} else{
-   B <- paste(nodes$name,c(110,15,761,653,233,41,256,6,43),sep="- ")
-  nodes <- paste(B,"t")
-  nodes <- as.data.frame(nodes)
-  names(nodes) <- "name"
-  rass <- list(nodes,links)
-  names(rass) <- c('nodes','links')
-  sn <- sankeyNetwork(Links = rass$links, Nodes = rass$nodes, Source = "source",
-              Target = "target", Value = "value", NodeID = "name",
-              units = "Tonn", fontSize = 12, nodeWidth = 30)
-  sn
-}
+htmlwidgets::saveWidget(sn,"vegm.html")
+
+#library(widgetframe)
+#rammi <- frameWidget(sn)
+#saveNetwork(sn,"vegm.html")
+sn <- htmltools::includeHTML("vegm.html")
+sn
+# if (knitr::is_html_output()) {
+#   htmlwidgets::onRender(rammi, 'document.getElementsByTagName("svg")[0].setAttribute("viewBox", "")') #Svo að þetta sé ekki ofursmátt í Firefox
+# } else{
+#    B <- paste(nodes$name,c(110,15,761,653,233,41,256,6,43),sep="- ")
+#   nodes <- paste(B,"t")
+#   nodes <- as.data.frame(nodes)
+#   names(nodes) <- "name"
+#   rass <- list(nodes,links)
+#   names(rass) <- c('nodes','links')
+#   sn <- sankeyNetwork(Links = rass$links, Nodes = rass$nodes, Source = "source",
+#               Target = "target", Value = "value", NodeID = "name",
+#               units = "Tonn", fontSize = 12, nodeWidth = 30)
+#   sn
+# }
   
 ```
 
