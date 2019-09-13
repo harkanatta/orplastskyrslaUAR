@@ -23,10 +23,11 @@ collapse_rows_dt <-
 colnames(collapse_rows_dt) <- c('Gerð farvegs', 'Farvegur', 'Uppsprettur í farvegi')
 
 if (knitr::is_html_output()) {
-kable(collapse_rows_dt, align = "c") %>%
+dt <- kable(collapse_rows_dt, align = "c", label = "fartafla",caption = 'Helstu farvegir örplasts frá landi í sjó.') %>%
   kable_styling("striped",full_width = F) %>%
   column_spec(1, bold = T) %>%
   collapse_rows(columns = 1:2, valign = "middle")
+kableExtra::footnote(dt,symbol = ('Vegryk á við um hjólbarða og vegmerkingar'))
 } else {
   kable(collapse_rows_dt, align = "c", booktabs=T, "latex")
 }
@@ -80,7 +81,7 @@ axis(2,seq(0,roundUpNice(1.1*max(skólp_fylki)),roundUpNice(1.1*max(skólp_fylki
 legend('topleft', levels(as.factor(svaedi$Tegund.hreinsunar)), fill=litir)
 ```
 
-Skólphreinsun í Reykjavík er svokölluð fyrsta stigs hreinsun ^[„Hreinsunin uppfyllir að öllum líkindum ekki þær kröfur sem gerðar eru til eins þreps hreinsunar í reglugerð um fráveitur og skólp“ [@Umhverfisstofnun2017]], þar sem efni á föstu formi eru aðskilin vatni með botnfellingu, fleytingu eða notkun rista. Þær eru í blönduðu kerfi sem tekur á móti skólpi ásamt ofanvatni og með yfirfalli þegar álag er mest. Ekki er áhersla lögð á að halda eftir örrusli í þeim skólphreinsistöðvum og hlutfall örplasts sem berst inn í skólphreinsistöðvarnar er ekki mjög frábrugðið því sem mælist í útfalli þeirra [@magnusson2016microlitter]. Yfir 90% skólps á Íslandi er losað í sjó eftir aðeins fyrsta stigs hreinsun (grófhreinsun án fellingar eða síunar öragna). Annað skólp er losað í ár og stöðuvötn og árósa. Sum bæjarfélög hafa sett upp tveggja þrepa hreinsun og flest heimili í dreifbýli eru með rotþrær þar sem eftir verður seyra (um 800 tonn árlega). Mest af seyrunni er urðað og lítið brot notað í landbúnað [@Umhverfisstofnun2017].
+Skólphreinsun í Reykjavík er svokölluð fyrsta stigs hreinsun, þar sem efni á föstu formi eru aðskilin vatni með botnfellingu, fleytingu eða notkun rista [@Umhverfisstofnun2017]. Þær eru í blönduðu kerfi sem tekur á móti skólpi ásamt ofanvatni og með yfirfalli þegar álag er mest. Ekki er áhersla lögð á að halda eftir örrusli í þeim skólphreinsistöðvum og hlutfall örplasts sem berst inn í skólphreinsistöðvarnar er ekki mjög frábrugðið því sem mælist í útfalli þeirra [@magnusson2016microlitter]. Yfir 90% skólps á Íslandi er losað í sjó eftir aðeins fyrsta stigs hreinsun (grófhreinsun án fellingar eða síunar öragna). Annað skólp er losað í ár og stöðuvötn og árósa. Sum bæjarfélög hafa sett upp tveggja þrepa hreinsun og flest heimili í dreifbýli eru með rotþrær þar sem eftir verður seyra (um 800 tonn árlega). Mest af seyrunni er urðað og lítið brot notað í landbúnað [@Umhverfisstofnun2017].
 
 Samkvæmt rannsókn á skólpi frá Reykjavík og Hafnarfirði [@magnusson2016microlitter] var innfallsvatn til skólphreinsistöðva á í Reykjavík með færri agnir af örplasti á rúmmál vatns miðað við stöðvar í Svíþjóð og Finnlandi sem nam heilli stærðargráðu (10 og 100 sinnum minna). Hugsanlega var það vegna mikils regnvatns sem blandast innfallsvatninu (munnleg heimild Hrönn Jörundsdóttir) og mikils affallsvatns frá heimilum en vatnsnotkun íslenskra heimila er hugsanlega meiri að jafnaði [@Pakula2010] og þéttleiki örplastagnanna því minni á rúmmálseiningu.
 

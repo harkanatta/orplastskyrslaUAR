@@ -1,8 +1,8 @@
 book_filename: "OrplastHaf"
-delete_merged_file: true
+delete_merged_file: false
 repo: https://github.com/harkanatta/orplastskyrslaUAR
 output_dir: docs
-rmd_files: ["index.Rmd", "01-Inngangur.Rmd","02-Farvegirnir.Rmd", "03-Uppspr.Rmd", "heimildir.Rmd"]
+rmd_files: ["index.Rmd","01-Inngangur.Rmd","02-Farvegirnir.Rmd", "03-Uppspr.Rmd", "heimildir.Rmd"]
 clean: refs.bib
 newsession: yes
 language:

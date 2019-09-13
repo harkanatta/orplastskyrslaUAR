@@ -8,3 +8,5 @@ dplyr
 knitr
 plyr
 tidyr
+htmlwidgets
+widgetframe

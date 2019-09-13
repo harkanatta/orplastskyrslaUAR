@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2019.4.15)  3 SEP 2019 15:47
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2019.4.15)  10 SEP 2019 14:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -894,13 +894,13 @@ Underfull \hbox (badness 1102) in paragraph at lines 13--13
  []
 
 [7]
-Underfull \hbox (badness 1975) in paragraph at lines 22--22
+Underfull \hbox (badness 1975) in paragraph at lines 21--21
  [][] [][]\T1/lmr/m/n/10 Skip í slipp í höfninni á Skagaströnd. Nokkrar smærri 
 
  []
 
 
-Underfull \hbox (badness 4156) in paragraph at lines 22--22
+Underfull \hbox (badness 4156) in paragraph at lines 21--21
  \T1/lmr/m/n/10 dráttarbrautir eru hér og þar um landið sem þjónusta 
  []
 
@@ -1118,41 +1118,38 @@ Overfull \hbox (92.94359pt too wide) in paragraph at lines 792--802
  [][] 
  []
 
-File: OrplastHaf_files/figure-latex/vegmerkingar2-1.pdf Graphic file (type pdf)
-
-<use OrplastHaf_files/figure-latex/vegmerkingar2-1.pdf>
 
 Underfull \vbox (badness 1102) has occurred while \output is active []
 
-[41] [42]
-Underfull \hbox (badness 1783) in paragraph at lines 824--825
+[41]
+Underfull \hbox (badness 1783) in paragraph at lines 818--819
 []\T1/lmr/m/n/10 Allar flugbrautir á Keflavíkurflugvelli afvatnast út í jarðveg
 inn í kring
  []
 
-[43]
-Underfull \hbox (badness 2698) in paragraph at lines 830--831
+[42]
+Underfull \hbox (badness 2698) in paragraph at lines 824--825
 \T1/lmr/m/n/10 og húsamálningar og málningar með misháu fjölliðuinnihaldi hérle
 ndis.
  []
 
 
-Underfull \hbox (badness 1460) in paragraph at lines 840--841
+Underfull \hbox (badness 1460) in paragraph at lines 834--835
 []\T1/lmr/m/n/10 Timburklædd hús þarf að mála oftar en steinhús. Á Íslandi er l
 ítið
  []
 
 
-Underfull \hbox (badness 1616) in paragraph at lines 840--841
+Underfull \hbox (badness 1616) in paragraph at lines 834--835
 \T1/lmr/m/n/10 um timburklædd hús en hér eru aftur á móti nánast engar ómálaðar
 
  []
 
-[44] [45]
+[43] [44]
 File: OrplastHaf_files/figure-latex/unnamed-chunk-8-1.pdf Graphic file (type pd
 f)
 <use OrplastHaf_files/figure-latex/unnamed-chunk-8-1.pdf>
-[46] [47]
+[45] [46]
 File: myndir/slippurb.jpg Graphic file (type bmp)
 <myndir/slippurb.jpg>
 Missing character: There is no ö in font lmmi10!
@@ -1161,32 +1158,32 @@ Missing character: There is no ó in font lmmi10!
 
 Underfull \vbox (badness 2418) has occurred while \output is active []
 
-[48]
+[47]
 File: OrplastHaf_files/figure-latex/slippur-1.pdf Graphic file (type pdf)
 <use OrplastHaf_files/figure-latex/slippur-1.pdf>
 File: OrplastHaf_files/figure-latex/slippur-2.pdf Graphic file (type pdf)
 <use OrplastHaf_files/figure-latex/slippur-2.pdf>
-[49] [50]
+[48] [49]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[51] [52]
+[50] [51]
 File: OrplastHaf_files/figure-latex/unnamed-chunk-11-1.pdf Graphic file (type p
 df)
 <use OrplastHaf_files/figure-latex/unnamed-chunk-11-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 1023--1024
+Underfull \hbox (badness 10000) in paragraph at lines 1017--1018
 []\T1/lmr/m/n/10 Samkvæmt upplýsingum frá skipulagssviði Reykjavíkurborgar eru 
 39
  []
 
-[53] [54]
-Underfull \hbox (badness 10000) in paragraph at lines 1040--1040
+[52] [53]
+Underfull \hbox (badness 10000) in paragraph at lines 1034--1034
 \T1/lmr/m/n/8 / / px . hagstofa . is / pxis / pxweb / is / Ibuar / Ibuar _ _man
 ntal _ _1manntalfjolsk / CEN01050 . px/$[]]),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1040--1040
+Underfull \hbox (badness 10000) in paragraph at lines 1034--1034
 \T1/lmr/m/n/8 (fjöldi í heimili[[]$http : / / px . hagstofa . is / pxis / pxweb
  / is / Efnahagur / Efnahagur _ _visitolur _
  []
@@ -1194,11 +1191,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 1040--1040
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[55] [56] [57] [58]
+[54] [55] [56] [57]
 File: OrplastHaf_files/figure-latex/ospartafla-1.pdf Graphic file (type pdf)
 <use OrplastHaf_files/figure-latex/ospartafla-1.pdf>
 
-Underfull \hbox (badness 1173) in paragraph at lines 1144--1145
+Underfull \hbox (badness 1173) in paragraph at lines 1138--1139
 []\T1/lmr/m/n/10 Í flokkunum tengdum matvælaframleiðslu og umhverfi var hve min
 nstar
  []
@@ -1206,42 +1203,42 @@ nstar
 
 Underfull \vbox (badness 1509) has occurred while \output is active []
 
-[59]
+[58]
 Missing character: There is no μ in font ec-lmr10!
-[60] [61] [62
-
-]
-Overfull \hbox (10.26337pt too wide) in paragraph at lines 1176--1178
+[59] [60]
+Overfull \hbox (10.26337pt too wide) in paragraph at lines 1170--1172
 [][]\T1/lmr/m/n/10 4. Katrín Guðjónsdóttir. Snertiefni matvæla. Í: Fræðslufundu
 r Matvælastofnunar;
  []
 
 
-Overfull \hbox (2.47679pt too wide) in paragraph at lines 1176--1178
+Overfull \hbox (2.47679pt too wide) in paragraph at lines 1170--1172
 \T1/lmr/m/n/10 2015:56. []$http : / / www . mast . is / library / Fyrirlestrar 
 / snertiefnimatvaela150414KG .
  []
 
 
-Underfull \hbox (badness 1237) in paragraph at lines 1185--1187
+Underfull \hbox (badness 1237) in paragraph at lines 1179--1181
 [][]\T1/lmr/m/n/10 7. Tsuji H, Suzuyoshi K. Environmental degradation of biodeg
 radable
  []
 
 
-Underfull \hbox (badness 1237) in paragraph at lines 1188--1190
+Underfull \hbox (badness 1237) in paragraph at lines 1182--1184
 [][]\T1/lmr/m/n/10 8. Tsuji H, Suzuyoshi K. Environmental degradation of biodeg
 radable
  []
 
-[63]
-Underfull \hbox (badness 1337) in paragraph at lines 1209--1211
+[61
+
+]
+Underfull \hbox (badness 1337) in paragraph at lines 1203--1205
 [][]\T1/lmr/m/n/10 15. Besseling E, Quik JT, Sun M, Koelmans AA. Fate of nano-a
 nd
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 1209--1211
+Underfull \hbox (badness 1337) in paragraph at lines 1203--1205
 \T1/lmr/m/n/10 microplastic in freshwater systems: A modeling study. \T1/lmr/m/
 it/10 Environmental
  []
@@ -1252,247 +1249,247 @@ Missing character: There is no „ in font ec-lmr10!
 Missing character: There is no ı in font ec-lmr10!
 Missing character: There is no ́ in font ec-lmr10!
 Missing character: There is no ≥ in font ec-lmr10!
-[64]
-Underfull \hbox (badness 1057) in paragraph at lines 1251--1253
+[62]
+Underfull \hbox (badness 1057) in paragraph at lines 1245--1247
 [][]\T1/lmr/m/n/10 29. Auta HS, Emenike C, Fauziah S. Distribution and importan
 ce of
  []
 
 
-Underfull \hbox (badness 1400) in paragraph at lines 1266--1268
+Underfull \hbox (badness 1400) in paragraph at lines 1260--1262
 \T1/lmr/m/n/10 consequences and solutions. Í: \T1/lmr/m/it/10 Marine anthropoge
 nic litter\T1/lmr/m/n/10 . Springer;
  []
 
 
-Underfull \hbox (badness 1342) in paragraph at lines 1281--1283
+Underfull \hbox (badness 1342) in paragraph at lines 1275--1277
 [][]\T1/lmr/m/n/10 39. Gewert B, Ogonowski M, Barth A, Macleod M. Abundance and
 
  []
 
-[65]
+[63]
 Missing character: There is no „ in font ec-lmr10!
 
-Overfull \hbox (15.9677pt too wide) in paragraph at lines 1299--1301
+Overfull \hbox (15.9677pt too wide) in paragraph at lines 1293--1295
 [][]\T1/lmr/m/n/10 45. Sameiginlega Ees-nefndin. \T1/lmr/m/it/10 EES-viðbætir v
 ið Stjórnartíðindi Evrópusambandsins
  []
 
 
-Overfull \hbox (18.49692pt too wide) in paragraph at lines 1299--1301
+Overfull \hbox (18.49692pt too wide) in paragraph at lines 1293--1295
 \T1/lmr/m/it/10 nr. 54\T1/lmr/m/n/10 .; 2007. []$http : / / www . efta . int / 
 sites / default / ^^\les / documents / eea-[]supplements /
  []
 
 
-Underfull \hbox (badness 1577) in paragraph at lines 1305--1307
+Underfull \hbox (badness 1577) in paragraph at lines 1299--1301
 [][]\T1/lmr/m/n/10 47. Barnes DK, Galgani F, Thompson RC, Barlaz M. Accumulatio
 n
  []
 
 
-Underfull \hbox (badness 4518) in paragraph at lines 1305--1307
+Underfull \hbox (badness 4518) in paragraph at lines 1299--1301
 \T1/lmr/m/it/10 Transactions of the Royal Society of London B: Biological Scien
 ces\T1/lmr/m/n/10 .
  []
 
 
-Underfull \hbox (badness 1769) in paragraph at lines 1323--1325
+Underfull \hbox (badness 1769) in paragraph at lines 1317--1319
 [][]\T1/lmr/m/n/10 53. Nozari A, Mojdehi M. \T1/lmr/m/it/10 The impact of suppl
 y chain management
  []
 
-[66]
-Underfull \hbox (badness 1655) in paragraph at lines 1332--1334
+[64]
+Underfull \hbox (badness 1655) in paragraph at lines 1326--1328
 [][]\T1/lmr/m/n/10 56. Renner G, Schmidt TC, Schram J. Analytical methodologies
  for
  []
 
 
-Overfull \hbox (70.39703pt too wide) in paragraph at lines 1332--1334
+Overfull \hbox (70.39703pt too wide) in paragraph at lines 1326--1328
 \T1/lmr/m/it/10 Environmental Science & Health\T1/lmr/m/n/10 . 2018;1:55--61. d
 oi:[]https://doi.org/10.1016/j.coesh.2017.11.001[] 
  []
 
 
-Underfull \hbox (badness 1275) in paragraph at lines 1344--1346
+Underfull \hbox (badness 1275) in paragraph at lines 1338--1340
 \T1/lmr/m/n/10 and spectroscopic identification methods for analysis of micropl
 astics in
  []
 
 
-Underfull \hbox (badness 2409) in paragraph at lines 1347--1349
+Underfull \hbox (badness 2409) in paragraph at lines 1341--1343
 \T1/lmr/m/n/10 of microplastics using Nile Red staining. \T1/lmr/m/it/10 Marine
  Pollution Bulletin\T1/lmr/m/n/10 .
  []
 
 
-Underfull \hbox (badness 1478) in paragraph at lines 1350--1352
+Underfull \hbox (badness 1478) in paragraph at lines 1344--1346
 \T1/lmr/m/n/10 Dispersive X-Ray Spectroscopy (SEM-EDS). Í: \T1/lmr/m/it/10 Comp
 rehensive Analytical
  []
 
 
-Underfull \hbox (badness 1242) in paragraph at lines 1362--1364
+Underfull \hbox (badness 1242) in paragraph at lines 1356--1358
 [][]\T1/lmr/m/n/10 66. Bergmann M, Wirzberger V, Krumpen T, o.fl. High Quantiti
 es
  []
 
 
-Underfull \hbox (badness 1286) in paragraph at lines 1362--1364
+Underfull \hbox (badness 1286) in paragraph at lines 1356--1358
 \T1/lmr/m/n/10 of Microplastic in Arctic Deep-Sea Sediments from the HAUSGARTEN
 
  []
 
-[67]
-Underfull \hbox (badness 4492) in paragraph at lines 1374--1376
+[65]
+Underfull \hbox (badness 4492) in paragraph at lines 1368--1370
 \T1/lmr/m/it/10 Auðkennisnúmerakerfi íslenskra vatnshlota\T1/lmr/m/n/10 . Veður
 stofa Íslands; 2012.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1374--1376
+Underfull \hbox (badness 10000) in paragraph at lines 1368--1370
 []$\T1/lmr/m/n/10 https : / / www . ust . is / library / Skrar / Atvinnulif / H
 af-[]og-[]vatn / Vatnatilskipun /
  []
 
 
-Overfull \hbox (26.70386pt too wide) in paragraph at lines 1377--1379
+Overfull \hbox (26.70386pt too wide) in paragraph at lines 1371--1373
 [][]\T1/lmr/m/n/10 71. OpenStreetMap contributors. Planet dump retrieved from h
 ttps://planet.osm.org.
  []
 
-[68]
-Underfull \hbox (badness 2189) in paragraph at lines 1422--1424
+[66]
+Underfull \hbox (badness 2189) in paragraph at lines 1416--1418
 \T1/lmr/m/n/10 of microplastics and potential mitigation measures. 2016:76. []$
 https :
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1422--1424
+Underfull \hbox (badness 10000) in paragraph at lines 1416--1418
 \T1/lmr/m/n/10 / / www . rijksoverheid . nl / binaries / rijksoverheid / docume
 nten / rapporten /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1422--1424
+Underfull \hbox (badness 10000) in paragraph at lines 1416--1418
 \T1/lmr/m/n/10 2016 / 07 / 11 / emission-[]of-[]microplastics-[]and-[]potential
 -[]mitigation-[]measures /
  []
 
 
-Underfull \hbox (badness 2057) in paragraph at lines 1428--1430
+Underfull \hbox (badness 2057) in paragraph at lines 1422--1424
 [][]\T1/lmr/m/n/10 88. ECHA (European Chemicals Agency. \T1/lmr/m/it/10 Guidanc
 e on information
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 1431--1433
+Underfull \hbox (badness 1337) in paragraph at lines 1425--1427
 \T1/lmr/m/n/10 microplastic in freshwater systems: A modeling study. \T1/lmr/m/
 it/10 Environmental
  []
 
 
-Underfull \hbox (badness 1221) in paragraph at lines 1443--1445
+Underfull \hbox (badness 1221) in paragraph at lines 1437--1439
 \T1/lmr/m/it/10 The Waste & Resources Action Programme TYR0009-02\T1/lmr/m/n/10
  .; 2006. []$http :
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1443--1445
+Underfull \hbox (badness 10000) in paragraph at lines 1437--1439
 \T1/lmr/m/n/10 / / www . wrap . org . uk / sites / ^^\les / wrap / 2 % 20-[] % 
 20Composition % 20of % 20a %
  []
 
-[69]
-Underfull \hbox (badness 3471) in paragraph at lines 1464--1466
+[67]
+Underfull \hbox (badness 3471) in paragraph at lines 1458--1460
 [][]\T1/lmr/m/n/10 100. Klein J, Geilenkirchen G, Hulskotte J, Ligterink N, Mol
 nár-
  []
 
 
-Underfull \hbox (badness 1097) in paragraph at lines 1464--1466
+Underfull \hbox (badness 1097) in paragraph at lines 1458--1460
 \T1/lmr/m/n/10 in't Veld H. Methods for calculating the emissions of transport 
 in the
  []
 
 
-Underfull \hbox (badness 1365) in paragraph at lines 1464--1466
+Underfull \hbox (badness 1365) in paragraph at lines 1458--1460
 \T1/lmr/m/n/10 Netherlands. \T1/lmr/m/it/10 The report, including the tables in
  the Excelfile, can be
  []
 
 
-Underfull \hbox (badness 3199) in paragraph at lines 1470--1472
+Underfull \hbox (badness 3199) in paragraph at lines 1464--1466
 \T1/lmr/m/it/10 Decorative Paints And Varnishes, Vehicle Refinishing Products\T
 1/lmr/m/n/10 .; 2010.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1470--1472
+Underfull \hbox (badness 10000) in paragraph at lines 1464--1466
 []$\T1/lmr/m/n/10 https : / / circabc . europa . eu / sd / a / 67fe0545-[]cef1-
 []470e-[]a378-[]b65b0165fb1d /
  []
 
 
-Underfull \hbox (badness 5431) in paragraph at lines 1482--1484
+Underfull \hbox (badness 5431) in paragraph at lines 1476--1478
 \T1/lmr/m/n/10 and Inks (intentional and non-intentional use) Stakeholder works
 hop
  []
 
 
-Underfull \hbox (badness 4913) in paragraph at lines 1482--1484
+Underfull \hbox (badness 4913) in paragraph at lines 1476--1478
 \T1/lmr/m/n/10 on intentional uses of microplastic particles-Sector-specific di
 scussions.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1482--1484
+Underfull \hbox (badness 10000) in paragraph at lines 1476--1478
 \T1/lmr/m/n/10 2018. []https://echa.europa.eu/documents/10162/23964241/09{\_}cc
 b-
  []
 
 
-Underfull \hbox (badness 2073) in paragraph at lines 1485--1487
+Underfull \hbox (badness 2073) in paragraph at lines 1479--1481
 \T1/lmr/m/n/10 Húsafriðunarnefnd ríkisins; 2003:43. []$http : / / www . minjast
 ofnun . is / media /
  []
 
-[70]
-Overfull \hbox (10.49309pt too wide) in paragraph at lines 1503--1505
+[68]
+Overfull \hbox (10.49309pt too wide) in paragraph at lines 1497--1499
 [][]\T1/lmr/m/n/10 113. Magnusson K. Mikroskräp i avloppsvatten från tre norska
  avloppsreningsverk.
  []
 
 
-Underfull \hbox (badness 2903) in paragraph at lines 1518--1520
+Underfull \hbox (badness 2903) in paragraph at lines 1512--1514
 [][]\T1/lmr/m/n/10 118. Shen L, Patel MK. LIFE CYCLE ASSESSMENT OF MAN-
  []
 
-[71]
-Underfull \hbox (badness 1817) in paragraph at lines 1536--1538
+[69]
+Underfull \hbox (badness 1817) in paragraph at lines 1530--1532
 [][]\T1/lmr/m/n/10 124. Leslie HA. IVM Institute for Environmental Studies Revi
 ew of
  []
 
 
-Underfull \hbox (badness 1048) in paragraph at lines 1539--1541
+Underfull \hbox (badness 1048) in paragraph at lines 1533--1535
 \T1/lmr/m/n/10 O. Intentionally added microplastics in products. 2017;(October)
 :1--220.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1539--1541
+Underfull \hbox (badness 10000) in paragraph at lines 1533--1535
 []\T1/lmr/m/n/10 http://ec.europa.eu/environment/chemicals/reach/pdf/39168 Inte
 ntionally
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1558.
-[72]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1558.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1552.
+[70]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1552.
 (./OrplastHaf.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1558.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1558.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1552.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1552.
 
 Package rerunfilecheck Info: File `OrplastHaf.out' has not changed.
 (rerunfilecheck)             Checksum: 18CF27F135EF563E705D4303CA612E28.
@@ -1501,12 +1498,12 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 22438 strings out of 494921
- 427078 string characters out of 6175832
- 521519 words of memory out of 5000000
- 26110 multiletter control sequences out of 15000+600000
+ 22433 strings out of 494921
+ 426864 string characters out of 6175832
+ 521391 words of memory out of 5000000
+ 26106 multiletter control sequences out of 15000+600000
  606883 words of font info for 72 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  45i,8n,41p,2290b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on OrplastHaf.pdf (72 pages).
+Output written on OrplastHaf.pdf (70 pages).

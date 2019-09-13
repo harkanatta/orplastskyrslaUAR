@@ -93,28 +93,28 @@ if (knitr::is_html_output()) {
 
 **Farleiðir örplasts** til hafs eru ólíkar eftir uppsprettum og misflókið er að meta stærð þeirra. Sumar farleiðir fara óhindraðar í hafið líkt og frárennsli úr þvottavélum (í öllum þéttbýlum landsins sem eru við sjó). Affallsvatn frá vegum í þéttbýli á einnig að miklu leyti greiða leið í hafið en vegryk lendir líka að stórum hluta í jarðvegi og ekki er gott að segja til um hvar það endar líkt og við á um málningarflyksur frá háþrýstiþvotti húsa og fleiri uppsprettur í þéttbýli. Það örplast sem lendir í jarðvegi situr að öllum líkindum eftir í jarðveginum og berst ekki í hafið þar sem plast er ekki vatnsleysanlegt. Helstu farleiðir örplasts í hafið eru því með rennandi vatni gegnum skólp og ræsi.
 
-```{r echo=FALSE, message=TRUE, warning=TRUE, cache=TRUE, fig.cap='Helstu uppsprettur örplasts á Íslandi og skipting þess eftir farleiðum í haf eða í jarðveg. Byggt á lægra mati í töflu 1.', fig.align='center'}
-
-# libs <- c("rgdal", "maptools", "gridExtra","tmap","tmaptools","sp")
-# lapply(libs, require, character.only = TRUE)
-# 
-# malbik <- rgdal::readOGR("C:/Users/BioPol VS/Documents/Vinnumappa/GIS/IS50V_SAMGONGUR_17062016_ISN2004/IS50V_SAMGONGUR_SHP/vegir1og5.shp",require_geomType = "wkbLineString")
-# byggd <- rgdal::readOGR("C:/Users/BioPol VS/Documents/Vinnumappa/GIS/IS50V_MANNVIRKI_17062016_ISN2004/IS50V_MANNVIRKI_SHP/is50v_mannvirki_flakar_17062016.shp")
-# clp1 <- raster::intersect(malbik,byggd)
-# sum(as.numeric(as.character(clp1@data$lengd)))/sum(as.numeric(as.character(malbik@data$lengd))) #Hlutfall lengdar malbiks innan þéttbýlis = 36%
-
-
+```{r echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE, fig.cap='Helstu uppsprettur örplasts á Íslandi og skipting þess eftir farleiðum í haf eða í jarðveg. Byggt á lægra mati.', fig.align='center'}
 #losun <- (l+h)/2 #Meðaltal lægra og hærra mats á losun.
-value <- c(379, 41, 18.2+11.8+3.2, 3, 8.2, 0.34) #Uppspretta lægra mat
-losun <- c(164, 5.7, 12+3.2, 0.3, 8.2, 0.34) #losun lægra mat
+value <- c(371, 41, 26, 33.2, 60, 3, 0.2, 8.2, 0.34, 1, 0.002) #Uppspretta lægra mat
+losun <- c(164, 5.7,  0, 15.2, 3.2, 0.3, 0, 8.2, 0.34, 0, 0.002) #losun lægra mat
 #value <- c(379,586,38,233,21,48,3,11,8,32,0.3,3)
-heiti <-c('Dekkjaslit','Vegmerkingar','Húsamálning','Gervigras','Þvottur','Snyrtivörur')
+heiti <- c('Bifreiðahjólbarðar',
+          'Vegmerkingar',
+          'Flugvélahjólbarðar',
+          'Húsamálning',
+          'Skipamálning',
+          'Gervigras',
+          'Leikvellir',
+          'Þvottur',
+          'Snyrtivörur',
+          'Haglaskot',
+          'Sigvatn')
 land <- value-losun
 df <- data.frame(heiti,land,losun)
 df <- df[order(df$heiti),]
 
 library(networkD3)
-nodes <- c(levels(df$heiti), 'Land ','Haf ')
+nodes <- c(levels(df$heiti), 'Land','Haf')
 nodes <- as.data.frame(nodes)
 names(nodes) <- "name"
 
@@ -127,8 +127,8 @@ value <- unlist(b)
 
 links <- 
   data.frame(
-    source=c(0,0,1,1,2,2,3,3,4,4,5,5),
-    target=c(6,7,6,7,6,7,6,7,6,7,6,7),
+    source=c(0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10),
+    target=c(rep(c(11,12),11)),
     value=value)
 
 
@@ -143,9 +143,10 @@ sn <- sankeyNetwork(
   NodeID = "name",
   units = "tonn",
   colourScale = JS("d3.scaleOrdinal(d3.schemeCategory20);"),
-  fontSize = 12,
-  nodeWidth = 30
+  fontSize = 20,
+  nodeWidth = 30, width = "770px", height = "500px", fontFamily = "Courier"
 )
+
 if (knitr::is_html_output()) {
   htmlwidgets::onRender(sn, 'document.getElementsByTagName("svg")[0].setAttribute("viewBox", "")') #Svo að þetta sé ekki ofursmátt í Firefox
 } else{

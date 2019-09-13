@@ -25,14 +25,14 @@ bookdown::gitbook:
     download: 
     sharing: 
       github: yes
-bookdown::pdf_book:
-  includes:
-    in_header: preamble.tex
-  latex_engine: xelatex
-  citation_package: none
-  keep_tex: yes
-  pandoc_args: [ "--csl",
-"ama.csl" ,
-        "-V", "lang=is"
-    ]
+#bookdown::pdf_book:
+#  includes:
+#    in_header: preamble.tex
+#  latex_engine: xelatex
+#  citation_package: none
+#  keep_tex: yes
+#  pandoc_args: [ "--csl",
+#"ama.csl" ,
+#        "-V", "lang=is"
+#    ]
 

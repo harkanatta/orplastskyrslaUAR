@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # Helstu uppsprettur örplasts á Íslandi
 
 ```{r include=FALSE}
@@ -46,28 +51,28 @@ if (knitr::is_html_output()) {
 }  
 ```
 
-```{r echo=FALSE, message=TRUE, warning=TRUE, cache=TRUE, fig.cap='Helstu uppsprettur örplasts á Íslandi og skipting eftir farleiðum í haf eða í jarðveg. Byggt á lægra mati.', fig.align='center'}
-
-# libs <- c("rgdal", "maptools", "gridExtra","tmap","tmaptools","sp")
-# lapply(libs, require, character.only = TRUE)
-# 
-# malbik <- rgdal::readOGR("C:/Users/BioPol VS/Documents/Vinnumappa/GIS/IS50V_SAMGONGUR_17062016_ISN2004/IS50V_SAMGONGUR_SHP/vegir1og5.shp",require_geomType = "wkbLineString")
-# byggd <- rgdal::readOGR("C:/Users/BioPol VS/Documents/Vinnumappa/GIS/IS50V_MANNVIRKI_17062016_ISN2004/IS50V_MANNVIRKI_SHP/is50v_mannvirki_flakar_17062016.shp")
-# clp1 <- raster::intersect(malbik,byggd)
-# sum(as.numeric(as.character(clp1@data$lengd)))/sum(as.numeric(as.character(malbik@data$lengd))) #Hlutfall lengdar malbiks innan þéttbýlis = 36%
-
-
+```{r echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE, fig.cap='Helstu uppsprettur örplasts á Íslandi og skipting þess eftir farleiðum í haf eða í jarðveg. Byggt á lægra mati.', fig.align='center'}
 #losun <- (l+h)/2 #Meðaltal lægra og hærra mats á losun.
-value <- c(379, 41, 18.2+11.8+3.2, 3, 8.2, 0.34) #Uppspretta lægra mat
-losun <- c(164, 5.7, 12+3.2, 0.3, 8.2, 0.34) #losun lægra mat
+value <- c(371, 41, 26, 33.2, 60, 3, 0.2, 8.2, 0.34, 1, 0.002) #Uppspretta lægra mat
+losun <- c(164, 5.7,  0, 15.2, 3.2, 0.3, 0, 8.2, 0.34, 0, 0.002) #losun lægra mat
 #value <- c(379,586,38,233,21,48,3,11,8,32,0.3,3)
-heiti <-c('Dekkjaslit','Vegmerkingar','Húsamálning','Gervigras','Þvottur','Snyrtivörur')
+heiti <- c('Bifreiðahjólbarðar',
+          'Vegmerkingar',
+          'Flugvélahjólbarðar',
+          'Húsamálning',
+          'Skipamálning',
+          'Gervigras',
+          'Leikvellir',
+          'Þvottur',
+          'Snyrtivörur',
+          'Haglaskot',
+          'Sigvatn')
 land <- value-losun
 df <- data.frame(heiti,land,losun)
 df <- df[order(df$heiti),]
 
 library(networkD3)
-nodes <- c(levels(df$heiti), 'Land ','Haf ')
+nodes <- c(levels(df$heiti), 'Land','Haf')
 nodes <- as.data.frame(nodes)
 names(nodes) <- "name"
 
@@ -80,8 +85,8 @@ value <- unlist(b)
 
 links <- 
   data.frame(
-    source=c(0,0,1,1,2,2,3,3,4,4,5,5),
-    target=c(6,7,6,7,6,7,6,7,6,7,6,7),
+    source=c(0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10),
+    target=c(rep(c(11,12),11)),
     value=value)
 
 
@@ -96,9 +101,10 @@ sn <- sankeyNetwork(
   NodeID = "name",
   units = "tonn",
   colourScale = JS("d3.scaleOrdinal(d3.schemeCategory20);"),
-  fontSize = 12,
-  nodeWidth = 30
+  fontSize = 20,
+  nodeWidth = 30, width = "800px", height = "500px", fontFamily = "Courier"
 )
+
 if (knitr::is_html_output()) {
   htmlwidgets::onRender(sn, 'document.getElementsByTagName("svg")[0].setAttribute("viewBox", "")') #Svo að þetta sé ekki ofursmátt í Firefox
 } else{
@@ -124,11 +130,9 @@ if (knitr::is_html_output()) {
   
   sn
 }
-
 ```
 
-
-## Samgöngur, byggingar og iðnaður {-}
+# Samgöngur, byggingar og iðnaður {-}
 
 Erlendar rannsóknir sem tengjast örplastlosun frá samgöngum og iðnaði er hægt að yfirfæra á Ísland þar sem þær eru byggðar á sterkum grunni þó svo vikmörkin séu stór, sérstaklega hvað varðar farleiðir til sjávar. Óvissa er hve mest um farleiðir örplasts frá dekkjaögnum, vegmerkingum, húsamálningu og fleiri þátta sem berast aðallega til sjávar með ofanvatni og um fráveitukerfi en ekki beina leið gegnum niðurföll. Með sýnatökum úr vegaskurðum og settjörnum tengdum frárennsli vega og jarðvegi í kringum vegi, flugvelli og aðrar uppsprettur í þéttbýli verður hægt að minnka þá óvissu. 
 
@@ -191,7 +195,7 @@ knitr::include_graphics("myndir/ALTA.png")
 Hér er það metið sem svo að affallsvatn sem lendir í fráveitukerfum beri allar dekkjaagnir sem það inniheldur út í haf en það affallsvatn sem rennur í jarðveg losni við allar dekkjaagnir í jarðveginn. Það skal þó tekið fram að aðstæður eru mjög ólíkar á mismunandi svæðum landsins bæði m.t.t. jarðvegsgerðar og einnig eiginleika þéttbýla og þar stendur Reykjavík út úr. Mælingar á dekkjaögnum í affallsvatni eru erfiðar í framkvæmd og gögn skortir. Nokkur líkön hafa verið gerð til að áætla magn örplasts í framburði stórra áa í Evrópu en þau eru sum hver í mótsögn hvor við aðra [@unice2019characterizing1]. Þau eiga það þó sameiginlegt að áætla örplast frá dekkjum heilli stærðargráðu lægra en í þessari skýrslu þar sem þau lýsa aðstæðum sem eru gjörólíkar íslenskum aðstæðum t.d. er fjarlægð helstu uppspretta örplsts (borgir) í tugum til hundruða kílómetra fjarlægð frá árósum.
 
 
-### Hjólbarðar bifreiða {-}
+# Hjólbarðar bifreiða {-}
 
 Hjólbarðar eyðast smám saman við akstur vegna núnings við vegi. Margir þættir hafa áhrif á slit hjólbarða en það er mismikið eftir gerð dekkja, stærð bíla og aksturslagi [@panko2018review]. Þar sem fleiri beygjur eru á vegum og hröðunarbreytingar eru tíðari verður meira álag á dekkin og slit á þeim verður meira. Því er eyðing dekkja minni á þjóðvegum en vegum í þéttbýli [@luhana2004measurement; @Kwak2013].
 
@@ -261,44 +265,105 @@ options(OutDec = ".")
 
 
 
-```{r akstur2, echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE, fig.cap='Losun örplasts frá hjólbörðum á land og í haf skv. lægra mati', fig.align='center'}
+```{r  echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE, fig.cap='Losun örplasts frá hjólbörðum á land og í haf skv. lægra mati', fig.align='center'}
 
-slit=c(244,34,22,79) 
+value=c(244,34,22,79) 
 losun=c(106,15,9,34)
-land=slit-losun
+land=value-losun
 
-library(networkD3)
-A <- c("Fólksbifreiðar ","Sendibifreiðar ","Hópbifreiðar ","Vörubifreiðar ","Land ","Haf ")
-nodes <- as.data.frame(A)
+
+heiti <- c("Fólksbifreiðar ","Sendibifreiðar ","Hópbifreiðar ","Vörubifreiðar ")
+df <- data.frame(heiti,land,losun)
+df <- df[order(df$heiti),]
+nodes <- c(levels(df$heiti), 'Land','Haf')
+nodes <- as.data.frame(nodes)
 names(nodes) <- "name"
-#nodes$name <-  as.character(nodes$name)
-links <- data.frame(source=rep(0:3,2),target=rep(4:5, each=4),value=c(land,losun))
-rass <- list(nodes,links)
-names(rass) <- c('nodes','links')
-sn <- sankeyNetwork(Links = rass$links, Nodes = rass$nodes, Source = "source",
-              Target = "target", Value = "value", NodeID = "name",
-              units = "tonn", fontSize = 12, nodeWidth = 30, iterations = 0)
-if (knitr::is_html_output()){
-htmlwidgets::onRender(sn, 'document.getElementsByTagName("svg")[0].setAttribute("viewBox", "")') #Svo að þetta sé ekki ofursmátt í Firefox
-} else{
 
-  B <- paste(A,c(slit,sum(land),sum(losun)),sep="- ")
+a <- list()
+for (i in 1:nrow(df)) {
+  a[i] <- list(rbind(matrix(c(df[i,c(2,3)]))))
+}
+b <- do.call(c,a)
+value <- unlist(b)
+
+links <- 
+  data.frame(
+    source=rep(seq(0,length(heiti)-1),each=2),
+    target=c(rep(c(length(heiti),length(heiti)+1),length(heiti))),
+    value=value)
+	
+Sank <- list(nodes, links)
+names(Sank) <- c('nodes', 'links')
+sn <- sankeyNetwork(
+  Links = Sank$links,
+  Nodes = Sank$nodes,
+  Source = "source",
+  Target = "target",
+  Value = "value",
+  NodeID = "name",
+  units = "tonn",
+  colourScale = JS("d3.scaleOrdinal(d3.schemeCategory20);"),
+  fontSize = 20,
+  nodeWidth = 30, width = "770px", height = "500px", fontFamily = "Courier"
+)
+
+if (knitr::is_html_output()) {
+  htmlwidgets::onRender(sn, 'document.getElementsByTagName("svg")[0].setAttribute("viewBox", "")') #Svo að þetta sé ekki ofursmátt í Firefox
+} else{
+  B <- paste(nodes$name,c(df$land+df$losun,sum(df$land),sum(df$losun)), sep="- ")
   nodes <- paste(B,"t")
   nodes <- as.data.frame(nodes)
   names(nodes) <- "name"
-  rass <- list(nodes,links)
-  names(rass) <- c('nodes','links')
   
-  sankeyNetwork(Links = rass$links, Nodes = rass$nodes, Source = "source",
-              Target = "target", Value = "value", NodeID = "name",
-              units = "tonn", fontSize = 12, nodeWidth = 30, iterations = 0)
+  Sank <- list(nodes,links)
+  names(Sank) <- c('nodes','links')
+  
+  sn <- sankeyNetwork(
+    Links = Sank$links,
+    Nodes = Sank$nodes,
+    Source = "source",
+    Target = "target",
+    Value = "value",
+    NodeID = "name",
+    units = "tonn",
+    colourScale = JS("d3.scaleOrdinal(d3.schemeCategory20);"),
+    fontSize = 12,
+    nodeWidth = 30)
+  
+  sn
 }
+```
+
+## Hjólbarðar flugvéla {-}
+
+
+Ólíkt hjólbörðum ökutækja eru hjólbarðar flugvéla einungis notaðir við upphaf og lok ferðalags og slit þar af leiðandi hlutfallslega minna og einskorðað við flugvelli. Hér er gert ráð fyrir að hjólbarðar flugvéla séu gerðir úr gúmmíblöndu sem er ekki það frábrugðin hinum ýmsu samsetningum annarra hjólbarða að það breyti nokkru fyrir tilgang þessarar skýrslu.
+
+Ein leið til að áætla losun örplasts frá hjólbörðum flugvéla er að margfalda fjölda flughreyfinga, þá er átt við flugtak og lendingu saman, með áætluðu dekkjasliti. Hér er gerður greinarmunur á millilandaflugi og innanlandsflugi þar sem stærri flugvélar eru alla jafna notaðar í millilandaflugi.
+
+Dæmigerðar millilandaflugvélar eru flugvélar á borð við Boeing 757 [@kole2017wear] og Airbus 321 (pers. heimild) sem vega frá 30 til 65 tonna án farþega og eru með fjögur til átta aðalhjól og tvö framhjól. Slit hjólbarða flugvéla í hverri flughreyfingu (tekið saman af Kole [-@kole2017wear]) er metið um 21 gramm frá hverju framhjóli og 59 grömm frá hverju aðalhjóli eða 278-514 grömm í heildina. Sé áætlað dekkjaslit margfaldað með fjölda flughreyfinga í millilandaflugi á Íslandi árið 2017 (65.528 flughreyfingar) [@isavia2017] nemur það 18 til 34 tonnum af dekkjasliti árlega.
+
+Flugvélar í innanlandsflugi á Íslandi eru flestar á bilinu 10 til 18 tonn án farþega (t.d. Bombardier Q400 (18 tonn), Bombardier Q200 (10 tonn) og  Jetstream 32 (10 tonn)). Ekki fundust tölur um slit hjólbarða hjá þessum flugvélum en sé lauslega gert ráð fyrir að slitið sé í kringum 1/3 af því sem áætlað er fyrir flugvélar í millilandaflugi. Af hinum tæpu 130 þúsund flughreyfingum hérlendis árið 2017 voru 75 þúsund þeirra snertilendingar sem reiknast sem 0,5 flughreyfing. Með sömu aðferðum og notaðar voru við að meta dekkjaslit frá millilandaflugi má áætla um 8-16 tonnum árlega vegna innanlandsflugs. Árlegt magn dekkjaslits frá hjólbörðum flugvéla er því metið 26-50 tonn. Þetta mat er byggt er á óáreiðanlegum forsendum og ekki var unnt notast við nákvæma stærðarflokkun þeirra flugvéla sem lentu og tóku á loft á Íslandi og því viðbúið að skekkja matsins sé talsverð.
+
+Allar flugbrautir á Keflavíkurflugvelli afvatnast út í jarðveginn í kring og berst því líklega ekki í hafið í miklu mæli. Fráveitukerfi flugvallarins tekur við ofanvatni frá byggingum á vellinum. Ekki var kannað hvernig fráveitumálum er háttað við aðra flugvelli eru staðsettir við sjó eða við fljót í tilfelli Egilstaðaflugvallar. Ekki er hægt að meta losun örplasts í hafið frá flugvélahjólbörðum hérlendis að svo stöddu en uppspretta örplasts frá hjólbörðum flugvéla í umhverfið árlega er **26-50 tonn**.
+
+```{r eval=FALSE, include=FALSE}
+millilandaflughreyfingar=65528
+neðri.mörk.skv.Kole=278
+efri.mörk.skv.Kole=514
+65528*c(278,514)
+
+innanlandsflughreyfingar=53390
+neðri.mörk.skv.Kole=278
+efri.mörk.skv.Kole=514
+snertilendingar=75497
+(53390)*c(278/3,514/3)+(75497/2)*c(278/3,514/3)
 ```
 
 
 
 
-### Vegmerkingar {-}
+# Vegmerkingar {-}
 
 Samkvæmt upplýsingum frá Vegagerðinni er á Íslandi notast við þrenns konar vegmerkingar og innihalda þær allar plastefni: málningu, sprautuplast og vélmössun. Slitþol þeirra er mismunandi en málning þolir minnst og vélmössun mest. Málaðar vegmerkingar eru 0,2-0,3 mm að þykkt, sprautuplast 0,7-1,5 mm og vélmössun 3,0 mm.
 
@@ -367,68 +432,46 @@ names(nodes) <- "name"
 links <- data.frame(source=c(0,1,2,2,3,4,3,4,5,6),target=c(3,4,3,4,5,5,6,6,7,8),value=c(110,15,543,218,6,35,163,93,5.7,42.6))
 rass <- list(nodes,links)
 names(rass) <- c('nodes','links')
-sn <- sankeyNetwork(Links = rass$links, Nodes = rass$nodes, Source = "source",
+sn <- sankeyNetwork(Links = rass$links,
+                    Nodes = rass$nodes,
+                    Source = "source",
+                    Target = "target",
+                    Value = "value",
+                    NodeID = "name",
+                    units = "Tonn",
+                    fontSize = 20,
+                    nodeWidth = 30,
+                    width = "770px",
+                    height = "500px",
+                    fontFamily = "Courier"
+                    )
+
+ if (knitr::is_html_output()) {
+   htmlwidgets::onRender(sn, 'document.getElementsByTagName("svg")[0].setAttribute("viewBox", "")') #Svo að þetta sé ekki ofursmátt í Firefox
+ } else{
+   B <- paste(nodes$name,c(110,15,761,653,233,41,256,6,43),sep="- ")
+  nodes <- paste(B,"t")
+  nodes <- as.data.frame(nodes)
+  names(nodes) <- "name"
+  rass <- list(nodes,links)
+  names(rass) <- c('nodes','links')
+  sn <- sankeyNetwork(Links = rass$links, Nodes = rass$nodes, Source = "source",
               Target = "target", Value = "value", NodeID = "name",
               units = "Tonn", fontSize = 12, nodeWidth = 30)
-htmlwidgets::saveWidget(sn,"vegm.html")
-
-#library(widgetframe)
-#rammi <- frameWidget(sn)
-#saveNetwork(sn,"vegm.html")
-sn <- htmltools::includeHTML("vegm.html")
-sn
-# if (knitr::is_html_output()) {
-#   htmlwidgets::onRender(rammi, 'document.getElementsByTagName("svg")[0].setAttribute("viewBox", "")') #Svo að þetta sé ekki ofursmátt í Firefox
-# } else{
-#    B <- paste(nodes$name,c(110,15,761,653,233,41,256,6,43),sep="- ")
-#   nodes <- paste(B,"t")
-#   nodes <- as.data.frame(nodes)
-#   names(nodes) <- "name"
-#   rass <- list(nodes,links)
-#   names(rass) <- c('nodes','links')
-#   sn <- sankeyNetwork(Links = rass$links, Nodes = rass$nodes, Source = "source",
-#               Target = "target", Value = "value", NodeID = "name",
-#               units = "Tonn", fontSize = 12, nodeWidth = 30)
-#   sn
-# }
+  sn
+}
   
 ```
 
 
-#### Hjólbarðar flugvéla {-}
 
 
-Ólíkt hjólbörðum ökutækja eru hjólbarðar flugvéla einungis notaðir við upphaf og lok ferðalags og slit þar af leiðandi hlutfallslega minna og einskorðað við flugvelli. Hér er gert ráð fyrir að hjólbarðar flugvéla séu gerðir úr gúmmíblöndu sem er ekki það frábrugðin hinum ýmsu samsetningum annarra hjólbarða að það breyti nokkru fyrir tilgang þessarar skýrslu.
+# Málning {-}
 
-Ein leið til að áætla losun örplasts frá hjólbörðum flugvéla er að margfalda fjölda flughreyfinga, þá er átt við flugtak og lendingu saman, með áætluðu dekkjasliti. Hér er gerður greinarmunur á millilandaflugi og innanlandsflugi þar sem stærri flugvélar eru alla jafna notaðar í millilandaflugi.
-
-Dæmigerðar millilandaflugvélar eru flugvélar á borð við Boeing 757 [@kole2017wear] og Airbus 321 (pers. heimild) sem vega frá 30 til 65 tonna án farþega og eru með fjögur til átta aðalhjól og tvö framhjól. Slit hjólbarða flugvéla í hverri flughreyfingu (tekið saman af Kole [-@kole2017wear]) er metið um 21 gramm frá hverju framhjóli og 59 grömm frá hverju aðalhjóli eða 278-514 grömm í heildina. Sé áætlað dekkjaslit margfaldað með fjölda flughreyfinga í millilandaflugi á Íslandi árið 2017 (65.528 flughreyfingar) [@isavia2017] nemur það 18 til 34 tonnum af dekkjasliti árlega.
-
-Flugvélar í innanlandsflugi á Íslandi eru flestar á bilinu 10 til 18 tonn án farþega (t.d. Bombardier Q400 (18 tonn), Bombardier Q200 (10 tonn) og  Jetstream 32 (10 tonn)). Ekki fundust tölur um slit hjólbarða hjá þessum flugvélum en sé lauslega gert ráð fyrir að slitið sé í kringum 1/3 af því sem áætlað er fyrir flugvélar í millilandaflugi. Af hinum tæpu 130 þúsund flughreyfingum hérlendis árið 2017 voru 75 þúsund þeirra snertilendingar sem reiknast sem 0,5 flughreyfing. Með sömu aðferðum og notaðar voru við að meta dekkjaslit frá millilandaflugi má áætla um 8-16 tonnum árlega vegna innanlandsflugs. Árlegt magn dekkjaslits frá hjólbörðum flugvéla er því metið 26-50 tonn. Þetta mat er byggt er á óáreiðanlegum forsendum og ekki var unnt notast við nákvæma stærðarflokkun þeirra flugvéla sem lentu og tóku á loft á Íslandi og því viðbúið að skekkja matsins sé talsverð.
-
-Allar flugbrautir á Keflavíkurflugvelli afvatnast út í jarðveginn í kring og berst því líklega ekki í hafið í miklu mæli. Fráveitukerfi flugvallarins tekur við ofanvatni frá byggingum á vellinum. Ekki var kannað hvernig fráveitumálum er háttað við aðra flugvelli eru staðsettir við sjó eða við fljót í tilfelli Egilstaðaflugvallar. Ekki er hægt að meta losun örplasts í hafið frá flugvélahjólbörðum hérlendis að svo stöddu en uppspretta örplasts frá hjólbörðum flugvéla í umhverfið árlega er **26-50 tonn**.
-
-```{r eval=FALSE, include=FALSE}
-millilandaflughreyfingar=65528
-neðri.mörk.skv.Kole=278
-efri.mörk.skv.Kole=514
-65528*c(278,514)
-
-innanlandsflughreyfingar=53390
-neðri.mörk.skv.Kole=278
-efri.mörk.skv.Kole=514
-snertilendingar=75497
-(53390)*c(278/3,514/3)+(75497/2)*c(278/3,514/3)
-```
+Gera þarf könnun á innflutningi málningar og efna til framleiðslu á málningu þar sem óvissa er um hlutfallslegt magn ólíkrar málningar, til dæmis skipa- og húsamálningar og málningar með misháu fjölliðuinnihaldi hérlendis. Skýrsluhöfundum er ekki kunnugt um hvernig eftirliti með slippum er háttað en við matið á örplastlosun frá þeim var stuðst við tölur frá Hollandi [@Verschoor2016] en engar samantektir á þeirra starfsemi fengust afhentar. Mesti munur á mögulegri uppsprettu og losun í hafið var frá stærstu slippunum en að sögn starfsmanna nokkurra slippa er nánast allt hreinsað upp sem fellur til vegna viðhalds skipa.
 
 
-
-## Málning {-}
-
-Gera þarf könnun á innflutningi málningar og efna til framleiðslu á málningu þar sem óvissa er um hlutfallslegt magn ólíkrar málningar, til dæmis skipa- og húsamálningar og málningar með misháu fjölliðuinnihaldi hérlendis. Skýrsluhöfundum er ekki kunnugt um hvernig eftirliti með slippum er háttað en við matið á örplastlosun frá þeim var stuðst við tölur frá Hollandi [@Verschoor2016] en engar samantektir á þeirra starfsemi fengust afhendar. Mesti munur á mögulegri uppsprettu og losun í hafið var frá stærstu slippunum en að sögn starfsmanna nokkurra slippa er nánast allt hreinsað upp sem fellur til vegna viðhalds skipa.
-
-
-### Utanhússmálning {-}
+## Utanhússmálning {-}
 
 Flestar gerðir málningar eru með syntetískum fjölliðum sem bindiefni [@Durkin2018] og vitað er að málning slitnar og veðrast. Mest er innflutt af akrýl- og vínylblandaðri málningu til landsins til notkunar innanhúss og utan en bæði þessi efni eru plastefni. Utanhússmálning flagnar af og veðrast að einhverju leyti en aðallega losnar hún af við háþrýstiþvott og getur borist til hafs með fráveitukerfum og vindum. Það skal tekið fram að hluti plastefna í utanhússmálningu sundrast vegna útfjólublárrar geislunar og vatnsrofs og berst því ekki í umhverfið sem örplast. Á líftíma málningar á veggjum og þökum utanhúss brotnar allt að 67% einliða plastefnanna niður í koltvísýring, vatn og nitur [@Hann2018] og er sá hluti því dreginn frá heildarlosun örplasts frá utanhússmálningu. 
 
@@ -486,7 +529,7 @@ kable(lina,align = "c",format = 'latex', caption = 'Áætluð árleg losun örpl
 
 Áætluð uppspretta örplasts frá utanhússmálningu á ári, vegna háþrýstiþvotta og flögnunar, slits og veðrunar, er því um 30-70 tonn. Þar sem um 70% af flatarmáli bygginga er innan þéttbýlis^[hér er þéttbýli skilgreint eftir gagnalaginu mannvirki í IS 50V kortagrunninum frá landhelgisgæslunni] er aftur farið eftir áætluðu hlutfalli ofanvatns sem rennur í ræsi (60%) [@Verschoor2016]. Byggingar utan þéttbýlis þar sem fráveita er nánast engin eru ekki hafðar með. Áætluð losun örplasts í hafið frá útimálningu er því **12-29 t**.
 
-### Innimálning {-}
+## Innimálning {-}
 Innimálning verður ekki fyrir mikilli veðrun og hvert lag er málað yfir það sem fyrir var án þess að það sé þvegið af. Örplastmengun vegna málningar innandyra verður því aðallega vegna þrifa á penslum. Sú málning berst beint í hafið um fráveitukerfi og má reikna með að hún sé um 1,6 % af innkeyptri innimálningu og fjölliðuinnihald hennar sé um 20 % [@Hann2018].
 
 
@@ -527,33 +570,76 @@ Ekki er öll málning með plastbindiefnum og einnig eru algeng bindiefni í má
 
 ```{r echo=FALSE, fig.cap="Áætluð árleg heildarlosun örplasts frá húsamálningu er 15,2-36,1 tonn.", message=FALSE, warning=FALSE, fig.align='center'}
 library(networkD3)
-nodes <- c("Útimálning","Innimálning",'Land','Haf')
+
+value <- c(30,3.2)
+losun <- c(12,3.2)
+heiti <- c("Útimálning","Innimálning")
+land <- value-losun
+df <- data.frame(heiti,land,losun)
+df <- df[order(df$heiti),]
+
+library(networkD3)
+nodes <- c(levels(df$heiti), 'Land','Haf')
 nodes <- as.data.frame(nodes)
 names(nodes) <- "name"
-#nodes$name <-  as.character(nodes$name)
-links <- data.frame(source=c(0,0,1),target=c(2,3,3),value=c(30,12,3.2))
-rass <- list(nodes,links)
-names(rass) <- c('nodes','links')
-sn <- sankeyNetwork(Links = rass$links, Nodes = rass$nodes, Source = "source",
-              Target = "target", Value = "value", NodeID = "name",
-              units = "tonn", fontSize = 12, nodeWidth = 30)
+
+a <- list()
+for (i in 1:nrow(df)) {
+  a[i] <- list(rbind(matrix(c(df[i,c(2,3)]))))
+}
+b <- do.call(c,a)
+value <- unlist(b)
+
+links <- 
+  data.frame(
+    source=rep(seq(0,length(heiti)-1),each=2),
+    target=c(rep(c(length(heiti),length(heiti)+1),length(heiti))),
+    value=value)
+
+
+Sank <- list(nodes, links)
+names(Sank) <- c('nodes', 'links')
+sn <- sankeyNetwork(
+  Links = Sank$links,
+  Nodes = Sank$nodes,
+  Source = "source",
+  Target = "target",
+  Value = "value",
+  NodeID = "name",
+  units = "tonn",
+  colourScale = JS("d3.scaleOrdinal(d3.schemeCategory20);"),
+  fontSize = 20,
+  nodeWidth = 30, width = "770px", height = "500px", fontFamily = "Courier"
+)
+
 if (knitr::is_html_output()) {
   htmlwidgets::onRender(sn, 'document.getElementsByTagName("svg")[0].setAttribute("viewBox", "")') #Svo að þetta sé ekki ofursmátt í Firefox
 } else{
-   B <- paste(nodes$name,c(42,3.2,30,15),sep="- ")
+  B <- paste(nodes$name,c(df$land+df$losun,sum(df$land),sum(df$losun)), sep="- ")
   nodes <- paste(B,"t")
   nodes <- as.data.frame(nodes)
   names(nodes) <- "name"
-  rass <- list(nodes,links)
-  names(rass) <- c('nodes','links')
-  sn <- sankeyNetwork(Links = rass$links, Nodes = rass$nodes, Source = "source",
-              Target = "target", Value = "value", NodeID = "name",
-              units = "Tonn", fontSize = 12, nodeWidth = 30)
-  sn
+  
+  Sank <- list(nodes,links)
+  names(Sank) <- c('nodes','links')
+  
+  sn <- sankeyNetwork(
+    Links = Sank$links,
+    Nodes = Sank$nodes,
+    Source = "source",
+    Target = "target",
+    Value = "value",
+    NodeID = "name",
+    units = "tonn",
+    colourScale = JS("d3.scaleOrdinal(d3.schemeCategory20);"),
+    fontSize = 12,
+    nodeWidth = 30)
+  
+ sn
 }
 ```
 
-### Skipamálning {-}
+## Skipamálning {-}
 
 Í þessari skýrslu er sú nálgun valin að áætla magn skipamálningar út frá fjölda og stærð skipa. Skip eru með marga málaða fleti sem erfitt er að henda reiður á og því er hér aðeins stikað á stóru en til frekari einföldunar verða aðeins fiskiskip könnuð þar sem önnur skip eru mjög lítill hluti af skipaflota landsins. Ekki hefur verið framkvæmd markaðskönnun hjá söluaðilum til að meta magn skipamálningar frekar en annarrar málningar.
 
@@ -613,11 +699,11 @@ pie(kaka$Flatarmal,labels = kaka$gerd, border="grey",col = c("transparent",litur
 
 Þar sem það eru engin neðri mörk á stærð báta sem geta farið í slipp eru mörkin óljós en hér er skipum skipt í 3 stærðarflokka: Undir 15 metra löng skip, milli 15 og 30 metra löng og yfir 30 metra löng. Litlir bátar, undir <10 metrar á lengd, eru sjaldnast settir í slipp og reiknum við því með að þeir séu að mestu leyti málaðir af eigendum uppi á landi og flyksurnar af háþrýstiþvotti á þeim fari í jarðveginn í mismikilli fjarlægð frá sjó. Stærri bátar og skip eru tekin í slipp niðri við sjó.
 
-#### Smábátar {-}
+### Smábátar {-}
 
 Smábátar eru bátar undir 15 metrum að lengd. Smábátar nota um 2 til 2,5 L (eða 1-1,3 kg/L) af málningu á ári [@Verschoor2016] eða 972-1236 kg/ári. Miðað við að hlutfall plastefna geti verið milli 30% og 80% og að upp undir 40% falli til við háþrýstiþvott [@Verschoor2016] er örplastlosun í umhverfið frá smábátum undir einu tonni á ári. Þar sem smábátar eru gjarnan málaðir af eigendum uppi á landi fer hluti þessarar losunar í jarðveginn og berst því ekki í hafið.  
 
-#### Stærri skip {-}
+### Stærri skip {-}
 
 Séu stór skip máluð á þriggja til fimm ára fresti er ekki ólíklegt að þau losi að því sem nemur einni stærðargráðu meira af örplasti í hafið. Þá er ekki tekið með það sem fýkur burtu við sprautumálun [@OECD2009] sem getur verið umtalsvert þar sem hérlendir slippir eru ekki yfirbyggðir. Mesta mögulega losun örplasts frá slippunum er þó vegna háþrýstiþvottar
 
@@ -633,7 +719,7 @@ Líftími (tíminn milli þess sem skipið er málað) skipamálningar er almenn
 
 
 
-## Frumplast í plastframleiðslu {-}
+# Frumplast í plastframleiðslu {-}
 
 Frumplast er ekki framleitt á Íslandi en er engu að síður flutt inn í þónokkru magni til framleiðslu á hinum ýmsu plasthlutum, t.d. fiskikörum, heitum pottum og trefjaplastbátum. Í þeim löndum þar sem frumplast er framleitt, t.d. Noregi og Svíþjóð, er gert ráð fyrir að losun í umhverfið sé í kringum 0,4% [@sundt2014sources] en aðrar forsendur eiga við í löndum þar sem frumplast er eingöngu innflutt [@lassen2015microplastics].
 
@@ -682,9 +768,9 @@ knitr::include_graphics("myndir/diagrammerinn.png")
 Samkvæmt upplýsingum frá Tollstjóra fyrir árið 2017 og 2016 voru flutt inn um 12.600 tonn af plasti árlega í frumgerðum á borð við upplausnir, þeytur, deig eða önnur form (tollskrárnúmer 3901-3914). Það má því áætla að losun vegna frumplasts í plastframleiðslu sé frá 0,0005-0,01% eða **0,06 - 1,3 tonn** árlega. Þó hefur ekki verið gerð könnun á því og matið er því annars vegar byggt á tölum sem framleiðendur í Danmörku gefa upp og hins vegar mati OECD frá iðnaði sem er mjög smár hér á landi. Þetta á bæði við um leka og sóun innandyra hjá framleiðslufyrirtækjunum og í flutningum og meðhöndlun.
 
 
-## Útisvæði {-}
+# Útisvæði {-}
 
-### Gervigrasvellir {-}
+## Gervigrasvellir {-}
 
 Örplastmengun frá gervigrasvöllum er tvenns konar. Annars vegar vegna slits gervigrassins sjálfs og hins vegar vegna innfyllingar. Innfylling er það kallað þegar bætt er á gúmmíkurlið í gervigrasinu. Nokkrar gerðir gervigúmmís eru notaðar sem innfyllingarefni, algengast er að notað sé dekkjakurl en einnig er notast við annars konar dýrara efni. Kurlið er fínna en 5 mm og telst því til örplasts miðað við tilgang þessarar skýrslu. Viss hluti þess dreifist í kringum vellina með vindi, undir skóm og í fatnaði og einnig með snjómokstri eða skolast burtu með affallsvatni [@Wredh2014].
 
@@ -699,7 +785,7 @@ Sumir vellir eru gerðir með gúmmímottu undir gervigrasinu sem minnkar þörf
 
 Árlegri notkun dekkjakurls er skipt niður eftir gerðum leikvalla og miðast við að mest fari á keppnisvelli árlega en engu sé bætt á litla sparkvelli þar sem þeir voru flestir byggðir fyrir tiltölulega stuttu síðan og í millitíðinni skapaðist mikil umræða um mögulega skaðsemi innfyllingarefna og því beðið með að bæta á flesta þessa velli. Æfingavellir og smærri hús eru með losunartölur þarna mitt á milli.
 
-Miðað við gögn frá Lassen [-@lassen2015microplastics] og FIFA tekin saman af [@Hann2018] er gervigrasið sjálft u.þ.b. 0,8 - 1,4 kg/m2 og árlegt slit á bilinu 0.5 - 0.8%. Sé miðað við 400.000 fermetra af gervigrasi á Íslandi er losun úr gervigrasinu sjálfu því undir hálfu tonni á ári.
+Miðað við gögn frá Lassen [-@lassen2015microplastics] og FIFA tekin saman af Hann [-@Hann2018] er gervigrasið sjálft u.þ.b. 0,8 - 1,4 kg/m2 og árlegt slit á bilinu 0.5 - 0.8%. Sé miðað við 400.000 fermetra af gervigrasi á Íslandi er losun úr gervigrasinu sjálfu því undir hálfu tonni á ári.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 gervigras <- read.table("skjol/gervigras.csv",sep = ';',encoding = 'ISO 8859-1',header = T,dec = ',',stringsAsFactors = F)
@@ -736,9 +822,7 @@ names(nodes) <- "name"
 links <- data.frame(source=rep(c(0,1,2,3,4),each=4),target=rep(5:8,5),value=matrix(t(fermetrar[1:5,3:6])))
 rass <- list(nodes,links)
 names(rass) <- c('nodes','links')
-sn <- sankeyNetwork(Links = rass$links, Nodes = rass$nodes, Source = "source",
-              Target = "target", Value = "value", NodeID = "name",
-              units = "tonn", fontSize = 12, nodeWidth = 30)
+sn <- sankeyNetwork(Links = rass$links, Nodes = rass$nodes, Source = "source",Target = "target", Value = "value", NodeID = "name",units = "Tonn", fontSize = 20,nodeWidth = 30,width = "770px",height = "500px",fontFamily = "Courier")
 
 if (knitr::is_html_output()) {
   htmlwidgets::onRender(sn, 'document.getElementsByTagName("svg")[0].setAttribute("viewBox", "")') #Svo að þetta sé ekki ofursmátt í Firefox
@@ -759,16 +843,16 @@ B <- paste(nodes$name,round(c(colSums(t(df)),colSums(df)),1),sep = '- ')
 
 Áætluð heildarlosun örplasts í umhverfið frá gervigrasvöllum á Íslandi árið 2017 er því 3-11 tonn, með þeim fyrirvara að matið byggir á almennum forsendum en ekki raunverulegum mælingum á áfyllingum gervigrasvalla á Íslandi. Erfitt er að meta hver afdrif þess eru og hve mikið fer í fráveitukerfi. Gúmmíkurlið festist í klæðnaði og undir skóm og getur borist í hafið í gegnum ræsi og frá affalli þvottavéla. Í breskri rannsókn [-@Hann2018] var áætlað að um 5% innfyllingarefnis lendi í fráveitukerfum við vellina og önnur 5% lendi í fráveitu frá búningsklefum og heimilum. Annars fari 90% efnisins í förgun eða jarðveg. Miðað við þær forsendur má meta það sem svo að allt að 10% geti borist með fráveitu í hafið eða **0,3 - 1,1 tonn**.
 
-### Skólalóðir og leiksvæði {-}
+## Skólalóðir og leiksvæði {-}
 
 Frá aldamótum hefur orðið mikil aukning á því að skólalóðir, leikskólalóðir og opin leiksvæði hafi fleti úr mjúkum gerviefnum á borð við gervigras, tartan (líkt og á frjálsíþróttahlaupabrautum), gúmmíhellur og gúmmígrasmottur. Þetta er gert til að skapa börnum öruggara umhverfi en allir þessir fletir innihalda gervigúmmí og verða þeir fyrir sliti vegna notkunar og veðrunar sem veldur losun örplasts í umhverfið. Ekki liggja fyrir gögn um örplastslosun þeirra á Íslandi en notkun og veðuraðstæður hafa mikil áhrif á umfang hennar.
 
 Samkvæmt upplýsingum frá skipulagssviði Reykjavíkurborgar eru 39 grunnskólar, 75 leikskólar og 256 opin leiksvæði á þeirra vegum og umfang fyrrgreindra gerviefna á skólalóðum sé um 400-800 m², leikskólalóðum um 200-400 m² og opnum leiksvæðum 150-300 m². Flatarmál gerviefna í Reykjavík er þ.a.l. 69.000-138.000 m² og miðað við íbúafjölda Reykjavíkur 1. janúar 2017 (námundað að tugþúsundi, þ.e. 120.000) eru þetta 0,58-1,15 m² á hvern íbúa. Sé þetta hlutfall heimfært á íbúafjölda Íslands 1. janúar 2017 (námundað að tugþúsundi, þ.e. 340.000), eru gerviefni skólalóða og leikvalla á landinu 195.500-391.000 m² en þetta eru ónákvæmar tölur þar sem ekki liggur fyrir hvort hlutfallið í Reykjavík eigi við um önnur sveitarfélög á landinu. Til að áætla losun örplasts frá skólalóðum og leiksvæðum þarf einnig að vita hversu mikið slitið er, annaðhvort á ársgrundvelli eða líftíma mismunandi gerða gúmmíundirlags, en þau gögn eru ekki fyrirliggjandi. Ef gervigras á knattspyrnuvöllum eyðist um 0,5 - 0,8% vegna notkunar má ætla að á leiksvæðum sé hlutfallið af svipaðri stærðargráðu en þó lægra en á íþróttavöllum. Miðað við 0,1 - 0,5% má áætla að slit á gúmmíundirlagi á leikvöllum sé **0,2 - 2 tonn** árlega. 
 
 
-## Neysluvara {-}
+# Neysluvara {-}
 
-### Þvottur á fatnaði {-}
+## Þvottur á fatnaði {-}
 
 Gerviefni ^[Manngerð efni, annars vegar svokölluð syntetísk og hins vegar svokölluð gerviefni samkvæmt skilgreiningu í tollskrá: Tilbúnar trefjar í fatnaði: **Syntetísk (e. synthetic) efni**: Stutttrefjar og þræðir úr lífrænum fjölliðum sem framleiddar eru með fjölliðun lífrænna einliða til framleiðslu á fjölliðum, svo sem **pólýamíða, pólýestera, pólýólefína eða pólýúretana**, eða með kemískri umbreytingu á fjölliðum framleiddum með þessari aðferð (t.d. **póly(viníl alkóhól)** framleitt með vatnsrofi á **pólý (vínyl asetat)**).
 **Gerviefni (e. artificial)**: Með upplausn eða kemískri umbreytingu náttúrulegra lífrænna fjölliða (t.d. sellulósa) til framleiðslu á fjölliðum svo sem koparammoníumrayoni (kúpró) eða viskósarayoni eða með kemískri umbreytingu náttúrlegra lífrænna fjölliða (t.d. sellulósa, kaseíns og annarra prótína eða þörunga) til framleiðslu á fjölliðum svo sem sellulósaacetati eða algínötum. [@tollur2017]] eru algeng í fatnaði og er þá um að ræða þræði úr plastefnum eins og t.d. pólýester en með þeim nást fram ýmsir eiginleikar á borð við fjölbreytta áferð, útlit og notagildi en þar ber helst að nefna slitþol, teygjanleika og vatnsheldni. Við þvott fatnaðar losnar þónokkuð magn þráða úr fatnaðinum og á það bæði við um fatnað úr gerviefnum (plastþráðum) og náttúrulegum efnum á borð við ull, silki og bómull [@magnusson2014mikroskopiska; @magnusson2014mikroskrap].
@@ -808,16 +892,16 @@ kable(lina, format = "latex", align = "c", caption = 'Áætluð árleg losun ör
   }
 ```
 
-Áætluð heildarlosun örplasts frá þvotti á Íslandi á ári er því **8,2-32 tonn**, með þeim fyrirvara að gögnin eru komin til ára sinna og gerviefni verða æ algengari í þvotti ásamt því að losun örplasts við hvern þvott er ekki föst stærð heldur breytileg eftir hversu notuð fötin eru. Tölurar sem hér er stuðst við um örplastlosun frá þvotti á fatnaði eru frá því 2010 [@pakula2010electricity] en þar sem fatnaður úr náttúrulegum efnum er á undanhaldi og notkun gerviefna í fatnaði eykst ár hvert er líklegt að hér sé um vanmat að ræða. 
+Áætluð heildarlosun örplasts frá þvotti á Íslandi á ári er því **8,2-32 tonn**, með þeim fyrirvara að gögnin eru komin til ára sinna og gerviefni verða æ algengari í þvotti ásamt því að losun örplasts við hvern þvott er ekki föst stærð heldur breytileg eftir hversu notuð fötin eru. Tölurnar sem hér er stuðst við um örplastlosun frá þvotti á fatnaði eru frá því 2010 [@pakula2010electricity] en þar sem fatnaður úr náttúrulegum efnum er á undanhaldi og notkun gerviefna í fatnaði eykst ár hvert er líklegt að hér sé um vanmat að ræða. 
 
 Mikið af gerviefnum er á vinnustöðum og á heimilum fólks, alls konar vefnaður, teppi og mottur, áklæði utan um sófa og stóla, tuskudýr og fleira er innadyra sem ekki er minnst á í þessari skýrslu. Ryk innanhúss getur talist til uppsprettu örplasts í hafið, sérstaklega berist það með í niðurföll en ætla má að innanhúsryk endi að miklu leyti í sorpi.
 
 
-### Skósólar {-}
+## Skósólar {-}
 
-Skósólar eru gerðir úr gervigúmmíblöndu (nánar til tekið elastómerum sem eru ekki alltaf taldar til plasts), pólývínyl klóríð (e. PVC) eða pólýúretani [@karak2009fundamentals] sem slitna við notkun skónna. Í danskri samantekt [@lassen2015microplastics] var gerð tilraun til að meta örplastlosun frá skósólum í umhverfið út frá evrópsku mati á losun þalata [@Pakalin2008] og umreiknað fyrir pólývínylklóríð (sem er plastefni). Þar er gróflega áætlað að slit skósóla sé á bilinu 100-1000 tonn árlega í Danmörku. Miðað við að íbúafjöldi Íslands sé um 6% af íbúafjölda Danmerkur má áætla gróflega heildarlosun örplasts frá skósólum á Íslandi en ólík menning og veðurfar gerir beinan samanburð erfiðan. 
+Skósólar eru gerðir úr gervigúmmíblöndu (nánar til tekið elastómerum sem eru ekki alltaf taldar til plasts), pólývínyl klóríð (e. PVC) eða pólýúretani [@karak2009fundamentals] sem slitna við notkun skónna. Í danskri samantekt [@lassen2015microplastics] var gerð tilraun til að meta örplastlosun frá skósólum í umhverfið út frá evrópsku mati á losun þalata [@Pakalin2008] og umreiknað fyrir pólývínylklóríð (sem er plastefni). Þar er gróflega áætlað að slit skósóla sé á bilinu 100-1000 tonn árlega í Danmörku. Miðað við að íbúafjöldi Íslands sé um 6% af íbúafjölda Danmerkur má áætla gróflega heildarlosun örplasts frá skósólum á Íslandi. Þrátt fyrir að ólík menning og veðurfar geri beinan samanburð erfiðan má búast við því að hér sé um nokkur tonn að ræða sem geti borist til sjávar með ofanvatni.
 
-### Snyrtivörur {-}
+## Snyrtivörur {-}
 
 Örplast í snyrtivörum hefur verið talsvert í almennri umræðu á síðustu árum. Þekktustu áhrif sem fengin eru fram með örplastögnum í snyrtivörum eru skrúbbáhrif í sápum, andlitsskrúbbar og fótaskrúbbar. Þessar plastagnir hafa margskonar fleiri verkanir en engan möguleika á að vera endurunnar og berast að mestu beint í hafið eftir notkun. Það er þó svo að örplast í snyrtivörum telst aðeins vera smávægileg uppspretta á heildina litið.
 Hlutfall örplasts getur verið allt á milli 1%-90% í ýmsum vörum og svo dæmi séu tekin eru það raksápur, ungbarnavörur, svitalyktareyðir, kinnalitir, hárlitunarefni og sjampó [@Leslie2014].
@@ -841,7 +925,7 @@ kable_styling(bootstrap_options = "striped", full_width = F) %>%
 
 Áætluð heildarlosun örplasts í hafið frá snyrtivörum á Íslandi er því **0,34-3,4 tonn**.
 
-### Haglaskot {-}
+## Haglaskot {-}
 
 Haglaskot í dag hafa yfirleitt tvo hluta með eða úr plasti: Skothylkið/patrónuna, sem er að hluta úr plasti, og forhlaðið sem er eingöngu úr plasti. Forhlaðið er staðsett milli púðurs og hagla inni í skothylkinu en einnig eru til skot sem innihalda ekkert plast, líkt og var eingöngu tilfellið fyrir fjöldaframleiðslu plasts, en notkun þeirra á Íslandi er lítil.
 
@@ -855,9 +939,9 @@ Heildarmagn notaðra forhlaða árið 2017 var því 3,2 tonn en þar sem ákve�
 
 Áætluð heildarlosun örplasts frá haglaskotum á Íslandi árið 2017 er því **1-3 tonn**, með fyrirvara um ofangreinda óvissuþætti. Ekki er unnt að áætla afdrif örplasts frá haglaskotum að svo stöddu.
 
-## Matvælaframleiðsla {-}
+# Matvælaframleiðsla {-}
 
-### Sjávarútvegur {-}
+## Sjávarútvegur {-}
 
 
 Veiðarfæri eru almennt úr plastefnum, hvort sem það eru línur, net, flotholt og eru því möguleg uppspretta örplastmengunar, annars vegar vegna slits við venjulega notkun og hins vegar vegna veiðarfæra sem tapast í hafið og veðrast. Í umhverfisskýrslu Samtaka fyrirtækja í sjávarútvegi er tekið fram að um 1.300 tonnum af veiðarfærum sé skilað til hafna og þaðan til endurvinnslu (eða viðeigandi förgunar). Ekki eru til upplýsingar um heildarmagn veiðarfæra í notkun á Íslandsmiðum. Magn veiðarfæra íslenska fiskveiðiflotans var gróflega áætlað um 7.313 tonn út frá heildarþyngd afla borið saman við önnur evrópuríki [@Hann2018]. Samkvæmt sérfræðingi Hafrannsóknarstofnunar er sú tala allt of há þar sem hérlendis eru fáir bátar fyrir hvert veitt kíló af fiski, samanborið við aðrar fiskveiðiþjóðir, og því góð nýting á veiðarfærum.
@@ -872,23 +956,23 @@ DT::datatable(net)
 
 
 
-Losun örplasts fer eftir því hvernig veiðarfæri um ræðir en sum þeirra slitna og missa þræði við notkun í mismiklum mæli. Aðrar gerðir veiðarfæra líkt og grásleppunet og handfæralínur slitna ekki með þeim hætti. Í sænskri rannsókn var losun örplasts metin 1-10% af heildarþyngd veiðarfæra sænskra fiskiskipa [@Hann2018] með þeim fyrirvara að bæði tölurnar um heildarþyngd veiðarfæra og losun örplasts væru byggðar á veikum grunni. Það er nauðsynlegt að afla upplýsinga um magn veiðarfæra á íslenskum miðum áður en hægt er að leggja nákvæmt mat á hversu hátt hlutfall veiðarfæra fellur til við notkun á ársgrundvelli. Varðandi almenna veðrun veiðarfæra og slit er einnig þörf á frekari upplýsingum eða rannsóknum [@Hann2018].
+Losun örplasts fer eftir því hvernig veiðarfæri um ræðir en sum þeirra slitna og missa þræði við notkun í mismiklum mæli. Aðrar gerðir veiðarfæra líkt og grásleppunet og handfæralínur slitna ekki með þeim hætti. Í sænskri rannsókn var losun örplasts metin 1-10% af heildarþyngd veiðarfæra sænskra fiskiskipa [@Hann2018] með þeim fyrirvara að bæði tölurnar um heildarþyngd veiðarfæra og losun örplasts væru byggðar á veikum grunni.  Miðað við 1-10% slit við notkun á 7.000 tonnum af veiðarfærum þá er möguleg örplastlosun 70-700 tonn. Það er nauðsynlegt að afla upplýsinga um magn veiðarfæra á íslenskum miðum áður en hægt er að leggja nákvæmt mat á hversu hátt hlutfall veiðarfæra fellur til við notkun á ársgrundvelli. Varðandi almenna veðrun veiðarfæra og slit er einnig þörf á frekari upplýsingum eða rannsóknum [@Hann2018].
 
-### Sjókvíaeldi {-}
+## Sjókvíaeldi {-}
 
 Mannvirki og búnaður í sjókvíaeldi er að töluverðu leyti úr plasti, til dæmis net, rör, flotholt ofl. og er viðbúið að eitthvað af örplasti losni vegna slits og veðrunar. Öll slík losun fer óhjákvæmilega beint í hafið en ekki hefur tekist að nálgast mælingar eða gögn um þessa losun eða stærðargráðu hennar. Norsk skýrsla um losun örplasts [@sundt2014sources] fjallaði stuttlega um örplastmengun frá sjókvíaeldi en vísaði ekki í töluleg gögn. Því er þörf á frekari gögnum, t.d. í formi staðlaðrar losunar af örplastögnum fyrir hverja gerð sjókvíar, enda viðbúið að einhver munur sé á milli hönnunar ólíkra framleiðenda.
 Samkvæmt Matvælastofnun eru samtals um 73 sjókvíar í notkun á Íslandi 2018 á Vestfjörðum og Austfjörðum og flokkast þær allar sem stórar kvíar eða 160 metrar í ummál. Með stöðluðum losunartölum fyrir sjókvíar að þessu tagi væri því hægt að áætla heildarlosun á landsvísu.
 
 Ekki er að svo stöddu hægt að áætla heildarlosun örplasts frá sjókvíaeldi á Íslandi vegna skorts á gögnum og auk þess ríkir óvissa um stærðargráðu losunarinnar, einkum í ljósi mikils vaxtar atvinnugreinarinnar.
 
-### Landbúnaður (heyrúlluplast) {-}
+## Landbúnaður (heyrúlluplast) {-}
 
 Heyrúlluplast getur lent í umhverfinu og orðið að örplasti en erfitt er að áætla að hversu miklu leyti. Notkun er t.d. breytileg eftir árferði og innflutningstölur fyrir tiltekið ár því ekki endilega lýsandi, auk þess sem notuðu plasti getur verið skilað til móttökuaðila á öðru ári en það var notað. Til að taka mið af þessu er því hér byggt á meðaltali fyrir árin 2013-2017, bæði varðandi innflutning og magn sem skilað hefur verið til móttökuaðila. Samkvæmt Úrvinnslusjóði þarf hér að gera ráð fyrir því að heyrúlluplast geti við notkun þyngst um allt að 30%, vegna raka og drullu, en almennt er gert ráð fyrir um 20-25% þyngdaraukningu (Úrvinnslusjóður, munnleg heimild).
 Innflutningur heyrúlluplasts á árunum 2013-2018 var að meðaltali tæplega 2.000 tonn [@Urvinnslusjoður2016; @tollurinn] og má því ætla að árleg notkun sé af þeirri stærðargráðu. Á árunum 2013-2016 var að meðaltali skilað inn 2.094 tonnum af notuðu heyrúlluplasti [@Urvinnslusjoður2016], sem annaðhvort fór í endurvinnslu, var urðað eða fargað, og sé gert ráð fyrir 20-25% þyngdaraukningu vegna raka og drullu má ætla að það hafi upprunalega verið í kringum 1.700 tonn. Sé tekið mið af þessum forsendum má gera ráð fyrir að árlega endi um 300 tonn af heyrúlluplasti annaðhvort í almennri urðun eða umhverfinu. En ekki hefur verið metið hversu mikið fer í almenna urðun annars vegar og umhverfið hins vegar.
 
-## Umhverfi {-}
+# Umhverfi {-}
 
-### Plast í fjörum {-}
+## Plast í fjörum {-}
 Niðurbrot plastrusls gerist hve hraðast í orkumiklum kerfum líkt og fjörum en plastrusl í hafi og í fjörum er álitið vera með stærstu uppsprettum örplasts í hafinu [@andrady2011microplastics]. Ekki er hægt að meta magn af örplasti sem berst frá niðurbroti plastsrusls í fjörum í hafið. Magn rusls er ekki gott að áætla og svo vantar gögn um það hve hratt plasthlutir mást og eyðast í fjörum og sundrast frá stærra plasti í örplastsagnir.
 
 Skipulagðar hreinsanir á Íslandi eru framkvæmdar af félagasamtökunum Bláa hernum og fleirum. Samkvæmt talsmanni Bláa hersins er um eitt tonn af plastrusli á hverjum kílómetra af strandlengju sem þau hreinsa. Veiðarfæri og umbúðir úr plasti eru yfir 95% af þyngd hlutanna sem finnast. Veiðarfærin geta verið stórar einingar upp á hundruð kílóa en umbúðirnar eru oft smærri ílát fyrir neysluvöru.
@@ -939,15 +1023,15 @@ Vaktanir á íslenskum fjörum eru gerðar eftir OSPAR samkomulaginu en þar eru
 
 Í flokkunum tengdum matvælaframleiðslu og umhverfi var hve minnstar upplýsingar að finna um uppsprettur örplasts. Þó svo að einhverjar rannsóknir á magni og niðurbroti plasts í sjávarumhverfinu hafi verið framkvæmdar [@Andrady2017] þá er þekkingin til að meta örplastlosun í fjörum hérlendis enn ekki næg. Það er þó eflaust tilfinnanlegt magn. Svipaða sögu er að segja af heyrúlluplasti og veiðarfærum en magn þess sem er flutt inn og fært til endurvinnslu er ágætlega þekkt en afdrif þess sem lendir í umhverfinu eru ókunn enn. 
 
-### Sigvatn frá sorpurðunarstöðvum {-}
+## Sigvatn frá sorpurðunarstöðvum {-}
 Urðaður heimilisúrgangur er um 60.000 tonn á ári [@tollurinn2] á ýmsum urðunarstöðvum á Íslandi. Tugir urðunarstöðva eru vítt og breitt um landið, sumar þeirra eru ekki lengur í notkun en sigvatn rennur frá þeim engu að síður. Stærsta urðunarstöðin á Álfsnesi í Reykjavík er með leyfi til að taka við 120.000 tonnum á ári en aðrar stórar stöðvar eru í Glerárdal í Eyjafirði og í Stekkjavík við Húnaflóa (báðar um 20.000 tonn) en við Ölfusá var stöð þar til nýlega með leyfi fyrir 30.000 tonnum. Aðrar minni stöðvar hafa leyfi fyrir nokkrum hundruðum eða þúsundum tonna.
 
 Rannsóknir á örplastinnihaldi í sigvatni benda ekki til þess að það sé mikilvæg uppspretta örplasts [@Praagh1277395]. Talningar á örplastsögnum úr sigvatni nokkurra urðunarstöðva á Íslandi voru til dæmis lægri en talningar úr skólpi [@Praagh1277395]. Í stærstu urðunarstöðinni á Álfsnesi mældist örplast í mestu magni (frá 50-5000 μm að stærð) og var árleg losun metin á bilinu **0,002 - 177 kg** [@Praagh1277395].
 
 
-## Niðurlag {-}
+# Niðurlag {-}
 
-Afdrif örplasts eru að miklu leyti enn ókunn. Það er vel þekkt að það tekur langan tíma fyrir plast að eyðast í umhverfinu og sérstaklega þar sem lítillar birtu gætir og hitastig er lágt. Sundrun plasts (í vatn og koltvísýring) er sjaldnast í það stórum stíl að vert sé á að minnast í skýrslu sem þessari. Það er þó talið að sólarljós geti valdið talsverðri sundrun á plastefnum í vegmerkingum og utanhússmálningu til dæmis svo að plastefnainnihald minnkar með tímanum. Það er vandmeðfarið að ætla að skilgreina örplastagnir út frá hlutfallslegu plastinnihaldi þeirra en það er þó ein af fjöldamörgum áskorunum sem  rannsóknarfólk stendur frammi fyrir. Í þessari skýrslu er það gert varðandi málningu og vegmerkingar en ekki hjólbarða til dæmis.
+Afdrif örplasts eru að miklu leyti enn ókunn. Það er vel þekkt að það tekur langan tíma fyrir plast að eyðast í umhverfinu og sérstaklega þar sem lítillar birtu gætir og hitastig er lágt. Sundrun plasts (í vatn og koltvísýring) er sjaldnast í það stórum stíl að vert sé á að minnast í skýrslu sem þessari. Það er þó talið að sólarljós geti valdið talsverðri sundrun á plastefnum í vegmerkingum og utanhússmálningu til dæmis svo að plastefnainnihald minnkar með tímanum. Það er vandmeðfarið að ætla að skilgreina örplastagnir út frá hlutfallslegu plastinnihaldi þeirra en það er þó ein af fjöldamörgum áskorunum sem  rannsóknarfólk stendur frammi fyrir. Í þessari skýrslu er það gert í tilfelli utanhússmálningar, vegna líftíma hennar, en ekki hjólbarða til dæmis.
 
-Sumar uppsprettur var ekki hægt að leggja mat á vegna skorts á gögnum eða rannsóknum á því hvernig plastrusl í umhverfinu verður að örplasti. Þar ber hæst að nefna losun örplasts úr fjörum en erfitt er að áætla heildarmagn plasts í fjörum og hraða sundrunar þess í örplast. Fjörur geta verið líkt og mulningsvélar fyrir örplast ef stórt plastrusl er ekki fjarlægt úr þeim. Þá ber að nefna að þó svo að almennt sé talin minni hætta fyrir lífverur að innbyrða örplast miðað við stærra plast eru áhrif þess á lífverur og vistkerfi enn óráðin.
+Sumar uppsprettur var ekki hægt að leggja mat á vegna skorts á gögnum eða rannsóknum á því hvernig plastrusl í umhverfinu verður að örplasti. Þar ber hæst að nefna losun örplasts frá veiðarfærum en einnig úr fjörum en erfitt er að áætla heildarmagn plasts í fjörum og hraða sundrunar þess í örplast. Fjörur geta verið líkt og mulningsvélar fyrir örplast ef stórt plastrusl er ekki fjarlægt úr þeim. Þá ber að nefna að þó svo að almennt sé talin minni hætta fyrir lífverur að innbyrða örplast miðað við stærra plast eru áhrif þess á lífverur og vistkerfi enn óráðin.
 

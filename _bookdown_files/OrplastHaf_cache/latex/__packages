@@ -8,3 +8,5 @@ plyr
 networkD3
 dplyr
 tidyr
+htmlwidgets
+widgetframe
