@@ -3,6 +3,10 @@
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
+\usepackage{multirow}
+\usepackage[dvipsnames*,svgnames,table]{xcolor}
+\usepackage{booktabs}
+\usepackage{float}
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
@@ -33,6 +37,46 @@
   \usepackage{polyglossia}
   \setmainlanguage[]{icelandic}
 \fi
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs}
 \usepackage{graphicx,grffile}
 \makeatletter
@@ -83,160 +127,152 @@
     \pretitle{\vspace{\droptitle}\centering\huge}
   \posttitle{\par}
   \subtitle{{ Helstu uppsprettur, magn og farvegir í umhverfinu}}
-  \author{{Valtýr Sigurðsson}
-{Pétur Halldórsson}}
-    \preauthor{\centering\large\emph}
-  \postauthor{\par}
+  \author{}
+    \preauthor{}\postauthor{}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{10. September 2019}
+    \date{31. maí 2019}
 
 \usepackage{booktabs}
 \usepackage[utf8x]{inputenc}
-\usepackage{ucs}
-\usepackage{t1enc}
+%\usepackage{ucs}
+%\usepackage{t1enc}
+
+
+%\documentclass[12pt]{article}
+\usepackage[english]{babel}
+%\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{varwidth}
+\usepackage[most]{tcolorbox}
+
+\newtcbox{grattbox}[1][]{enhanced jigsaw,
+  sharp corners,
+  colback=gray!6,
+  center,
+  varwidth upper=0.85\linewidth,
+  frame hidden,
+  width=\linewidth-7cm,
+  #1}
+
+\usepackage{wrapfig}
 
 \begin{document}
-\maketitle
 
+\begin{titlepage}
+\pagenumbering{gobble}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+ 
+%----------------------------------------------------------------------------------------
+%	HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+%\textsc{\LARGE University Name}\\[1.5cm] % Name of your university/college
+%\textsc{\Large Major Heading}\\[0.5cm] % Major heading such as course name
+%\textsc{\large Minor Heading}\\[0.5cm] % Minor heading such as course title
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.4cm]
+{ \huge \bfseries Örplast í hafinu við Ísland}\\[0.4cm] % Title of your document
+\textsc{\Large Helstu uppsprettur, magn og farvegir í umhverfinu}\\[0.5cm] 
+\HRule \\[1.5cm]
+ 
+%----------------------------------------------------------------------------------------
+%	AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+
+
+
+% If you don't want a supervisor, uncomment the two lines below and remove the section above
+\Large \emph{Höfundar:}\\[.3cm] %
+Valtýr Sigurðsson\\[.2cm] % Your name
+Pétur Halldórsson\\[2cm] 
+%----------------------------------------------------------------------------------------
+%	DATE SECTION
+%----------------------------------------------------------------------------------------
+
+{\large \today}\\[2cm] % Date, change the \today to a set date if you want to be precise
+
+%----------------------------------------------------------------------------------------
+%	LOGO SECTION
+%----------------------------------------------------------------------------------------
+\begin{minipage}{0.3\textwidth}
+\includegraphics{myndir/biopollogo.png}\\ % Include a department/university logo - this will require the graphicx package
+\includegraphics{myndir/nnvlogo.png}\\ % Include a department/university logo - this will require the graphicx package
+ \end{minipage}\\
+
+%----------------------------------------------------------------------------------------
+
+\vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
 {
-\setcounter{tocdepth}{1}
+%\setcounter{tocdepth}{1}
 \tableofcontents
 }
 \listoftables
 \listoffigures
+
+\newpage
 \hypertarget{utdrattur}{%
-\chapter*{Útdráttur}\label{utdrattur}}
+\section*{Útdráttur}\label{utdrattur}}
+\pagestyle{plain}
 \addcontentsline{toc}{chapter}{Útdráttur}
 
-\textbf{Þessi skýrsla} er unnin af BioPol ehf. og Náttúrustofu Norðurlands vestra fyrir Umhverfisráðuneytið. Markmið verkefnisins er að fá greinargóðar upplýsingar um losun örplasts á Íslandi þar sem greint er frá helstu uppsprettum örplasts, lagt mat á umfang þeirra og eftir hvaða leiðum örplast getur borist til sjávar. Í skýrslunni eru ekki gerðar tillögur um aðgerðir, heldur aðeins tekin saman gögn svo hægt sé að draga ályktanir um mikilvægi einstakra uppsprettna örplastsmengunar. Þær upplýsingar má síðar nota til að forgangsraða hugsanlegum aðgerðum. Fram kemur lýsing á óvissu í matinu og hvaða gagna þurfi að afla til þess að draga úr henni. Í skýrslunni er einnig upplýsandi inngangskafli með yfirliti yfir stöðu þekkingar á örplasti, sérstaklega með tilliti til mengunar sjávar.
+\textbf{Þessi skýrsla}\footnote{rafræn útgáfa: \href{https://harkanatta.github.io/orplastskyrslaUAR/}{https://harkanatta.github.io/orplastskyrslaUAR/}} er unnin af BioPol ehf. og Náttúrustofu Norðurlands vestra fyrir Umhverfisráðuneytið. Markmið verkefnisins er að fá greinargóðar upplýsingar um losun örplasts á Íslandi þar sem greint er frá helstu uppsprettum örplasts, lagt mat á umfang þeirra og eftir hvaða leiðum örplast getur borist til sjávar. Í skýrslunni eru ekki gerðar tillögur um aðgerðir, heldur aðeins tekin saman gögn svo hægt sé að draga ályktanir um mikilvægi einstakra uppsprettna örplastsmengunar. Þær upplýsingar má síðar nota til að forgangsraða hugsanlegum aðgerðum. Fram kemur lýsing á óvissu í matinu og hvaða gagna þurfi að afla til þess að draga úr henni. Í skýrslunni er einnig upplýsandi inngangskafli með yfirliti yfir stöðu þekkingar á örplasti, sérstaklega með tilliti til mengunar sjávar.
 
-\textbf{Stærsta uppspretta örplasts} í umhverfinu á Íslandi tengist bifreiðaumferð en slit á dekkjum og vegmerkingum er um 4/5 allrar örplastslosunar í hafið hérlendis. Aðrar stórar uppsprettur eru einna helst vegna málningar og affalls frá þvotti á fatnaði úr gerviefnum en einnig eru tilteknar í þessari skýrslu nokkrar minni uppsprettur.
 
-\label{tab:smantekta}Samantekt á þeim uppsprettum örplasts sem kannaðar voru og mat á losun frám þeim í hafið.
+\textbf{Stærsta uppspretta örplasts} í umhverfinu á Íslandi tengist bifreiðaumferð (sjá töflu \ref{tab:samantekt} og mynd \ref{fig:samant}) en slit á dekkjum og vegmerkingum er um 4/5 allrar örplastslosunar hérlendis. Aðrar stórar uppsprettur eru einna helst vegna málningar og affalls vegna þvotta á fatnaði úr gerviefnum en einnig eru tilteknar í þessari skýrslu nokkrar minni uppsprettur.
 
-Lægra mat
+\begin{table}[H]
 
-Hærra mat
+\caption{\label{tab:samantekt}Samantekt á þeim uppsprettum örplasts sem kannaðar voru og mat á losun frá þeim í hafið.}
+\centering
+\begin{tabular}{>{\bfseries}ccc|cc}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{2}{c}{Uppspretta (t)} & \multicolumn{2}{c}{Losun í haf (t)} \\
+\cmidrule(l{3pt}r{3pt}){2-3} \cmidrule(l{3pt}r{3pt}){4-5}
+ & Lægra mat & Hærra mat & Lægra mat & Hærra mat\\
+\midrule
+\rowcolor{gray!6} Bifreiðahjólbarðar & 371 & 586 & 164 & 234\\
+Vegmerkingar & 41 & 256 & 5,7 & 42,6\\
+\rowcolor{gray!6} Flugvélahjólbarðar & 26 & 50 &  & \\
+Húsamálning & 33,2 & 77,1 & 15,2 & 36,1\\
+\rowcolor{gray!6} Skipamálning & 60 & 260 & 3,2 & 10\\
+Gervigras & 3 & 11 & 0,3 & 1,1\\
+\rowcolor{gray!6} Leikvellir & 0,2 & 2 &  & \\
+Þvottur & 8,2 & 32 & 8,2 & 32\\
+\rowcolor{gray!6} Snyrtivörur & 0,34 & 3,4 & 0,34 & 3,4\\
+Haglaskot & 1 & 3 &  & \\
+\rowcolor{gray!6} Sigvatn & 0,002 & 0,177 & 0,002 & 0,177\\
+\bottomrule
+\end{tabular}
+\end{table}
 
-Lægra mat
 
-Hærra mat
-
-Bifreiðahjólbarðar
-
-371
-
-586
-
-164
-
-234
-
-Vegmerkingar
-
-41
-
-256
-
-5.7
-
-42.6
-
-Flugvélahjólbarðar
-
-26
-
-50
-
-Húsamálning
-
-33,2
-
-77,1
-
-15.2
-
-36.1
-
-Skipamálning
-
-60
-
-260
-
-3.2
-
-10
-
-Gervigras
-
-3
-
-11
-
-0.3
-
-1.1
-
-Leikvellir
-
-0,2
-
-2
-
-Þvottur
-
-8,2
-
-32
-
-8.2
-
-32
-
-Snyrtivörur
-
-0,34
-
-3,4
-
-0.34
-
-3.4
-
-Haglaskot
-
-1
-
-3
-
-Sigvatn
-
-0,002
-
-0,177
-
-0.002
-
-0.177
 
 \textbf{Farleiðir örplasts} til hafs eru ólíkar eftir uppsprettum og misflókið er að meta stærð þeirra. Sumar farleiðir fara óhindraðar í hafið líkt og frárennsli úr þvottavélum (í öllum þéttbýlum landsins sem eru við sjó). Affallsvatn frá vegum í þéttbýli á einnig að miklu leyti greiða leið í hafið en vegryk lendir líka að stórum hluta í jarðvegi og ekki er gott að segja til um hvar það endar líkt og við á um málningarflyksur frá háþrýstiþvotti húsa og fleiri uppsprettur í þéttbýli. Það örplast sem lendir í jarðvegi situr að öllum líkindum eftir í jarðveginum og berst ekki í hafið þar sem plast er ekki vatnsleysanlegt. Helstu farleiðir örplasts í hafið eru því með rennandi vatni gegnum skólp og ræsi.
 
-\begin{figure}
-
-{\centering \includegraphics{OrplastHaf_files/figure-latex/unnamed-chunk-2-1} 
-
-}
-
-\caption{Helstu uppsprettur örplasts á Íslandi og skipting þess eftir farleiðum í haf eða í jarðveg. Byggt á lægra mati.}\label{fig:unnamed-chunk-2}
+\begin{figure}[H]
+{\centering \includegraphics{_bookdown_files/OrplastHaf_files/figure-latex/unnamed-chunk-6-1}}
+\caption{Helstu uppsprettur örplasts á Íslandi og skipting eftir farleiðum í haf eða í jarðveg. Byggt á lægra mati í töflu \ref{tab:samantekt}.}\label{fig:samant}
 \end{figure}
 
 \textbf{Í hafinu} brotnar örplast mjög hægt niður þar sem hitastig í sjónum er lágt og útfjólubláir geislar sólar berast aðeins að takmörkuðu leyti í efstu sjávarlögin en ekki á meira dýpi. Það kemur því kannski ekki á óvart að mikil uppsöfnun örplasts geti verið á hafsbotni en einhver mesti þéttleiki örplastagna sem fundist hefur á hafsbotni var við Svalbarða á yfir 2,5 km dýpi sem bendir til þess að örplast berist í miklu magni með sjávarstraumum.
 
+
+
 \hypertarget{almennt-um-plast}{%
 \chapter{Almennt um plast}\label{almennt-um-plast}}
-
+\pagestyle{headings}
+\setcounter{tocdepth}{1}
+\pagenumbering{arabic}
 \hypertarget{grunneining-plasts-fjolliur-plastefna}{%
 \section*{Grunneining plasts: fjölliður plastefna}\label{grunneining-plasts-fjolliur-plastefna}}
 \addcontentsline{toc}{section}{Grunneining plasts: fjölliður plastefna}
@@ -245,9 +281,9 @@ Einn stærsti áhrifavaldur 20. aldarinnar á daglegt líf fólks var uppgötvun
 
 Það sem við köllum plast í daglegu tali er almennt blanda af fjölliðum plastefna og bætiefnum en hin síðarnefndu gefa plastinu ýmsa eiginleika sem auka notagildi þess. Fjölliður plastefna eru framleiddar úr einliðum sem eru yfirleitt ekki nema nokkur atóm að stærð eins og t.d. etylen sem hefur efnaformúluna \(C~2H~4\). Hver fjölliða getur verið samsett úr þúsundum einliða og er hægt að framleiða fjölmargar ólíkar plastgerðir úr mismunandi samsetningum einliða. Fjölliða etýlens kallast því t.d. pólýetýlen og hefur efnaformúluna \((C~2H~4)~n\).
 
-Til að taka dæmi um fjölbreytta eðliseiginleika mismunandi lengda fjölliða þá er pólýetýlen vaxkennt þegar fjölliðan er samsett úr nokkur hundruð einliðum en þegar þær eru í hundruð þúsunda tali er pólýetýlenið hart plast\textsuperscript{\protect\hyperlink{ref-Andrady2017}{2}}. Annað dæmi er stýren sem er einliða á vökvaformi við stofuhita en þegar margar einliður eru settar saman með efnahvörfum verða til fjölliður efnisins, pólýstýren, sem er betur þekkt á íslensku sem frauðplast (sjá mynd \ref{fig:styren}). Sama á við um bútadíen sem er gaskennt efni í einliðuformi en í fjölliðuformi er það byggingareining gervigúmmís. Einnig er hægt að blanda mismunandi plastefnum saman og sem dæmi er hægt að blanda bútadíen og stýren saman til að mynda stýren-bútadíen gúmmí, sem er ein af grunneiningum hjólbarða. Þetta eru einungis örfá dæmi af fjölmörgum um hvernig fjölliður eru samsettar á mismunandi vegu til að framleiða mismunandi plastgerðir\textsuperscript{\protect\hyperlink{ref-Gowariker2005}{3}}.
+Til að taka dæmi um fjölbreytta eðliseiginleika mismunandi lengda fjölliða þá er pólýetýlen vaxkennt þegar fjölliðan er samsett úr nokkur hundruð einliðum en þegar þær eru í hundruð þúsunda tali er pólýetýlenið hart plast\textsuperscript{\protect\hyperlink{ref-Andrady2017}{2}}. Annað dæmi er stýren sem er einliða á vökvaformi við stofuhita en þegar margar einliður eru settar saman með efnahvörfum verða til fjölliður efnisins, pólýstýren, sem er betur þekkt á íslensku sem frauðplast \ref{fig:styren}). Sama á við um bútadíen sem er gaskennt efni í einliðuformi en í fjölliðuformi er það byggingareining gervigúmmís. Einnig er hægt að blanda mismunandi plastefnum saman og sem dæmi er hægt að blanda bútadíen og stýren saman til að mynda stýren-bútadíen gúmmí, sem er ein af grunneiningum hjólbarða. Þetta eru einungis örfá dæmi af fjölmörgum um hvernig fjölliður eru samsettar á mismunandi vegu til að framleiða mismunandi plastgerðir\textsuperscript{\protect\hyperlink{ref-Gowariker2005}{3}}.
 
-\begin{figure}
+\begin{figure}[H]
 
 {\centering \includegraphics[width=0.7\linewidth]{myndir/polystyrene} 
 
@@ -272,39 +308,44 @@ Plastefni eru af fjöldamörgum gerðum og eru hlutir úr algengustu plastefnunu
 \toprule
 Plastgerð & Skammstöfun (ensk) & Heimsframleiðsla\\
 \midrule
-Pólýetýlen terefþalat & PET, PETE & 7\%\\
+\rowcolor{gray!6} Pólýetýlen terefþalat & PET, PETE & 7\%\\
 Pólýetýlen - há eðlisþyngd & HD-PE, PE-HD & 15\%\\
-Pólývínyl klóríð & PVC & 16\%\\
+\rowcolor{gray!6} Pólývínyl klóríð & PVC & 16\%\\
 Pólýetýlen - lág eðlisþyngd & LDPE, PE-LD & 17\%\\
-Pólýprópýlen & PP & 23\%\\
-\addlinespace
+\rowcolor{gray!6} Pólýprópýlen & PP & 23\%\\
 Pólýstýren & PS & 7\%\\
-Annað &  & 15\%\\
+\rowcolor{gray!6} Annað &  & 15\%\\
 \bottomrule
 \end{tabular}
 \end{table}
 
 Plastfjölliður geta verið ýmist hitadeigar (e. thermoplastic) eða hitafastar (e. thermoset) (sjá töflu \ref{tab:plast}). Hitadeigt plast er endurnýtanlegt. Það er hitað upp og mótað undir þrýstingi til að taka á sig þá mynd sem óskað er eftir. Hitafast plast umbreytist með hita og þrýstingi svo samgild tengi myndast sem eru óafturkræf og því er ekki hægt að endurnýta það plast\textsuperscript{\protect\hyperlink{ref-OECD2009}{5}}.
 
+
 \begin{table}[t]
 
-\caption{\label{tab:plast}Algengt er að vissar gerðir plasts séu ýmist hitadeigt plast eða hitafast (e. thermoplastic og thermoset)}
+\caption{\label{tab:plast}Algengt er að vissar gerðir plasts séu ýmist hitadeigt plast eða hitafast (e. thermoplastic og thermoset).}
 \centering
-\begin{tabular}{lll}
+\begin{tabular}{lp{1.6cm}p{4.8cm}}
 \toprule
 Plast & Flokkur & Dæmi um notkun\\
 \midrule
-Hitadeigt (pólýetýlen, pólýprópylen, pólýstýren, vínyl) & Plastagnir & Frumplast, snyrtivörur, málningarflyksur, pakningar, borðbúnaður\\
-Hitadeigt (pólýetýlen, pólýprópylen, pólýstýren, vínyl) & Plastþræðir & Fiskinet, textílþræðir, sígarettufilterar\\
-Hitadeigt (pólýetýlen, pólýprópylen, pólýstýren, vínyl) & Plastfrauð & Baujur og flotholt úr pólýstýreni, vörupakningar úr ólefínum\\
-Hitafast (pólýúretön, stýrenbútadíen , epoxíð, alkyð) & Samsett plast & Bátaplast, epoxýmálning\\
-Hitafast (pólýúretön, stýrenbútadíen , epoxíð, alkyð) & Plastfilmur & Filmur og lakk\\
+& \rowcolor{gray!6} Plastagnir & Frumplast, snyrtivörur, málningarflyksur, pakningar, borðbúnaður\\
+& Plastþræðir & Fiskinet, textílþræðir, sígarettufilterar\\
+\multirow{-5}{*}{\centering\arraybackslash {\shortstack{Hitadeigt (pólýetýlen,\\ pólýprópýlen, pólýstýren,\\ vínyl)}}} & \rowcolor{gray!6} Plastfrauð & Baujur og flotholt úr pólýstýreni, vörupakningar úr ólefínum\\
 \addlinespace
-Hitafast (pólýúretön, stýrenbútadíen , epoxíð, alkyð) & Plastfrauð & Plötur, blöð, filmur o.þ.h. með holrúmi, úr pólýúretönum\\
-Hitafast (pólýúretön, stýrenbútadíen , epoxíð, alkyð) & Gúmmí & Blöðrur og hjólbarðar\\
+\hline
+\addlinespace
+& Samsett plast & Bátaplast, epoxýmálning\\
+& \rowcolor{gray!6} Plastfilmur & Filmur og lakk\\
+& Plastfrauð & Plötur, blöð, filmur o.þ.h. með holrúmi, úr pólýúretönum\\
+\multirow{-6}{*}{\centering\arraybackslash {\shortstack{Hitafast (pólýúretön,\\ stýrenbútadíen, epoxíð,\\ alkýð)}}} & \rowcolor{gray!6} Gúmmí & Blöðrur og hjólbarðar\\
 \bottomrule
 \end{tabular}
 \end{table}
+
+
+
 
 \hypertarget{uppruni-plastefna}{%
 \section*{Uppruni plastefna}\label{uppruni-plastefna}}
@@ -323,16 +364,16 @@ Plastefni án bætiefna hafa takmarkað notagildi og eru bætiefni nauðsynleg t
 
 Fyrstu staðfestu dæmin um örplast í hafi eru frá því snemma á áttunda áratugnum\textsuperscript{\protect\hyperlink{ref-Waters1972}{10},\protect\hyperlink{ref-Colton1974}{11}} þegar tilkynnt var um litlar pólýstýrenkúlur fljótandi í hafi. Áður hafði fólk gefið því gaum hve plast var slitþolið í sjónum og það fannst æ oftar í maga fugla og annarra dýra. Árið 1991 var bent á að smáar plastagnir úr snyrtivörum bærust út í hafið og olli það áhyggjum fólks\textsuperscript{\protect\hyperlink{ref-zitko1991another}{12}}. Hugtakið míkróplast eða örplast var sett fram 2004\textsuperscript{\protect\hyperlink{ref-Thompson2004lost}{13}} þegar sýni úr sjávarseti voru skoðuð með litrófssjá og um 9 gerðir plasts fundust í þeim. Einnig voru gömul þörungasýni\footnote{þörungasnið eru tekin með háfum með fínum möskva úr efri lögum sjávar úti á opnu hafi sem og nærri ströndum} greind (allt aftur til 1960) og í þeim sást skýrt að eftir því sem framleiðsla á plasti jókst í heiminum fjölgaði plastögnum í hafinu. Birtum vísindagreinum um örplast hefur fjölgað mikið síðustu árin (sjá mynd \ref{fig:pubtrend}) og það hefur fengið mikla athygli yfirvalda og almennings.
 
-\begin{figure}
+\begin{figure}[H]
 
-{\centering \includegraphics[width=0.8\linewidth]{OrplastHaf_files/figure-latex/pubtrend-1} 
+{\centering \includegraphics[width=0.8\linewidth]{_bookdown_files/OrplastHaf_files/figure-latex/pubtrend-1} 
 
 }
 
-\caption{Birtingar alþjóðlegra vísindagreina með örplast sem meginviðfangsefni á árunum 2008 til 2018. Fengið af vef [WOS](https://webofknowledge.com).}\label{fig:pubtrend}
+\caption{Birtingar alþjóðlegra vísindagreina með örplast sem meginviðfangsefni á árunum 2008 til 2018. Fengið af \href{https://webofknowledge.com}{vef WOS}.}\label{fig:pubtrend}
 \end{figure}
 
-Á landi nær útbreiðsla örplasts til vistkerfa í jarðvegi\textsuperscript{\protect\hyperlink{ref-de2018impacts}{14}} og ferskvatni\textsuperscript{\protect\hyperlink{ref-besseling2017fate}{15}} en losun örplasts á landi er alla jafna meiri en til sjávar\textsuperscript{\protect\hyperlink{ref-horton2017microplastics}{16}}. Þrátt fyrir að sýnataka á örplasti í umhverfinu nái yfirleitt einungis til agna stærri en 300 µm og sáralítið sé vitað um útbreiðslu nanóplasts þá hefur örplast engu að síður fundist á yfirborði hafs í öllum heimshlutum\textsuperscript{\protect\hyperlink{ref-eriksen2014plastic}{17},\protect\hyperlink{ref-cozar2014plastic}{18}} og í kjarnasýnum af hafsbotni víða um heim\textsuperscript{\protect\hyperlink{ref-goldberg1997plasticizing}{19}--\protect\hyperlink{ref-woodall2014deep}{21}}. Enn fremur er örplast, líkt og plastrusl almennt, í miklum þéttleika í hringstraumakerfi heimshafanna (e. ocean gyres)\textsuperscript{\protect\hyperlink{ref-law2010plastic}{22}--\protect\hyperlink{ref-lebreton2018evidence}{24}}, ásamt því að safnast fyrir í hafinu á Norðurslóðum\textsuperscript{\protect\hyperlink{ref-cozar2017arctic}{25}} og í hafís\textsuperscript{\protect\hyperlink{ref-obbard2014global}{26}}. Reynt hefur verið að lýsa útbreiðslu örplasts í hafinu og hefur það tekist að einhverju leyti en þörf er á frekari rannsóknum í þeim efnum\textsuperscript{\protect\hyperlink{ref-enders2015abundance}{27}--\protect\hyperlink{ref-auta2017distribution}{29}}. Á heimsvísu hefur verið metið að árlega sé bein losun örplasts í hafið á bilinu 0,8-2,5 milljón tonn\textsuperscript{\protect\hyperlink{ref-boucher2017primary}{30}}.
+Á landi nær útbreiðsla örplasts til vistkerfa í jarðvegi\textsuperscript{\protect\hyperlink{ref-de2018impacts}{14}} og ferskvatni\textsuperscript{\protect\hyperlink{ref-besseling2017fate}{15}} en losun örplasts á landi er margfalt meiri en til sjávar\textsuperscript{\protect\hyperlink{ref-horton2017microplastics}{16}}. Þrátt fyrir að sýnataka á örplasti í umhverfinu nái yfirleitt einungis til agna stærri en 300 µm og sáralítið sé vitað um útbreiðslu nanóplasts þá hefur örplast engu að síður fundist á yfirborði hafs í öllum heimshlutum\textsuperscript{\protect\hyperlink{ref-eriksen2014plastic}{17},\protect\hyperlink{ref-cozar2014plastic}{18}} og í kjarnasýnum af hafsbotni víða um heim\textsuperscript{\protect\hyperlink{ref-goldberg1997plasticizing}{19}--\protect\hyperlink{ref-woodall2014deep}{21}}. Enn fremur er örplast, líkt og plastrusl almennt, í miklum þéttleika í hringstraumakerfi heimshafanna (e. ocean gyres)\textsuperscript{\protect\hyperlink{ref-law2010plastic}{22}--\protect\hyperlink{ref-lebreton2018evidence}{24}}, ásamt því að safnast fyrir í hafinu á Norðurslóðum\textsuperscript{\protect\hyperlink{ref-cozar2017arctic}{25}} og í hafís\textsuperscript{\protect\hyperlink{ref-obbard2014global}{26}}. Reynt hefur verið að lýsa útbreiðslu örplasts í hafinu og hefur það tekist að einhverju leyti en þörf er á frekari rannsóknum í þeim efnum\textsuperscript{\protect\hyperlink{ref-enders2015abundance}{27}--\protect\hyperlink{ref-auta2017distribution}{29}}. Á heimsvísu hefur verið metið að árlega sé bein losun örplasts í hafið á bilinu 0,8-2,5 milljón tonn\textsuperscript{\protect\hyperlink{ref-boucher2017primary}{30}}.
 
 \hypertarget{skilgreining-orplasts}{%
 \section*{Skilgreining örplasts}\label{skilgreining-orplasts}}
@@ -380,13 +421,13 @@ Umhverfismælingar ná sjaldnast til minnstu agnanna\textsuperscript{\protect\hy
 
 Mestur þéttleiki örplasts í yfirborðslögum sjávar er nærri uppsprettum þess á landi við þéttbýli og árósa og um 80\% þess er af gerðinni pólýetýlen og pólýprópýlen\textsuperscript{\protect\hyperlink{ref-isobe2014selective}{38},\protect\hyperlink{ref-Gewert2017}{39}} sem falla undir resín-kóða eitt, tvö, fjögur og fimm og eru yfir 60\% af framleiddu plasti í heiminum (líkt og sést í töflu \ref{tab:framleidsla}). Ólíkar gerðir plastefna hafa mismunandi eðlisþyngd og aðeins um helmingur af framleiddu plasti hefur hærri eðlisþyngd en sjór\textsuperscript{\protect\hyperlink{ref-sherrington2016study}{40}} en það hefur áhrif á útbreiðslu þeirra í hafinu\textsuperscript{\protect\hyperlink{ref-andrady2011microplastics}{37}}.
 
-\begin{figure}
+\begin{figure}[H]
 
 {\centering \includegraphics[width=0.8\linewidth]{myndir/DriftDensity_isobe2014} 
 
 }
 
-\caption{Þéttleiki smárra plastagna á reki í hafinu. Lárétti ásinn stendur fyrir fjarlægð frá landi og lóðrétti ásinn stærð plastagnanna sem fengust í háf við yfirborðið. Litaskalinn táknar þéttleika agnanna. Þéttleiki yfir 0,005 stk/m~3~ er innan línanna á myndinni (Isobe, 2014).}\label{fig:DriftDensity}
+\caption{Þéttleiki smárra plastagna á reki í hafinu. Lárétti ásinn stendur fyrir fjarlægð frá landi og lóðrétti ásinn stærð plastagnanna sem fengust í háf við yfirborðið. Litaskalinn táknar þéttleika agnanna. Þéttleiki yfir 0,005 stk/m~3~ er innan línanna á myndinni (mynd: Isobe, 2014).}\label{fig:DriftDensity}
 \end{figure}
 
 Í hafinu, líkt og í vatni almennt, verka ólíkir kraftar á mjög smáar agnir miðað við stærri hluti. Stærri hlutir eru háðir tregðukröftum en smærri hlutir verða aðallega fyrir áhrifum seigjukrafta. Það má útskýra með svokallaðri Reynoldstölu (\emph{Re})\textsuperscript{\protect\hyperlink{ref-levinton1995marine}{41}} en stórir hlutir á mikilli ferð hafa hátt \emph{Re} og þurfa mikla tregðu til að stoppa á meðan smáir hlutir á lítilli ferð hafa lágt \emph{Re}\textsuperscript{\protect\hyperlink{ref-levinton1995marine}{41}} og geta því svifið í vatni líkt og í þyngdarleysi. Þar sem núningskraftar sjávar verka með hverfandi hætti á örplast flýtur það ekki upp á yfirborðið hafi það borist í dýpri lög sjávar ólíkt stærra plasti jafnvel þótt það hafi lægri eðlisþyngd en sjórinn\textsuperscript{\protect\hyperlink{ref-isobe2014selective}{38}}. Örplast getur því sokkið burt séð frá eðlisþyngd þess, það berst bara með hreyfingum sjáva og sjávarstraumum. Það gæti verið ein af ástæðum þess að örplast rekur síður á land en stórt plast og finnst í hærra hlutfalli gagnvart stærra plasti úti á rúmsjó\textsuperscript{\protect\hyperlink{ref-isobe2014selective}{38}} (sjá mynd \ref{fig:DriftDensity}) en rek af hafi á fjörur vegna ölduhreyfinga er hraðara eftir yfirborði sjávar og minnkar með auknu dýpi, skv. lögmáli Stokes\textsuperscript{\protect\hyperlink{ref-stokes1851effect}{42}}.
@@ -400,30 +441,30 @@ Mestur þéttleiki örplasts í yfirborðslögum sjávar er nærri uppsprettum �
 Rannsóknir á niðurbroti plasts í umhverfinu voru lítið stundaðar þar til um aldamótin síðustu. Mestar upplýsingar um hrörnun plasts koma frá sjónarhóli iðnaðarins um endingu og slit á ýmsum gerðum af plasti.
 Orðið niðurbrot á við um á eðlis- eða efnafræðilegar breytingar á efni og er óafturkræft ferli. Niðurbrot leiðir til verulegra breytinga á byggingu plastsins sem kemur fram í breyttum eiginleikum þess (t.d. það verður stökkt eða laust í sér, mólmassi lækkar) eða sundrun\textsuperscript{\protect\hyperlink{ref-ISO472}{44}}. Sundrun (e. mineralization) er algjört niðurbrot lífrænna efnasambanda yfir í vatn og koltvísýring (og metan við loftóháð skilyrði)\textsuperscript{\protect\hyperlink{ref-SameiginlegaEes-nefndin2007}{45}} og er lokaskref niðurbrotsferilsins.
 
-Niðurbrotsferli plasts, þ.m.t. örplasts, er breytilegt eftir efnabyggingu þess og verulega háð umhverfisaðstæðum\textsuperscript{\protect\hyperlink{ref-gewert2015pathways}{46}} en það gerist mjög hægt í umhverfinu og oft að takmörkuðu leiti\textsuperscript{\protect\hyperlink{ref-barnes2009accumulation}{47}}. Stærsti áhrifaþátturinn á niðurbrot plasts í hafi er sólarljós í samspili við súrefni (e. photo oxidative degradation), vatnsrof og lífrænt niðurbrot fylgja þar á eftir\textsuperscript{\protect\hyperlink{ref-gewert2015pathways}{46}} og hærra hitastig hraðar ferlinu (sjá mynd \ref{fig:flowchart}).
+Niðurbrotsferli plasts, þ.m.t. örplasts, er breytilegt eftir efnabyggingu þess og verulega háð umhverfisaðstæðum\textsuperscript{\protect\hyperlink{ref-gewert2015pathways}{46}} en það gerist mjög hægt í umhverfinu og oft að takmörkuðu leyti\textsuperscript{\protect\hyperlink{ref-barnes2009accumulation}{47}}. Stærsti áhrifaþátturinn á niðurbrot plasts í hafi er sólarljós í samspili við súrefni (e. photo oxidative degradation), vatnsrof og lífrænt niðurbrot fylgja þar á eftir\textsuperscript{\protect\hyperlink{ref-gewert2015pathways}{46}} og hærra hitastig hraðar ferlinu (sjá mynd \ref{fig:flowchart}).
 
 Fjölmargir þættir hafa áhrif á eðli niðurbrotsins en sem dæmi hefur gerð grunneiningar fjölliðukeðjunnar plastsins mikil áhrif, þ.e. eftir því hvort grunnkeðjan er eingöngu kolefniskeðja eða með heterófrumeind (t.d. pólýetýlen terefþalat og pólýúretön) sem gerir fjölliðurnar mis-berskjaldaðar fyrir niðurbroti\textsuperscript{\protect\hyperlink{ref-Singh2008}{48}}.
 
-\begin{figure}
+\begin{figure}[H]
 
 {\centering \includegraphics[width=1\linewidth]{myndir/small-plastics_FLAEDIRIT} 
 
 }
 
-\caption{Niðurbrot plasts í hafinu, helstu leiðir. Mynd unnin eftir (Fotopoulou 2017 og af [vefnum](https://www.nurdlehunt.org.uk/)) [@Fotopoulou2017; @nurdlehunt.org].}\label{fig:flowchart}
+\caption{Niðurbrot plasts í hafinu, helstu leiðir. Mynd unnin eftir (Fotopoulou, 2017 og af vefnum \href{https://www.nurdlehunt.org.uk/}{\nolinkurl{nurdlehunt.org}}.}\label{fig:flowchart}
 \end{figure}
 
 Í sinni einföldustu mynd eru fjölliður plastefna formlausar (e. amorphous) og plastið því mjúkt en eftir því sem fjölliðurnar eru lengri þá verður plastið stífara. Í sinni formlausu mynd geta fjölliður engu að síður verið ýmist einfaldar keðjur (e. linear polymer), greinóttar (e. branched polymer) eða samtengdar með samgildum tengjum (e. cross-linked polymer) og hefur það áhrif á stífleika plastsins. Kristaleiningar fjölliða eru þolnari gagnvart niðurbroti en formlaus hluti þeirra, sem veldur því að niðurbrot er ójafnt milli einstakra hluta plastfjölliðanna\textsuperscript{\protect\hyperlink{ref-andrady2017plastic}{49}}. Almennt brotnar plast fyrr niður í kringum þessi formlausu svæði bæði vegna lífrænna og ólífrænna þátta en formlausir hlutar fjölliða eru t.d. viðkvæmari gagnvart sólarljósi en þeir sem eru í kristalformi. Þetta leiðir af sér að niðurbrot plasts með hátt kristalhlutfall gerist á öðruvísi máta en hjá plasti með lágt kristalhlutfall\textsuperscript{\protect\hyperlink{ref-andrady2017plastic}{49}} og sífellt smærri agnir örplasts myndast við niðurbrot.
 
 Örverur geta einnig átt þátt í niðurbroti örplasts með meltingarensímum\textsuperscript{\protect\hyperlink{ref-shah2008biological}{50}} (sjá mynd \ref{fig:Plastpit}), einkum við hagstæðar aðstæður á rannsóknarstofu\textsuperscript{\protect\hyperlink{ref-pacco2017biodegradation}{51}}. Vöxtur þeirra er þó minni við umhverfisaðstæður, t.d. í sjó þar sem lágt hitastig takmarkar eða hægir á niðurbroti af þeirra völdum\textsuperscript{\protect\hyperlink{ref-andrady2011microplastics}{37},\protect\hyperlink{ref-barnes2009accumulation}{47}}.
 
-\begin{figure}
+\begin{figure}[H]
 
 {\centering \includegraphics[width=0.8\linewidth]{myndir/Plast_pit} 
 
 }
 
-\caption{Ógreindar bakteríur grafnar inn í yfirborð plastagna sem fundust í sýnum úr hafi [@Zettler2013].}\label{fig:Plastpit}
+\caption{Ógreindar bakteríur grafnar inn í yfirborð plastagna sem fundust í sýnum úr hafi (Zettler, 2013).}\label{fig:Plastpit}
 \end{figure}
 
 Við niðurbrot plastefna losna ýmis afleiðuefni, t.d. karboxílsýrur, aldehýð, ketónar, fenól og bensen\textsuperscript{\protect\hyperlink{ref-gewert2015pathways}{46}} og er það því viðbót við mengandi áhrif bætiefna og efna sem loða við plastið í umhverfinu.
@@ -435,13 +476,13 @@ Niðurbrot plasts er langtum hraðara í fjörum heldur en í sjó en sjórinn v
 
 Ósamræmi er á milli þess hve mikið magn af plasti er framleitt og berst í hafið og þess sem mælist sem örplast\textsuperscript{\protect\hyperlink{ref-cozar2014plastic}{18}}. Þetta á sérstaklega við um smærri örplastagnir (sjá mynd \ref{fig:cozer}). Eftir því sem örplastagnir brotna í minni einingar verða þær mögulega innbyrtar af æ fleiri hópum lífvera\textsuperscript{\protect\hyperlink{ref-cozar2014plastic}{18}}. Það er því alls ekki ljóst hve stór hluti örplastagna er tekinn upp í fæðukeðjur í hafinu, hve stór hluti þeirra sundrast eða hve stór hluti þeirra sekkur til botns. Afdrif örplasts minni en 20 µm eru ókunn vegna þess að sýnatökuaðferðir hafa enn ekki verið þróaðar með fullnægjandi hætti\textsuperscript{\protect\hyperlink{ref-RENNER201855}{56}}. Ekki er mikið vitað um niðurbrot örplasts í nanóplast, einkum þar sem sýnataka er takmörkunum háð, en þar sem nanóplast getur myndast við slit plasts á rannsóknarstofu má gera ráð fyrir að það geti myndast og verið til staðar í umhverfinu\textsuperscript{\protect\hyperlink{ref-lambert2016formation}{57}}.
 
-\begin{figure}
+\begin{figure}[H]
 
-{\centering \includegraphics[width=0.8\linewidth]{OrplastHaf_files/figure-latex/cozer-1} 
+{\centering \includegraphics[width=0.8\linewidth]{_bookdown_files/OrplastHaf_files/figure-latex/cozer-1} 
 
 }
 
-\caption{Mæld og áætluð stærðardreifing (lograskali) örplastagna í yfirborðslögum sjávar í svokölluðum plastflákum. Áætluð gildi voru einungis metin út frá niðurbroti stærra plasts. Skyggða svæðið sýnir stærðarmörkin frá 1 mm til 5 mm. (Mynd unnin eftir Cozar 2014 [@cozar2014plastic])}\label{fig:cozer}
+\caption{Mæld og áætluð stærðardreifing (lograskali) örplastagna í yfirborðslögum sjávar í svokölluðum plastflákum. Áætluð gildi voru einungis metin út frá niðurbroti stærra plasts. Skyggða svæðið sýnir stærðarmörkin frá 1 mm til 5 mm. (Mynd unnin eftir Cozar (2014). }\label{fig:cozer}
 \end{figure}
 
 \hypertarget{tknileg-umra-um-synatokur}{%
@@ -451,14 +492,16 @@ Niðurbrot plasts er langtum hraðara í fjörum heldur en í sjó en sjórinn v
 Örplast í umhverfinu er misjafnt að lögun, stærð og lit og hefur ólíka efnasamsetningu\textsuperscript{\protect\hyperlink{ref-phuong2016there}{58}} sem meðal annars gerir það erfitt að samræma staðlaðar aðferðir við söfnun og greiningu þess.
 Margar ólíkar greiningaraðferðir eru mögulegar en henta misvel eftir stærð agnanna og eðlisþyngd\textsuperscript{\protect\hyperlink{ref-hepso2018experimental}{59}}. Einföld athugun með víðsjá og smásjá er enn mjög gagnleg aðferð\textsuperscript{\protect\hyperlink{ref-hepso2018experimental}{59},\protect\hyperlink{ref-SONG2015202}{60}} en agnir sem líta út eins og flyksur eru þá frekar vantaldar og þráðlaga örplast oftalið\textsuperscript{\protect\hyperlink{ref-SONG2015202}{60}}. Hins vegar eru gegnsæjar eða hvítar agnir oft taldar sem syntetískar fjölliður, líkt og pólýetýlen og pólýprópýlen, í litrófssjá (Fourier Transformed- Infra Red, eða Raman)\textsuperscript{\protect\hyperlink{ref-SONG2015202}{60}}. Litun sýnanna með Nílar rauðum lit ásamt skoðun flúrljómandi sýna í smásjá hefur gefið góða raun við að greina örplastagnir af ólíkri lögun og bæði á míkró- og nanóskala en þó eru vandamál tengd myndgreiningu og menguðum sýnum\textsuperscript{\protect\hyperlink{ref-SHIM2016469}{61}}. Rafeindasmásjár gefa upplýsingar um stærð og lögun örplasts og jafnvel efnasamsetningu sé röntgengeisla-ljómun notuð samhliða (Energy X-ray dispersion spectroscopy)\textsuperscript{\protect\hyperlink{ref-bitam2014bio2}{62}}.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{myndir/synataka} 
-
-}
-
-\caption{Yfirlit yfir aðferðir við sýnatökur á plasti frá nanóplasti og upp úr. FTIR stendur fyrir "Fourier Transformed- Infra Red" og FFF fyrir "Field Flow Fractionation" (sjá Mintenig 2016 [@Mintenig2016]).}\label{fig:FTIR}
+\begin{figure}[H]
+{\centering \includegraphics[width=1\linewidth]{myndir/synataka}}
+\caption{Yfirlit yfir aðferðir við sýnatökur á plasti frá nanóplasti og upp úr. FTIR stendur fyrir "Fourier Transformed- Infra Red" og FFF fyrir "Field Flow Fractionation" (sjá Mintenig (2016).}\label{fig:FTIR}
 \end{figure}
+
+%\begin{wrapfigure}{r}{1\textwidth}
+%  {\centering \includegraphics[width=1\linewidth]{myndir/synataka}}
+%  \caption{Birds}
+%\end{wrapfigure}
+
 
 Niðurstöður litrófsgreininga á örplasti passa stundum ekki við þekkt sýni þar sem veðrun á yfirborði agnanna úr umhverfinu gefur ólíkar niðurstöður.
 Hitasundrun með gasgreini tengdum massagreini (pyrolysis gas chromatography -- mass spectrometry (Pyr-GC/MS)) þar sem sýnin eru hituð þannig að efnasambönd brotna niður við súrefnisfirrtar aðstæður þau aðgreind í gasgreini og greind í massagreini\textsuperscript{\protect\hyperlink{ref-k22014bio2}{63}}. Helstu kostir við þessa aðferð (Pyr-GC/MS) eru að ekki þarf að einangra sýnin, syntetísku fjölliðurnar og residual matrix geta farið saman í hitasundrun og gefið eigindlegar og nokkuð magnbundnar niðurstöður\textsuperscript{\protect\hyperlink{ref-Fischer2017}{64}}.
@@ -470,63 +513,83 @@ Rennandi vatn er helsti farvegur örplasts á landi til sjávar\textsuperscript{
 
 Örplast hefur fundist í miklu magni í botnseti rétt vestur af Svalbarða á 2,5 til 5,5 km dýpi\textsuperscript{\protect\hyperlink{ref-Bergmann2017}{66}}. Útilokað er að sú mengun sé staðbundin og sýnir fram á að örplast berst með hafstraumum á fjarlæg hafsvæði. Örplast getur því einnig borist inn á íslenskt hafsvæði með hafstraumum. Til dæmis með flæði Atlantshafssjávar úr suðri en það flæði er árstíðabundið og mismikið milli ára\textsuperscript{\protect\hyperlink{ref-Strait2005a}{67}} líkt og á við um hafstrauma sem fara í kringum Ísland og geta borið örplast frá helstu uppsprettum á suð- vesturhorni landsins, réttsælis með landinu norður fyrir Vestfirði\textsuperscript{\protect\hyperlink{ref-Astthorsson1994}{68}} á svæði þar sem mengun er ekki eins mikil frá landi vegna fámennari byggða.
 
-\begin{tabular}{ccc}
+
+
+\begin{table}[H]
+\caption{\label{tab:fartafla}Einkennandi farvegir fyrir mismunandi uppsprettur örplasts.}
+\centering
+\begin{tabular}{>{\bfseries}ccl}
 \toprule
-Gerð farvegs & Farvegur & Uppsprettur í farvegi\\
-\midrule
-Rennandi vatn & Fráveita: skólp og ofanvatn & Fatnaður\\
-Rennandi vatn & Fráveita: skólp og ofanvatn & Snyrtivörur\\
-Rennandi vatn & Fráveita: skólp og ofanvatn & Plastframleiðsla\\
-Rennandi vatn & Fráveita: skólp og ofanvatn & Gervigrasvellir\\
-Rennandi vatn & Fráveita: skólp og ofanvatn & Leiksvæði\\
-\addlinespace
-Rennandi vatn & Fráveita: skólp og ofanvatn & Skósólar\\
-Rennandi vatn & Fráveita: skólp og ofanvatn & Vegryk*\\
-Rennandi vatn & Fráveita: skólp og ofanvatn & Málning\\
-Rennandi vatn & Ár, lækir og skurðir & Heyrúlluplast\\
-Rennandi vatn & Ár, lækir og skurðir & Haglaskot\\
-\addlinespace
-Rennandi vatn & Ár, lækir og skurðir & Plastrusl\\
-Andrúmsloft & Vindur & Vegryk*\\
-Andrúmsloft & Vindur & Áburður\\
-Hafið & Hafstraumar/sjávarföll & Veiðarfæri\\
-Hafið & Hafstraumar/sjávarföll & Búnaður í sjókvíaeldi\\
-\addlinespace
-Hafið & Hafstraumar/sjávarföll & Plastrusl í hafinu\\
-Annað & Sigvatn & Örplast frá urðunarstöðum\\
-Annað & Snjómokstur & Vegryk*\\
+\rowcolor{gray!6} Gerð farvegs & Farvegur & Uppsprettur í farvegi\\
+\midrule  \hline
+ &  & Fatnaður\\
+\cmidrule{3-3}
+ &  & Snyrtivörur\\
+\cmidrule{3-3}
+ &  & Plastframleiðsla\\
+\cmidrule{3-3}
+ &  & Gervigrasvellir\\
+\cmidrule{3-3}
+ &  & Leiksvæði\\
+\cmidrule{3-3}
+ &  & Skósólar\\
+\cmidrule{3-3}
+ &  & Vegryk*\\
+\cmidrule{3-3}
+ & \multirow{-8}{*}{\centering\arraybackslash {\shortstack{Fráveita:\\ skólp og ofanvatn}}} & Málning\\
+\cmidrule{2-3}
+ &  & Heyrúlluplast\\
+\cmidrule{3-3}
+ &  & Haglaskot\\
+\cmidrule{3-3}
+\multirow{-11}{*}{\centering\arraybackslash {\shortstack{Rennandi\\ vatn}}} & \multirow{-3}{*}{\centering\arraybackslash  {\shortstack{Ár, lækir\\ og skurðir}}} & Plastrusl\\
+\cmidrule{1-3}
+\rowcolor{gray!6} &  & Vegryk*\\
+\rowcolor{gray!6} \multirow{-2}{*}{\centering\arraybackslash Andrúmsloft} & \multirow{-2}{*}{\centering\arraybackslash Vindur} & Áburður\\
+\cmidrule{1-3}
+ &  & Veiðarfæri\\
+\cmidrule{3-3}
+ &  & Búnaður í sjókvíaeldi\\
+\cmidrule{3-3}
+\multirow{-3}{*}{\centering\arraybackslash Hafið} & \multirow{-3}{*}{\centering\arraybackslash {\shortstack{Hafstraumar\\ og sjávarföll}}} & Plastrusl í hafinu\\
+\cmidrule{1-3}
+\rowcolor{gray!6} & Sigvatn & Örplast frá urðunarstöðum\\
+\cmidrule{2-3}
+\rowcolor{gray!6} \multirow{-2}{*}{\centering\arraybackslash Annað} & Snjómokstur & Vegryk*\\
 \bottomrule
+\multicolumn{3}{l}{\textsuperscript{*} Slit frá hjólbörðum og vegmerkingum}\\
 \end{tabular}
+\end{table}
+
+
 
 Á landi berst örplast með vatni, vindi og með athöfnum manna. Helsta uppspretta örplasts sem dreifist með vindi er slit hjólbarða bifreiða sem sest við vegi\textsuperscript{\protect\hyperlink{ref-Cadle1978}{69}}. Dreifing örplasts getur einnig gerst með notkun seyru til landgræðslu en algengt er að hún innihaldi örplast úr snyrtivörum\textsuperscript{\protect\hyperlink{ref-zitko1991another}{12}} og plastúrgangi sem berst í skólphreinsistöðvar og rotþrær. Það sama getur gilt um jarðbæti unninn úr úrgangi sem inniheldur plast, einkum ef ekki er gert ráð fyrir hreinsun örplasts í míkró- og nanóstærð.
 
-\begin{figure}
+\begin{figure}[H]
 
 {\centering \includegraphics[width=1\linewidth]{myndir/map} 
 
 }
 
-\caption{Fjórir flokkar náttúrulegra yfirborðsvatnshlota Íslands. Skálínurnar liggja yfir vatnasvæði nr. 4 á suðvesturhorni landsins.}\label{fig:vatnasvidsv}
+\caption{Fjórir flokkar náttúrulegra yfirborðsvatnshlota Íslands. Skálínurnar liggja yfir vatnasvæði 4 á suðvesturhorni landsins.}\label{fig:vatnasvidsv}
 \end{figure}
 
 Þegar losun örplasts á Íslandi er skoðuð er rétt að taka suðvestur horn landsins út fyrir sviga. Þar sem helsta farleið örplasts er með rennandi vatni er hér notast við skiptingu íslenska vatnaumdæmisins í fjögur meginvatnasvæði\textsuperscript{\protect\hyperlink{ref-Bj2012}{70}}. Á suðvesturhorni landsins er vatnasvæði sem rennur í Faxaflóa (sjá mynd \ref{fig:vatnasvidsv}). Á því svæði býr yfir 3/4 hlutar landsmanna\footnote{\url{http://px.hagstofa.is/pxis/pxweb/is/Ibuar/Ibuar__mannfjoldi__2_byggdir__Byggdakjarnar/MAN03106.px/table/tableViewLayout1/?rxid=830c3a84-47bf-4090-8227-4c683a2f2770}} og þar er summa \href{http://www.vegagerdin.is/upplysingar-og-utgafa/umferdin/adferdarfraedi-talninga/}{árdagsumferðar} rúmir 3/4 hlutar á landsvísu. Flatarmál bygginga þar er yfir 50\% flatarmáls allra bygginga á landsvísu\textsuperscript{\protect\hyperlink{ref-OpenStreetMap}{71}} en flatarmál málaðra flata eflaust enn meiri vegna byggingarhæðar. Flestir landsmenn fara til Reykjavíkur reglulega til að sækja þjónustu sem þar er í boði, nær allar vöruflutningar eru um svæðið og nærri allt millilandaflug. Þrír stórir slippir af fjórum eru á Höfuðborgarsvæðinu og í Grindavík. Það er því rík ástæða til að skoða þetta svæði betur.
 
-\hypertarget{skolp-og-rsi}{%
-\subsection*{Skólp og ræsi}\label{skolp-og-rsi}}
-\addcontentsline{toc}{subsection}{Skólp og ræsi}
+%
 
 Fæst bæjarfélög á Íslandi hreinsa skólp að nokkru leyti (sjá mynd \ref{fig:skolp}) en þar sem skólphreinsistöðvar eru á höfuðborgarsvæðinu fer skólp frá flestum landsmönnum í gegnum hreinsun og hefur því hlutfall þeirra sem búa á svæðum þar sem skólp er hreinsað margfaldast á síðustu áratugum\textsuperscript{\protect\hyperlink{ref-uxdeoruxf0arson2012}{72}}.
 
-\begin{figure}
+\begin{figure}[H]
 
-{\centering \includegraphics[width=1\linewidth]{OrplastHaf_files/figure-latex/skolp-1} 
+{\centering \includegraphics[width=1\linewidth]{_bookdown_files/OrplastHaf_files/figure-latex/skolp-1} 
 
 }
 
-\caption{Tegund skólphreinsunar skipt eftir fjórum flokkum náttúrulegra yfirborðsvatnshlota. Unnið upp úr samantekt á stöðu skólpmála á Íslandi árið 2014 [@Umhverfisstofnun2017].}\label{fig:skolp}
+\caption{Tegund skólphreinsunar skipt eftir fjórum flokkum náttúrulegra yfirborðsvatnshlota. Unnið upp úr samantekt á stöðu skólpmála á Íslandi árið 2014 (Umhverfisstofnun, 2017).}\label{fig:skolp}
 \end{figure}
 
-Skólphreinsun í Reykjavík er svokölluð fyrsta stigs hreinsun,\footnote{„Hreinsunin uppfyllir að öllum líkindum ekki þær kröfur sem gerðar eru til eins þreps hreinsunar í reglugerð um fráveitur og skólp``\textsuperscript{\protect\hyperlink{ref-Umhverfisstofnun2017}{73}}} þar sem efni á föstu formi eru aðskilin vatni með botnfellingu, fleytingu eða notkun rista. Þær eru í blönduðu kerfi sem tekur á móti skólpi ásamt ofanvatni og með yfirfalli þegar álag er mest. Ekki er áhersla lögð á að halda eftir örrusli í þeim skólphreinsistöðvum og hlutfall örplasts sem berst inn í skólphreinsistöðvarnar er ekki mjög frábrugðið því sem mælist í útfalli þeirra\textsuperscript{\protect\hyperlink{ref-magnusson2016microlitter}{74}}. Yfir 90\% skólps á Íslandi er losað í sjó eftir aðeins fyrsta stigs hreinsun (grófhreinsun án fellingar eða síunar öragna). Annað skólp er losað í ár og stöðuvötn og árósa. Sum bæjarfélög hafa sett upp tveggja þrepa hreinsun og flest heimili í dreifbýli eru með rotþrær þar sem eftir verður seyra (um 800 tonn árlega). Mest af seyrunni er urðað og lítið brot notað í landbúnað\textsuperscript{\protect\hyperlink{ref-Umhverfisstofnun2017}{73}}.
+Skólphreinsun í Reykjavík er svokölluð fyrsta stigs hreinsun þar sem efni á föstu formi eru aðskilin vatni með botnfellingu, fleytingu eða notkun rista\textsuperscript{\protect\hyperlink{ref-Umhverfisstofnun2017}{73}}. Þær eru í blönduðu kerfi sem tekur á móti skólpi ásamt ofanvatni og með yfirfalli þegar álag er mest. Ekki er áhersla lögð á að halda eftir örrusli í þeim skólphreinsistöðvum og hlutfall örplasts sem berst inn í skólphreinsistöðvarnar er ekki mjög frábrugðið því sem mælist í útfalli þeirra\textsuperscript{\protect\hyperlink{ref-magnusson2016microlitter}{74}}. Yfir 90\% skólps á Íslandi er losað í sjó eftir aðeins fyrsta stigs hreinsun (grófhreinsun án fellingar eða síunar öragna). Annað skólp er losað í ár og stöðuvötn og árósa. Sum bæjarfélög hafa sett upp tveggja þrepa hreinsun og flest heimili í dreifbýli eru með rotþrær þar sem eftir verður seyra (um 800 tonn árlega). Mest af seyrunni er urðað og lítið brot notað í landbúnað\textsuperscript{\protect\hyperlink{ref-Umhverfisstofnun2017}{73}}.
 
 Samkvæmt rannsókn á skólpi frá Reykjavík og Hafnarfirði\textsuperscript{\protect\hyperlink{ref-magnusson2016microlitter}{74}} var innfallsvatn til skólphreinsistöðva á í Reykjavík með færri agnir af örplasti á rúmmál vatns miðað við stöðvar í Svíþjóð og Finnlandi sem nam heilli stærðargráðu (10 og 100 sinnum minna). Hugsanlega var það vegna mikils regnvatns sem blandast innfallsvatninu (munnleg heimild Hrönn Jörundsdóttir) og mikils affallsvatns frá heimilum en vatnsnotkun íslenskra heimila er hugsanlega meiri að jafnaði\textsuperscript{\protect\hyperlink{ref-Pakula2010}{75}} og þéttleiki örplastagnanna því minni á rúmmálseiningu.
 
@@ -535,160 +598,78 @@ Samkvæmt rannsókn á skólpi frá Reykjavík og Hafnarfirði\textsuperscript{\
 \hypertarget{helstu-uppsprettur-orplasts-a-islandi}{%
 \chapter{Helstu uppsprettur örplasts á Íslandi}\label{helstu-uppsprettur-orplasts-a-islandi}}
 
-Uppsprettur örplasts á Íslandi eru metnar á misjafnan hátt eftir því hvort gögn eru til staðar eða ekki. Þar sem þau eru ekki til eða óaðgengileg er notast við mat frá öðrum löndum og umreiknað eftir stærð og aðstæðum hérlendis. Samkvæmt fyrirliggjandi gögnum og neðangreindum matsaðferðum er árleg losun örplasts í umhverfið á Íslandi í kringum 450-1000 tonn. Uppsprettum er hér skipt í fimm flokka:
+Uppsprettur örplasts á Íslandi eru metnar á misjafnan hátt eftir því hvort gögn eru til staðar eða ekki. Þar sem þau eru ekki til eða óaðgengileg er notast við mat frá öðrum löndum og umreiknað eftir stærð og aðstæðum hérlendis. Samkvæmt fyrirliggjandi gögnum og neðangreindum matsaðferðum er árleg losun örplasts í umhverfið á Íslandi í kringum 450-1000 tonn en þar af er áætluð losun í hafið frá um 190 tonnum (sjá töflu \ref{tab:samantekuppspr} og mynd \ref{fig:unnamed-chunk-6})). Uppsprettum er hér skipt í fimm flokka:
+
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Samgöngur, byggingar og iðnaður
+Samgöngur, byggingar og iðnaður (bls. \pageref{samgongur-byggingar-og-inaur})
 \item
-  Útisvæði
+  Útisvæði (bls. \pageref{utisvi})
 \item
-  Neysluvörur
+  Neysluvörur (bls. \pageref{neysluvara})
 \item
-  Matvælaframleiðsla
+  Matvælaframleiðsla (bls. \pageref{matvlaframleisla})
 \item
-  Umhverfi
+  Umhverfi (bls. \pageref{umhverfi})
 \end{enumerate}
 
-\label{tab:smantekt}Samantekt á þeim uppsprettum örplasts sem kannaðar voru og mat á losun frám þeim í hafið.
+\begin{table}[t]
 
-Lægra mat
+\caption{\label{tab:samantekuppspr}Samantekt á þeim uppsprettum örplasts sem kannaðar voru og mat á losun frá þeim í hafið (tonn á ári).}
+\centering
+\begin{tabular}{>{\bfseries}ccc|cc}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{2}{c}{Uppspretta (t)} & \multicolumn{2}{c}{Losun í haf (t)} \\
+\cmidrule(l{3pt}r{3pt}){2-3} \cmidrule(l{3pt}r{3pt}){4-5}
+ & Lægra mat & Hærra mat & Lægra mat & Hærra mat\\
+\midrule
+\rowcolor{gray!6} Bifreiðahjólbarðar & 371 & 586 & 164 & 234\\
+Vegmerkingar & 41 & 256 & 5,7 & 42,6\\
+\rowcolor{gray!6} Flugvélahjólbarðar & 26 & 50 &  & \\
+Húsamálning & 33,2 & 77,1 & 15,2 & 36,1\\
+\rowcolor{gray!6} Skipamálning & 60 & 260 & 3,2 & 10\\
+Gervigras & 3 & 11 & 0,3 & 1,1\\
+\rowcolor{gray!6} Leikvellir & 0,2 & 2 &  & \\
+Þvottur & 8,2 & 32 & 8,2 & 32\\
+\rowcolor{gray!6} Snyrtivörur & 0,34 & 3,4 & 0,34 & 3,4\\
+Haglaskot & 1 & 3 &  & \\
+\rowcolor{gray!6} Sigvatn & 0,002 & 0,177 & 0,002 & 0,177\\
+\bottomrule
+\end{tabular}
+\end{table}
 
-Hærra mat
+\begin{figure}[H]
 
-Lægra mat
-
-Hærra mat
-
-Bifreiðahjólbarðar
-
-371
-
-586
-
-164
-
-234
-
-Vegmerkingar
-
-41
-
-256
-
-5.7
-
-42.6
-
-Flugvélahjólbarðar
-
-26
-
-50
-
-Húsamálning
-
-33,2
-
-77,1
-
-15.2
-
-36.1
-
-Skipamálning
-
-60
-
-260
-
-3.2
-
-10
-
-Gervigras
-
-3
-
-11
-
-0.3
-
-1.1
-
-Leikvellir
-
-0,2
-
-2
-
-Þvottur
-
-8,2
-
-32
-
-8.2
-
-32
-
-Snyrtivörur
-
-0,34
-
-3,4
-
-0.34
-
-3.4
-
-Haglaskot
-
-1
-
-3
-
-Sigvatn
-
-0,002
-
-0,177
-
-0.002
-
-0.177
-
-\begin{figure}
-
-{\centering \includegraphics{OrplastHaf_files/figure-latex/unnamed-chunk-6-1} 
+{\centering \includegraphics{_bookdown_files/OrplastHaf_files/figure-latex/unnamed-chunk-6-1} 
 
 }
 
-\caption{Helstu uppsprettur örplasts á Íslandi og skipting þess eftir farleiðum í haf eða í jarðveg. Byggt á lægra mati.}\label{fig:unnamed-chunk-6}
+\caption{Helstu uppsprettur örplasts á Íslandi og skipting eftir afdrifum í haf eða í jarðveg. Byggt á lægra mati.}\label{fig:unnamed-chunk-6}
 \end{figure}
 
 \hypertarget{samgongur-byggingar-og-inaur}{%
 \section*{Samgöngur, byggingar og iðnaður}\label{samgongur-byggingar-og-inaur}}
 \addcontentsline{toc}{section}{Samgöngur, byggingar og iðnaður}
 
-Erlendar rannsóknir sem tengjast örplastlosun frá samgöngum og iðnaði er hægt að yfirfæra á Ísland þar sem þær eru byggðar á sterkum grunni þó svo vikmörkin séu stór, sérstaklega hvað varðar farleiðir til sjávar. Óvissa er hve mest um farleiðir örplasts frá dekkjaögnum, vegmerkingum, húsamálningu og fleiri þátta sem berast aðallega til sjávar með ofanvatni og um fráveitukerfi en ekki beina leið gegnum niðurföll. Með sýnatökum úr vegaskurðum og settjörnum tengdum frárennsli vega og jarðvegi í kringum vegi, flugvelli og aðrar uppsprettur í þéttbýli verður hægt að minnka þá óvissu.
+Erlendar rannsóknir sem tengjast örplastlosun frá samgöngum og iðnaði er hægt að yfirfæra á Ísland þar sem þær eru byggðar á sterkum grunni þó svo vikmörkin séu stór, sérstaklega hvað varðar farleiðir til sjávar. Óvissa er hve mest um farleiðir örplasts frá dekkjaögnum, vegmerkingum, húsamálningu og fleiri þátta sem berast aðallega til sjávar með ofanvatni og um fráveitukerfi en ekki beina leið gegnum niðurföll. Með sýnatökum úr vegaskurðum og settjörnum tengdum frárennsli vega og jarðvegi í kringum vegi, flugvelli og aðrar uppsprettur í þéttbýli verður hægt að minnka þá óvissu. 
 
-Slit á hjólbörðum er ein af stærstu einstöku uppsprettum örplasts í heiminum\textsuperscript{\protect\hyperlink{ref-sundt2014sources}{32},\protect\hyperlink{ref-lassen2015microplastics}{76},\protect\hyperlink{ref-essel2015sources}{77}} og stærstu uppsprettur örplasts á Íslandi eru frá umferð um malbikaða vegi. Hjólbarðar og vegamálning innihalda plast sem verður að örplasti við slit\textsuperscript{\protect\hyperlink{ref-kreider2010physical}{78}}. Farleiðir dekkjaagna (dekkja- og vegaagna) af vegum til sjávar eru annars vegar með vindum og hins vegar með ofanvatni\footnote{„Uppbygging byggðar hefur þau áhrif að ógegndræpt yfirborð lands eykst, og vatn sem áður átti greiða leið ofan í jarðveg safnast saman á yfirborði ef ekkert er að gert. Úrkomuvatn sem fellur af húsþökum, götum, gangstéttum, bílastæðum og öðru þéttu yfirborði niður í fráveitukerfi er oft kallað „ofanvatn``. Hefðbundnar lausnir fela jafnan í sér að safna ofanvatni í fráveitukerfi sem er neðanjarðar, og leiða það þannig í pípum útaf svæðinu, oftast alla leið til sjávar.``\textsuperscript{\protect\hyperlink{ref-StefanFreyr}{79}}} en óvissa um afdrif þeirra er umtalsverð.
+Slit á hjólbörðum er ein af stærstu einstöku uppsprettum örplasts í heiminum\textsuperscript{\protect\hyperlink{ref-sundt2014sources}{32},\protect\hyperlink{ref-lassen2015microplastics}{78},\protect\hyperlink{ref-essel2015sources}{79}} og stærstu uppsprettur örplasts á Íslandi eru frá umferð um malbikaða vegi. Hjólbarðar og vegamálning innihalda plast sem verður að örplasti við slit\textsuperscript{\protect\hyperlink{ref-kreider2010physical}{76}}. Farleiðir dekkjaagna (dekkja- og vegaagna) af vegum til sjávar eru annars vegar með vindum og hins vegar með ofanvatni\footnote{„Uppbygging byggðar hefur þau áhrif að ógegndræpt yfirborð lands eykst, og vatn sem áður átti greiða leið ofan í jarðveg safnast saman á yfirborði ef ekkert er að gert. Úrkomuvatn sem fellur af húsþökum, götum, gangstéttum, bílastæðum og öðru þéttu yfirborði niður í fráveitukerfi er oft kallað „ofanvatn``. Hefðbundnar lausnir fela jafnan í sér að safna ofanvatni í fráveitukerfi sem er neðanjarðar, og leiða það þannig í pípum útaf svæðinu, oftast alla leið til sjávar.``\textsuperscript{\protect\hyperlink{ref-StefanFreyr}{77}}} en óvissa um afdrif þeirra er umtalsverð.
 
-Frá því eftir miðbik síðustu aldar hafa stöðugar tækniframfarir verið drifnar áfram af pólitískum aðgerðum til að minnka mengun frá útblæstri bíla\textsuperscript{\protect\hyperlink{ref-lee2007innovation}{80}} en í seinni tíð hefur kastljósið í meira mæli beinst að mengun ótengdri útblæstri. Dekkjaagnir eru mikilvægur hluti af þeirri mengun þar sem milli 20\% og 50\% gúmmís í dekkjum farþegabíla fellur til á formi svifryks\footnote{Svifryk er venjulega skilgreint sem agnir smærri en 10 \(\mu\)m (PM\textsubscript{10}) en agnir minni en 10 μm í þvermál eru mögulega líffræðilega virkar þar sem þær komast ofan í lungun hjá fólki\textsuperscript{\protect\hyperlink{ref-heyder1986deposition}{81}}. Dekkjaagnir eru að jafnaði lítill hluti af svifryki frá vegum en þær hafa mælst frá 3\% til 7\% af rúmmáli í fínu svifryki (PM\textsubscript{2,5}) og allt að 10\% í grófara svifryki (PM\textsubscript{10})\textsuperscript{\protect\hyperlink{ref-grigoratos2014non}{82}}. Þó ber að nefna að í íslenskri rannsókn fundust ekki dekkjaagnir í svifryki í Reykjavík\textsuperscript{\protect\hyperlink{ref-Efla2015}{83}}. Aðstæður í Reykjavík eru sérstakar miðað við þá staði þar sem framkvæmdar eru þær rannsóknir á svifryki sem hér er vísað í. Í Reykjavík er meðalhiti lágur og mikill fjöldi rigningardaga en blautir vegir og lágt hitastig verja dekk sliti\textsuperscript{\protect\hyperlink{ref-le1998evaluation}{84}}.} og stærri agna þegar hjólbarðarnir eyðast við akstur\textsuperscript{\protect\hyperlink{ref-atech2001national}{85}}. Dekkjaagnir eru að mestum hluta stærri en svifryk\textsuperscript{\protect\hyperlink{ref-kreider2010physical}{78}} og setjast í kringum vegina\textsuperscript{\protect\hyperlink{ref-Cadle1978}{69}} og í malbikið sjálft en malbik er misgljúpt eftir notkun\textsuperscript{\protect\hyperlink{ref-Verschoor2016}{86}}. Uppsöfnun er þó takmörkuð þar sem vind hreyfir mikið og úrkoma skolar vegryki burtu með affallsvatni. Dekkjaagnir sem falla til geta brotnað niður að hluta við núninginn við vegina þegar þær losna frá dekkjunum sem veikir mótstöðu þeirra gagnvart útfjólubláu ljósi og færir þær nær niðurbroti í umhverfinu\textsuperscript{\protect\hyperlink{ref-Cadle1978}{69},\protect\hyperlink{ref-kreider2010physical}{78}}.
+Frá því eftir miðbik síðustu aldar hafa stöðugar tækniframfarir verið drifnar áfram af pólitískum aðgerðum til að minnka mengun frá útblæstri bíla\textsuperscript{\protect\hyperlink{ref-lee2007innovation}{80}} en í seinni tíð hefur kastljósið í meira mæli beinst að mengun ótengdri útblæstri. Dekkjaagnir eru mikilvægur hluti af þeirri mengun þar sem milli 20\% og 50\% gúmmís í dekkjum farþegabíla fellur til á formi svifryks\footnote{Svifryk er venjulega skilgreint sem agnir smærri en 10 µm (PM\textsubscript{10}) en agnir minni en 10 µm í þvermál eru mögulega líffræðilega virkar þar sem þær komast ofan í lungun hjá fólki\textsuperscript{\protect\hyperlink{ref-heyder1986deposition}{81}}. Dekkjaagnir eru að jafnaði lítill hluti af svifryki frá vegum en þær hafa mælst frá 3\% til 7\% af rúmmáli í fínu svifryki (PM\textsubscript{2,5}) og allt að 10\% í grófara svifryki (PM\textsubscript{10})\textsuperscript{\protect\hyperlink{ref-grigoratos2014non}{82}}. Þó ber að nefna að í íslenskri rannsókn fundust ekki dekkjaagnir í svifryki í Reykjavík\textsuperscript{\protect\hyperlink{ref-Efla2015}{83}}. Aðstæður í Reykjavík eru sérstakar miðað við þá staði þar sem framkvæmdar eru þær rannsóknir á svifryki sem hér er vísað í. Í Reykjavík er meðalhiti lágur og mikill fjöldi rigningardaga en blautir vegir og lágt hitastig verja dekk sliti\textsuperscript{\protect\hyperlink{ref-le1998evaluation}{84}}.} og stærri agna þegar hjólbarðarnir eyðast við akstur\textsuperscript{\protect\hyperlink{ref-atech2001national}{85}}. Dekkjaagnir eru að mestum hluta stærri en svifryk\textsuperscript{\protect\hyperlink{ref-kreider2010physical}{76}} og setjast í kringum vegina\textsuperscript{\protect\hyperlink{ref-Cadle1978}{69}} og í malbikið sjálft en malbik er misgljúpt eftir notkun\textsuperscript{\protect\hyperlink{ref-Verschoor2016}{86}}. Uppsöfnun er þó takmörkuð þar sem vind hreyfir mikið og úrkoma skolar vegryki burtu með affallsvatni. Dekkjaagnir sem falla til geta brotnað niður að hluta við núninginn við vegina þegar þær losna frá dekkjunum sem veikir mótstöðu þeirra gagnvart útfjólubláu ljósi og færir þær nær niðurbroti í umhverfinu\textsuperscript{\protect\hyperlink{ref-Cadle1978}{69},\protect\hyperlink{ref-kreider2010physical}{76}}.
 
-Umferð á Íslandi fer að langmestu leyti um malbikaða vegi í þéttbýli og eftir þjóðvegum landsins en umferðarþungi hefur aukist talsvert síðasta áratuginn (sjá mynd \ref{fig:umferdvisitala1}). Íslenskir vegir eru byggðir á fyllingu með gljúpum jarðvegi og greiðri afvötnun\textsuperscript{\protect\hyperlink{ref-Matinupa2012Summary}{87}} en þar sem plast er ekki vatnsleysanlegt gerum við ráð fyrir að það síist burtu út í jarðveginn frekar en að ferðast með grunnvatni\textsuperscript{\protect\hyperlink{ref-ECHA2016}{88}}. Ofanvatn rennur að mestu út í jarðveginn við vegina en í þéttbýli rennur það einnig í ræsi í eða í læki og ár. Á strjálbýlli svæðum taka vegrásir og skurðir við ofanvatni. Hérlendar byggðir eru flestar við ströndina og helstu vegir milli bæja liggja eftir strandlengjunni og er því ekki löng leið milli helstu vega og sjávar. Þær agnir sem ofanvatnið ber með sér festast því síður í jarðvegi og ferskvatnsseti við slíkar aðstæður en aukin fjarlægð eykur líkurnar á viðloðun í jarðvegi eða botnfellingu\textsuperscript{\protect\hyperlink{ref-BESSELING2017540}{89}}.
+\begin{figure}[H]
 
-\begin{figure}
-
-{\centering \includegraphics{OrplastHaf_files/figure-latex/umferdvisitala1-1} 
+{\centering \includegraphics{_bookdown_files/OrplastHaf_files/figure-latex/umferdvisitala1-1} 
 
 }
 
 \caption{Vísitala umferðar (línur) ásamt meðalumferðarþunga yfir árið (stöplar) í þremur völdum sniðum innan höfuðborgarsvæðisins og á 16 lykilteljurum á hringveginum.}\label{fig:umferdvisitala1}
 \end{figure}
+
+ Umferð á Íslandi fer að langmestu leyti um malbikaða vegi í þéttbýli og eftir þjóðvegum landsins en umferðarþungi hefur aukist talsvert síðasta áratuginn (sjá mynd \ref{fig:umferdvisitala1}). Íslenskir vegir eru byggðir á fyllingu með gljúpum jarðvegi og greiðri afvötnun\textsuperscript{\protect\hyperlink{ref-Matinupa2012Summary}{87}} en þar sem plast er ekki vatnsleysanlegt gerum við ráð fyrir að það síist burtu út í jarðveginn frekar en að ferðast með grunnvatni\textsuperscript{\protect\hyperlink{ref-ECHA2016}{88}}. Ofanvatn rennur að mestu út í jarðveginn við vegina en í þéttbýli rennur það einnig í ræsi í eða í læki og ár. Á strjálbýlli svæðum taka vegrásir og skurðir við ofanvatni. Hérlendar byggðir eru flestar við ströndina og helstu vegir milli bæja liggja eftir strandlengjunni og er því ekki löng leið milli helstu vega og sjávar. Þær agnir sem ofanvatnið ber með sér festast því síður í jarðvegi og ferskvatnsseti við slíkar aðstæður en aukin fjarlægð eykur líkurnar á viðloðun í jarðvegi eða botnfellingu\textsuperscript{\protect\hyperlink{ref-BESSELING2017540}{89}}.
 
 Það fer í stórum dráttum eftir þéttni byggðar hversu háu hlutfalli ofanvatns er veitt í hafið með fráveitukerfum eða hve mikið seytlar niður í jarðveginn (sjá mynd \ref{fig:ALTA})). Þar sem íslenskt þéttbýli er heldur í dreifðara lagi þá er hér reiknað með eftirfarandi:
 
@@ -700,13 +681,13 @@ Umferð á Íslandi fer að langmestu leyti um malbikaða vegi í þéttbýli og
   Í þéttbýli hérlendis fari 40\% af affallsvatni vega í jarðveginn en 60\% í ræsi.\textsuperscript{\protect\hyperlink{ref-Verschoor2016}{86}}
 \end{itemize}
 
-\begin{figure}
+\begin{figure}[H]
 
 {\centering \includegraphics[width=1\linewidth]{myndir/ALTA} 
 
 }
 
-\caption{Myndin sýnir í stórum dráttum hlutfall ofanvatns sem rennur í jarðveg á móti hlutfalli ofanvatns sem rennur í hefðbundið fráveitukerfi miðað við þéttleika byggðar. Mynd fengin frá Alta (2016)}\label{fig:ALTA}
+\caption{Myndin sýnir í stórum dráttum hlutfall ofanvatns sem rennur í jarðveg á móti hlutfalli ofanvatns sem rennur í hefðbundið fráveitukerfi miðað við þéttleika byggðar. Mynd fengin frá \href{http://www.skipulag.is/media/attachments/blagraenar_ofanvatnslausnir.pdf}{\nolinkurl{Alta (2016)}}.}\label{fig:ALTA}
 \end{figure}
 
 Hér er það metið sem svo að affallsvatn sem lendir í fráveitukerfum beri allar dekkjaagnir sem það inniheldur út í haf en það affallsvatn sem rennur í jarðveg losni við allar dekkjaagnir í jarðveginn. Það skal þó tekið fram að aðstæður eru mjög ólíkar á mismunandi svæðum landsins bæði m.t.t. jarðvegsgerðar og einnig eiginleika þéttbýla og þar stendur Reykjavík út úr. Mælingar á dekkjaögnum í affallsvatni eru erfiðar í framkvæmd og gögn skortir. Nokkur líkön hafa verið gerð til að áætla magn örplasts í framburði stórra áa í Evrópu en þau eru sum hver í mótsögn hvor við aðra\textsuperscript{\protect\hyperlink{ref-unice2019characterizing1}{65}}. Þau eiga það þó sameiginlegt að áætla örplast frá dekkjum heilli stærðargráðu lægra en í þessari skýrslu þar sem þau lýsa aðstæðum sem eru gjörólíkar íslenskum aðstæðum t.d. er fjarlægð helstu uppspretta örplsts (borgir) í tugum til hundruða kílómetra fjarlægð frá árósum.
@@ -717,13 +698,13 @@ Hér er það metið sem svo að affallsvatn sem lendir í fráveitukerfum beri 
 
 Hjólbarðar eyðast smám saman við akstur vegna núnings við vegi. Margir þættir hafa áhrif á slit hjólbarða en það er mismikið eftir gerð dekkja, stærð bíla og aksturslagi\textsuperscript{\protect\hyperlink{ref-panko2018review}{90}}. Þar sem fleiri beygjur eru á vegum og hröðunarbreytingar eru tíðari verður meira álag á dekkin og slit á þeim verður meira. Því er eyðing dekkja minni á þjóðvegum en vegum í þéttbýli\textsuperscript{\protect\hyperlink{ref-luhana2004measurement}{91},\protect\hyperlink{ref-Kwak2013}{92}}.
 
-Hjólbarðar eru samsettir úr flókinni blöndu efna sem er blandað með ólíkum hætti eftir þörfum. Slit er misjafnt eftir því fyrir hvaða gerð farartækja dekkin eru framleidd og hvernig slitlag vegarins er\textsuperscript{\protect\hyperlink{ref-grigoratos2014non}{82}}. Gúmmísólar venjulegra bíldekkja eru gerðir úr blöndu af gervigúmmíi (aðallega stýren bútadíen gúmmí og bútadíen gúmmí), náttúrulegu gúmmíi, kinroki (e. carbon black) og ýmsum íblöndunarefnum\textsuperscript{\protect\hyperlink{ref-Evans2006}{93}}. Hlutfall plastfjölliða í slitlagi hjólbarða er á bilinu 40-60\%\textsuperscript{\protect\hyperlink{ref-Redondo-hasselerharm2018}{94}--\protect\hyperlink{ref-barbin1994science}{96}} (tekið saman af Wik 2009\textsuperscript{\protect\hyperlink{ref-Wik2009}{97}}). Dekkjaagnirnar sem myndast við akstur blandast öðrum ögnum sem eru í malbikinu og vegrykinu sem breytir efnasamsetningu agnanna\textsuperscript{\protect\hyperlink{ref-kreider2010physical}{78}}. Þessi blanda dekkja- og vegslits (e. tyre and road wear particles - TRWP) getur því til viðbótar innihaldið efni á borð við bik, þ.e. úr malbiki\textsuperscript{\protect\hyperlink{ref-fauser2002tire}{98}}, og ryk frá bremsuborðum/diskum\textsuperscript{\protect\hyperlink{ref-kwak2013characterization}{99}}. Í þessari skýrslu er litið á gúmmíblönduna, ásamt öðrum bætiefnum sem er er blandað saman í slitlagi hjólbarða, sem eina heild óháð fjölliðuinnihaldi.
+Hjólbarðar eru samsettir úr flókinni blöndu efna sem er blandað með ólíkum hætti eftir þörfum. Slit er misjafnt eftir því fyrir hvaða gerð farartækja dekkin eru framleidd og hvernig slitlag vegarins er\textsuperscript{\protect\hyperlink{ref-grigoratos2014non}{82}}. Gúmmísólar venjulegra bíldekkja eru gerðir úr blöndu af gervigúmmíi (aðallega stýren bútadíen gúmmí og bútadíen gúmmí), náttúrulegu gúmmíi, kinroki (e. carbon black) og ýmsum íblöndunarefnum\textsuperscript{\protect\hyperlink{ref-Evans2006}{93}}. Hlutfall plastfjölliða í slitlagi hjólbarða er á bilinu 40-60\%\textsuperscript{\protect\hyperlink{ref-Redondo-hasselerharm2018}{94}--\protect\hyperlink{ref-barbin1994science}{96}} (tekið saman af Wik 2009\textsuperscript{\protect\hyperlink{ref-Wik2009}{97}}). Dekkjaagnirnar sem myndast við akstur blandast öðrum ögnum sem eru í malbikinu og vegrykinu sem breytir efnasamsetningu agnanna\textsuperscript{\protect\hyperlink{ref-kreider2010physical}{76}}. Þessi blanda dekkja- og vegslits (e. tyre and road wear particles - TRWP) getur því til viðbótar innihaldið efni á borð við bik, þ.e. úr malbiki\textsuperscript{\protect\hyperlink{ref-fauser2002tire}{98}}, og ryk frá bremsuborðum/diskum\textsuperscript{\protect\hyperlink{ref-kwak2013characterization}{99}}. Í þessari skýrslu er litið á gúmmíblönduna, ásamt öðrum bætiefnum sem er er blandað saman í slitlagi hjólbarða, sem eina heild óháð fjölliðuinnihaldi.
 
 Ein leið til að áætla magn dekkjaslits er að miða við staðlaðar losunartölur mg/km ólíkra þyngdarflokka ökutækja. Samkvæmt Klein (2017)\textsuperscript{\protect\hyperlink{ref-klein2017methods}{100}} er slit hjólbarða fólksbifreiða 85-132 milligrömm fyrir hvern ekinn kílómetra, hópbifreiða 267-415 mg/km, sendibifreiða 102-159 mg/km og vörubifreiða 546-850 mg/km.
 
-Í töflu \ref{tab:akstur} má sjá fjölda bifreiða af mismunandi gerðum í umferð á Íslandi (þann 14. ágúst 2018) og meðalakstur samkvæmt upplýsingum frá Samgöngu- og sveitarstjórnaráðuneytinu. Séu þessar tölur margfaldað með áætluðu dekkjasliti fyrir viðkomandi ökutækjaflokka \emph{i} er áætlað dekkjaslit er reiknað á eftirfarandi hátt: Losun\textsubscript{i} = (fjöldi × meðalakstur × mg/km)\textsubscript{i}. Niðurstaðan er þá að árið 2017 hafi slit frá fólksbifreiðum verið 244-378 tonn, sendibifreiðum 34-52 tonn, hópbifreiðum 22-34 tonn, og vörubifreiðum 79-122 tonn.
+Í töflu \ref{tab:akstur} má sjá fjölda bifreiða af mismunandi gerðum í umferð á Íslandi (þann 14. ágúst 2018) og meðalakstur samkvæmt upplýsingum frá Samgöngu- og sveitarstjórnaráðuneytinu. Séu þessar tölur margfaldað með áætluðu dekkjasliti fyrir viðkomandi ökutækjaflokka, \emph{i}, er áætlað dekkjaslit er reiknað á eftirfarandi hátt: Losun\textsubscript{i} = (fjöldi × meðalakstur × mg/km)\textsubscript{i}. Niðurstaðan er þá að árið 2017 hafi slit frá fólksbifreiðum verið 244-378 tonn, sendibifreiðum 34-52 tonn, hópbifreiðum 22-34 tonn, og vörubifreiðum 79-122 tonn.
 
-Farleiðir dekkjaslits er að langmestu leyti með affallsvatni vega\textsuperscript{\protect\hyperlink{ref-Verschoor2016}{86}} og eru vindbornar agnir svotil utanskildar í þessari skýrslu. Losun örplasts vegna dekkjaslits er áætlað. Við metum það sem svo að:
+Farleiðir dekkjaslits er að langmestu leyti með affallsvatni vega\textsuperscript{\protect\hyperlink{ref-Verschoor2016}{86}} og eru vindbornar agnir svotil utanskildar í þessari skýrslu. Losun örplasts vegna dekkjaslits er áætlað sem svo að:
 
 \begin{itemize}
 \tightlist
@@ -733,34 +714,33 @@ Farleiðir dekkjaslits er að langmestu leyti með affallsvatni vega\textsupersc
   um 2/3 hlutar allrar umferðar sé í þéttbýli þar sem hátt hlutfall dekkjaslits berst til hafs eða um 60\% í gegnum ræsi.
 \end{itemize}
 
-Áætluð heildarlosun örplasts í hafið frá sliti bifreiðahjólbarða á Íslandi er \textbf{164-255} tonn.
+\grattbox{Áætluð heildarlosun örplasts í hafið frá sliti bifreiðahjólbarða á Íslandi er \textbf{164-255 tonn}.}
 
 \begin{table}[t]
 
-\caption{\label{tab:akstur}Áætluð árleg losun örplasts í hafið vegna slits á hjólbörðum bifreiða. Fjöldi bíla af mismunandi gerðum í umferð á Íslandi þann 14. ágúst 2018 og meðalakstur skv. Umferðastofu. Með meðalþyngd er átt við heildarþyngd skv. reglugerð. Byggt á mati Klein (2017) og Verschoor (2016)}
+\caption{\label{tab:akstur}Áætluð árleg losun örplasts í hafið vegna slits á hjólbörðum bifreiða. Fjöldi bíla af mismunandi gerðum í umferð á Íslandi þann 14. ágúst 2018 og meðalakstur skv. Umferðastofu. Með meðalþyngd er átt við heildarþyngd skv. reglugerð. Byggt á mati Klein (2017) og Verschoor (2016).}
 \centering
-\begin{tabular}{lllll}
+\begin{tabular}{p{3cm}llll}
 \toprule
   & Fólksbifreið & Sendibifreið & Hópbifreið & Vörubifreið\\
 \midrule
-Fjöldi & 227409 & 23159 & 2410 & 8078\\
+\rowcolor{gray!6} Fjöldi & 227.409 & 23.159 & 2.410 & 8.078\\
 Meðalþyngd (t) & 2,05 & 2,66 & 9,75 & 17,18\\
-Meðalakstur (þús. km/ár) & 12,6 & 14,25 & 33,69 & 17,83\\
+\rowcolor{gray!6} Meðalakstur (þús. km/ár) & 12,6 & 14,25 & 33,69 & 17,83\\
 Slit (mg/km) & 85-132 & 102-159 & 267-415 & 546-850\\
-Slit (t/ár) & 244-378 & 34-52 & 22-34 & 79-122\\
-\addlinespace
+\rowcolor{gray!6} Slit (t/ár) & 244-378 & 34-52 & 22-34 & 79-122\\
 Losun í hafið (t/ár) & 97-151 & 13-21 & 9-13 & 31-49\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\begin{figure}
+\begin{figure}[H]
 
-{\centering \includegraphics{OrplastHaf_files/figure-latex/akstur2-1} 
+{\centering \includegraphics{_bookdown_files/OrplastHaf_files/figure-latex/akstur2-1} 
 
 }
 
-\caption{Losun örplasts frá hjólbörðum á land og í haf skv. lægra mati}\label{fig:akstur2}
+\caption{Losun örplasts frá hjólbörðum á land og í haf skv. lægra mati.}\label{fig:akstur2}
 \end{figure}
 
 \hypertarget{vegmerkingar}{%
@@ -777,11 +757,11 @@ Veðurfarsþættir á borð við úrkomu, vind og hitastigsbreytingar (einkum í
 
 Vegna skiljanlegra krafa um að vegir séu vel hreinsaðir af snjó er nokkuð algengt að snjótennur skrapi vegmerkingar af vegum og jafnvel hluta af slitlaginu sjálfu. Á þetta einkum við þegar hjólför hafa myndast og vegir eru ójafnir en aðferðir við snjómokstur geta einnig haft áhrif. Þó að almenn umferð sé helsta orsök slits vegmerkinga er giskað á að slit af völdum snjómoksturs sé mögulega allt að 15\% þótt hafa beri í huga að mælingar hafa ekki verið gerðar (pers. heimild Vegagerðin). Snjómokstur hefur reynst vera mikilvægur farvegur fyrir vegmerkingar og fleiri gerðir plastefna út í hafið á svæðum þar sem snjó er ýtt út í sjó\textsuperscript{\protect\hyperlink{ref-BaztanJ2018}{101}}.
 
-Misjafnt er eftir heimildum hvernig losun örplasts frá vegmerkingum er metið. Í norskri skýrslu\textsuperscript{\protect\hyperlink{ref-sundt2014sources}{32}} er talað um að allar vegmerkingar sem notaðar séu árlega reiknist með sem losun örplasts vegna slits. Í danskri skýrslu\textsuperscript{\protect\hyperlink{ref-lassen2015microplastics}{76}} er ekki reiknað með þeim vegmerkingum sem áætlað er að fari á nýtt malbik og að um 15-25\% fari í endurlagningu en í þýskri rannsókn\textsuperscript{\protect\hyperlink{ref-Commission2009}{102}} er talað um að um að þetta hlutfall sé 80\%. Samkvæmt sérfræðingum Vegagerðarinnar er um 87\% vegmerkinga hérlendis vegna slits og er því tekið með í reikninginn sem uppspretta örplasts.
+Misjafnt er eftir heimildum hvernig losun örplasts frá vegmerkingum er metið. Í norskri skýrslu\textsuperscript{\protect\hyperlink{ref-sundt2014sources}{32}} er talað um að allar vegmerkingar sem notaðar séu árlega reiknist með sem losun örplasts vegna slits. Í danskri skýrslu\textsuperscript{\protect\hyperlink{ref-lassen2015microplastics}{78}} er ekki reiknað með þeim vegmerkingum sem áætlað er að fari á nýtt malbik og að um 15-25\% fari í endurlagningu en í þýskri rannsókn\textsuperscript{\protect\hyperlink{ref-Commission2009}{102}} er talað um að um að þetta hlutfall sé 80\%. Samkvæmt sérfræðingum Vegagerðarinnar er um 87\% vegmerkinga hérlendis vegna slits og er því tekið með í reikninginn sem uppspretta örplasts.
 
 Vegmerkingum á Íslandi er skipt á milli Vegagerðarinnar og sveitarfélaganna. Vegagerðin sér um þjóðvegina sem liggja um landið og í gegnum flesta þéttbýlisstaði, til dæmis liggja nokkrir vegir Vegagerðarinnar í gegnum Reykjavík og svo liggja þeir gjarnan niður á höfn í gegnum minni bæi úti á landi. Unnt er að áætla slit vegmerkinga Vegagerðarinnar út frá því magni sem bætt er á vegi hennar á landsvísu ár hvert.
 
-Árið 2017 notaði Vegagerðin 155.000 L (1,65 g/L ≈ 250 t) af vegmálningu, 454 t af sprautuplasti og 182 t af vélmössun (sama efnið notað). Sé miðað við óstaðfestar upplýsingar frá framleiðanda er fjölliðuinnihald sprautuplastsins frá 1 til 8\% en í málningunni er innihald akrýlfjölliða á bilinu 15-40\% (samkvæmt öryggisleiðbeiningum frá framleiðanda).
+Árið 2017 notaði Vegagerðin 155.000 L (1,65 g/L ≈ 250 t) af vegmálningu, 454 t af sprautuplasti og 182 t af vélmössun (\href{https://www.geveko-markings.com/fileadmin/root/msds/Thermoplastics/ViaTherm/MSDS_ViaTherm_hydrocarbon_EN-GB.pdf}{sama efnið notað}). Sé miðað við óstaðfestar upplýsingar frá framleiðanda er fjölliðuinnihald sprautuplastsins frá 1 til 8\% en í málningunni er innihald akrýlfjölliða á bilinu 15-40\% skv.(\href{\%22/skjol/Mercalin\%20AQ\%20white\%206010\%20vatnsmálning\%20CLEANOSOL-3.pdf\%22}{öryggisleiðbeiningum})
 
 Nauðsynlegt er að endurnýja vegmerkingar sem sjást illa en umfang þeirra er nokkuð stöðugt milli ára hjá Vegagerðinni þar flestar miðlínur á íslenskum þjóðvegum eru endurlagðar árlega sem er ólíkt því sem gerist í nálægum samanburðarlöndum. Í Bretlandi er reynt að fara eftir vissum staðli um sýnileika og ekki málað fyrr en vegmerkingar eru umtalsvert eyddar (30\% í þéttbýli en 70\% á þjóðvegum)\textsuperscript{\protect\hyperlink{ref-Hann2018}{103}}. Miðað við útboðsgögn nokkurra stórra sveitarfélaga er notkun sprautuplasts um 0,6 kg á mann á ári í stærri þéttbýlum. Í minni þéttbýlum er algengt að notuð sé málning frekar en plast og í minna magni\footnote{Á Ísafirði, Bolungarvík, Sauðárkróki, Fjallabyggð, Skagaströnd, Dalvík er málað en í Hveragerði er massað. Skv. Gauti Ívari Halldórssyni framkvæmdastjóra \href{http://www.bilastaedamalun.is/}{vegmerkingafyrirtækis} sem sér um vegmerkingar á þessum stöðum (nema Skagaströnd) er málað frekar en massað í flestum minni þéttbýlum}. Þar er algengt að um 0,2 kg á mann sé notað af vegamálningu sé notuð árlega. Miðað við forsendur sem tilteknar eru í töflu \ref{tab:vegmerkingar} má áætla að á Íslandi sé árleg uppspretta örplasts vegna slits á vegmerkingum sé 41-256 t.
 
@@ -789,19 +769,36 @@ Nauðsynlegt er að endurnýja vegmerkingar sem sjást illa en umfang þeirra er
 
 \caption{\label{tab:vegmerkingar}Áætluð árleg uppspretta örplasts frá vegmerkingum á Íslandi árið 2017.}
 \centering
-\begin{tabular}{ccccccccc}
+\fontsize{7}{9}\selectfont
+\begin{tabular}{>{\bfseries}ccccccccc}
 \toprule
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{Gerð} & \multicolumn{1}{c}{Íbúafjöldi} & \multicolumn{1}{c}{Notkun} & \multicolumn{1}{c}{Viðhald} & \multicolumn{1}{c}{Samtals} & \multicolumn{1}{c}{Fjölliður } & \multicolumn{1}{c}{Uppspretta} & \multicolumn{1}{c}{Losun í haf} \\
+\cmidrule(l{3pt}r{3pt}){2-2} \cmidrule(l{3pt}r{3pt}){3-3} \cmidrule(l{3pt}r{3pt}){4-4} \cmidrule(l{3pt}r{3pt}){5-5} \cmidrule(l{3pt}r{3pt}){6-6} \cmidrule(l{3pt}r{3pt}){7-7} \cmidrule(l{3pt}r{3pt}){8-8} \cmidrule(l{3pt}r{3pt}){9-9}
  &  &  & kg/mann &  & Tonn & \% & Tonn & Tonn\\
 \midrule
-Stærri sveitarfélög & Sprautuplast & 254.280 & 0,6 & 87\% & 110 & 1-25 & 1-28 & 0,6-16,8\\
-Minni sveitarfélög & Málning & 84.170 & 0,2 & 87\% & 15 & 15-40 & 2-6 & 1,3-3,6\\
-Vegagerðin & Sprautuplast &  &  & 87\% & 543 & 1-25 & 5-135 & 0,5-13,5\\
-Vegagerðin & Málning &  &  & 87\% & 218 & 15-40 & 33-87 & 3,3-8,7\\
+Stærri bæir & Mössun & 254.280 & 0,6 &  & 110 & 1-25 & 1-28 & 0,6-16,8\\
+\cmidrule{1-4}
+\cmidrule{6-9}
+Minni bæir & Málning & 84.170 & 0,2 &  & 15 & 15-40 & 2-6 & 1,3-3,6\\
+\cmidrule{1-4}
+\cmidrule{6-9}
+ & Mössun &  &  &  & 543 & 1-25 & 5-135 & 0,5-13,5\\
+\cmidrule{2-2}
+\cmidrule{6-9}
+\multirow{-2}{*}{\centering\arraybackslash Vegagerðin} & Málning & \multirow{-2}{*}{\centering\arraybackslash } & \multirow{-2}{*}{\centering\arraybackslash } & \multirow{-4}{*}{\centering\arraybackslash 87\%} & 218 & 15-40 & 33-87 & 3,3-8,7\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Líkt og við á um dekkjaagnir berst slit frá vegmerkingum helst með vindi og ofanvatni í jarðveg eða fráveitukerfi, skurði, ár og læki. Miðað við 60\% ofanvatns berist í fráveitukerfi í þéttbýli og 10\% í dreifbýli má áætla að losun örplasts í hafið frá vegmerkingum sé \textbf{5,7 - 42,6 tonn}.
+Líkt og við á um dekkjaagnir berst slit frá vegmerkingum helst með vindi og ofanvatni í jarðveg eða fráveitukerfi, skurði, ár og læki. Miðað við 60\% ofanvatns berist í fráveitukerfi í þéttbýli og 10\% í dreifbýli má áætla losun örplasts í hafið frá vegmerkingum.
+
+\grattbox{Áætluð heildarlosun örplasts í hafið vegna vegmerkinga er \textbf{5,7 - 42,6 tonn}}
+
+\begin{figure}[H]
+\centering
+\includegraphics{_bookdown_files/OrplastHaf_files/figure-latex/vegmerkingar2-1.pdf}
+\caption{\label{fig:vegmerkingar2}Uppsprettur örplasts frá vegmerkingum skipt eftir notendum (stærri og minni sveitarfélög og Vegagerðin) og gerð (sprautuplast/vegamálning) ásamt losun í haf.}
+\end{figure}
 
 \hypertarget{hjolbarar-flugvela}{%
 \subsubsection*{Hjólbarðar flugvéla}\label{hjolbarar-flugvela}}
@@ -815,13 +812,13 @@ Dæmigerðar millilandaflugvélar eru flugvélar á borð við Boeing 757\textsu
 
 Flugvélar í innanlandsflugi á Íslandi eru flestar á bilinu 10 til 18 tonn án farþega (t.d. Bombardier Q400 (18 tonn), Bombardier Q200 (10 tonn) og Jetstream 32 (10 tonn)). Ekki fundust tölur um slit hjólbarða hjá þessum flugvélum en sé lauslega gert ráð fyrir að slitið sé í kringum 1/3 af því sem áætlað er fyrir flugvélar í millilandaflugi. Af hinum tæpu 130 þúsund flughreyfingum hérlendis árið 2017 voru 75 þúsund þeirra snertilendingar sem reiknast sem 0,5 flughreyfing. Með sömu aðferðum og notaðar voru við að meta dekkjaslit frá millilandaflugi má áætla um 8-16 tonnum árlega vegna innanlandsflugs. Árlegt magn dekkjaslits frá hjólbörðum flugvéla er því metið 26-50 tonn. Þetta mat er byggt er á óáreiðanlegum forsendum og ekki var unnt notast við nákvæma stærðarflokkun þeirra flugvéla sem lentu og tóku á loft á Íslandi og því viðbúið að skekkja matsins sé talsverð.
 
-Allar flugbrautir á Keflavíkurflugvelli afvatnast út í jarðveginn í kring og berst því líklega ekki í hafið í miklu mæli. Fráveitukerfi flugvallarins tekur við ofanvatni frá byggingum á vellinum. Ekki var kannað hvernig fráveitumálum er háttað við aðra flugvelli eru staðsettir við sjó eða við fljót í tilfelli Egilstaðaflugvallar. Ekki er hægt að meta losun örplasts í hafið frá flugvélahjólbörðum hérlendis að svo stöddu en uppspretta örplasts frá hjólbörðum flugvéla í umhverfið árlega er \textbf{26-50 tonn}.
+Allar flugbrautir á Keflavíkurflugvelli afvatnast út í jarðveginn í kring og berst því líklega ekki í hafið í miklu mæli. Fráveitukerfi flugvallarins tekur við ofanvatni frá byggingum á vellinum. Ekki var kannað hvernig fráveitumálum er háttað við aðra flugvelli eru staðsettir við sjó eða við fljót í tilfelli Egilsstaðaflugvallar. Ekki er hægt að meta losun örplasts í hafið frá flugvélahjólbörðum hérlendis að svo stöddu en uppspretta örplasts frá hjólbörðum flugvéla í umhverfið árlega er \textbf{26-50 tonn}.
 
 \hypertarget{malning}{%
 \section*{Málning}\label{malning}}
 \addcontentsline{toc}{section}{Málning}
 
-Gera þarf könnun á innflutningi málningar og efna til framleiðslu á málningu þar sem óvissa er um hlutfallslegt magn ólíkrar málningar, til dæmis skipa- og húsamálningar og málningar með misháu fjölliðuinnihaldi hérlendis. Skýrsluhöfundum er ekki kunnugt um hvernig eftirliti með slippum er háttað en við matið á örplastlosun frá þeim var stuðst við tölur frá Hollandi\textsuperscript{\protect\hyperlink{ref-Verschoor2016}{86}} en engar samantektir á þeirra starfsemi fengust afhendar. Mesti munur á mögulegri uppsprettu og losun í hafið var frá stærstu slippunum en að sögn starfsmanna nokkurra slippa er nánast allt hreinsað upp sem fellur til vegna viðhalds skipa.
+Gera þarf könnun á innflutningi málningar og efna til framleiðslu á málningu þar sem óvissa er um hlutfallslegt magn ólíkrar málningar, til dæmis skipa- og húsamálningar og málningar með misháu fjölliðuinnihaldi hérlendis. Skýrsluhöfundum er ekki kunnugt um hvernig eftirliti með slippum er háttað en við matið á örplastlosun frá þeim var stuðst við tölur frá Hollandi\textsuperscript{\protect\hyperlink{ref-Verschoor2016}{86}} en engar samantektir á þeirra starfsemi fengust afhentar. Mesti munur á mögulegri uppsprettu og losun í hafið var frá stærstu slippunum en að sögn starfsmanna nokkurra slippa er nánast allt hreinsað upp sem fellur til vegna viðhalds skipa.
 
 \hypertarget{utanhussmalning}{%
 \subsection*{Utanhússmálning}\label{utanhussmalning}}
@@ -835,7 +832,7 @@ Timburklædd hús þarf að mála oftar en steinhús. Á Íslandi er lítið um 
 
 Útimálun er framkvæmd vegna nýbygginga eða slits, bæði á þökum og veggjum en innimálun er hins vegar framkvæmd við eigendaskipti og nýbyggingu. Hlutfall sölu útimálningar hjá innlendum söluaðilum er mishátt eftir því hvort viðskiptin eru við fagfólk eða heimili. Hjá stórum ónefndum söluaðila, sem afgreiðir heimili að mestu, er hlutfall útimálningar hérlendis undir 30\%. Það er hærra hjá öðrum stórum söluaðila (yfir 60\%) sem afgreiðir að mestu fagfólk.
 
-Innflutt málning árin 2016 og 2017 var 3.15 þúsund tonn á ári\textsuperscript{\protect\hyperlink{ref-tollur2017}{108}} eða um 9,3 kg á mann (hér er ekki tekið með efni sem notuð eru til framleiðslu á málningu hérlendis). Þetta er af sömu stærðargráðu og mat Hann\textsuperscript{\protect\hyperlink{ref-Hann2018}{103}} um málningarnotkun á mann í Evrópusambandsríkjunum (um 8,2 kg). Hér er átt við innflutta tilbúna málningu en innlend framleiðsla er undanskilin.\footnote{Fyrirvari: Innlend framleiðsla er ekki tekin með í reikninginn hér því ekki fengust nákvæmar upplýsingar um innflutt magn þeirra efna sem eru notuð til að blanda málningu. Hægt er að nálgast lista yfir fyrirtæki sem kaupa inn vissar vörur og grennslast betur fyrir um hvaða efni um ræðir en Tollstjóri má ekki afhenda slíkan lista nema með lagaheimild og ekki var sóst eftir slíkri heimild.}
+Innflutt málning árin 2016 og 2017 var 3.15 þúsund tonn á ári\textsuperscript{\protect\hyperlink{ref-tollur2017}{108}} eða um 9,3 kg á mann (hér er ekki tekið með efni sem notuð eru til framleiðslu á málningu hérlendis). Þetta er af sömu stærðargráðu og mat Hann\textsuperscript{\protect\hyperlink{ref-Hann2018}{103}} um málningarnotkun á mann í Evrópusambandsríkjunum (um 8,2 kg). Hér er átt við innflutta tilbúna málningu en innlend framleiðsla er undanskilin\footnote{Fyrirvari: Innlend framleiðsla er ekki tekin með í reikninginn hér því ekki fengust nákvæmar upplýsingar um innflutt magn þeirra efna sem eru notuð til að blanda málningu. Hægt er að nálgast lista yfir fyrirtæki sem kaupa inn vissar vörur og grennslast betur fyrir um hvaða efni um ræðir en Tollstjóri má ekki afhenda slíkan lista nema með lagaheimild og ekki var sóst eftir slíkri heimild.}.
 
 Losun örplasts frá utanhússmálningu hefur ekki verið könnuð beint og er þetta mat því aðeins byggt á fræðilegum grunni. Veðrun og slit málningar veldur losun á syntetískum fjölliðum út í umhverfið þar sem þær verða fyrir útfjólublárri geislun og geta brotnað niður að miklu leyti. Miðað við eftirfarandi forsendur má áætla örplastmengun frá útimálningu með eftirfarandi hætti:
 
@@ -855,62 +852,73 @@ Losun örplasts frá utanhússmálningu hefur ekki verið könnuð beint og er �
 
 \begin{table}[t]
 
-\caption{\label{tab:malningartafla}Áætluð árleg losun örplasts í hafið frá útimálningu á Íslandi.}
+\caption{\label{tab:malningartafla}Áætluð uppspretta örplasts í umhverfið frá útimálningu á Íslandi.}
 \centering
-\begin{tabular}{ccc}
+\begin{tabular}{lr}
 \toprule
-Innflutt málning & Tonn & 3150\\
-Hlutur utanhúss-málningar & \% & 27-63\\
- & Tonn & 850-2000\\
-Plastefni & \% & 20\\
-Sundrun & \% & 67\\
+Innflutt málning & 3.150 t\\
 \addlinespace
-Eftirstandandi & Tonn & 740-1720\\
-Háþrýsti-þvottur & \% & 1,6\\
- & Tonn & 11,8-27,5\\
-Uppspretta vegna slits & \% & 2,5\\
- & Tonn & 18,2-41,2\\
+\rowcolor{gray!6}  Hlutur utanhússmálningar & 27-63 \%\\
+\rowcolor{gray!6}   & 850-2.000 t\\
+\addlinespace
+Plastefni & 20 \%\\
+Sundrun Plastefna & 67 \%\\
+\addlinespace
+\rowcolor{gray!6} Eftirstandandi málning & 740-1.720 t\\
+\addlinespace
+Háþrýstiþvottur & 1,6 \%\\
+ & 11,8-27,5 t\\
+\rowcolor{gray!6} Slit & 2,5 \%\\
+\rowcolor{gray!6}  & 18,2-41,2 t\\
+ \addlinespace
+Samtals & 30-68,7 t \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Áætluð uppspretta örplasts frá utanhússmálningu á ári, vegna háþrýstiþvotta og flögnunar, slits og veðrunar, er því um 30-70 tonn. Þar sem um 70\% af flatarmáli bygginga er innan þéttbýlis\footnote{hér er þéttbýli skilgreint eftir gagnalaginu mannvirki í IS 50V kortagrunninum frá landhelgisgæslunni} er aftur farið eftir áætluðu hlutfalli ofanvatns sem rennur í ræsi (60\%)\textsuperscript{\protect\hyperlink{ref-Verschoor2016}{86}}. Byggingar utan þéttbýlis þar sem fráveita er nánast engin eru ekki hafðar með. Áætluð losun örplasts í hafið frá útimálningu er því \textbf{12-29 t}.
+Áætluð uppspretta örplasts frá utanhússmálningu á ári, vegna háþrýstiþvotta og flögnunar, slits og veðrunar, er því um 30-70 tonn. Þar sem um 70\% af flatarmáli bygginga er innan þéttbýlis\footnote{Hér er þéttbýli skilgreint eftir gagnalaginu mannvirki í IS 50V kortagrunninum frá Landhelgisgæslunni} er aftur farið eftir áætluðu hlutfalli ofanvatns sem rennur í ræsi (60\%)\textsuperscript{\protect\hyperlink{ref-Verschoor2016}{86}}. Byggingar utan þéttbýlis þar sem fráveita er nánast engin eru ekki hafðar með. 
+
+\grattbox{Áætluð losun örplasts í hafið frá útimálningu er \textbf{12-29 tonn}.}
 
 \hypertarget{innimalning}{%
 \subsection*{Innimálning}\label{innimalning}}
 \addcontentsline{toc}{subsection}{Innimálning}
 
-Innimálning verður ekki fyrir mikilli veðrun og hvert lag er málað yfir það sem fyrir var án þess að það sé þvegið af. Örplastmengun vegna málningar innandyra verður því aðallega vegna þrifa á penslum. Sú málning berst beint í hafið um fráveitukerfi og má reikna með að hún sé um 1,6 \% af innkeyptri innimálningu og fjölliðuinnihald hennar sé um 20 \%\textsuperscript{\protect\hyperlink{ref-Hann2018}{103}}.
+Innimálning verður ekki fyrir mikilli veðrun og hvert lag er málað yfir það sem fyrir var án þess að það sé þvegið af. Örplastmengun vegna málningar innandyra verður því aðallega vegna þrifa á penslum. Sú málning berst beint í hafið um fráveitukerfi og má reikna með að hún sé um 1,6\% af innkeyptri innimálningu og fjölliðuinnihald innimálningar sé um 20\% \textsuperscript{\protect\hyperlink{ref-Hann2018}{103}}.
 
 \begin{table}[t]
 
 \caption{\label{tab:innimalningartafla}Áætluð árleg losun örplasts í hafið frá innanhússmálningu á Íslandi.}
 \centering
-\begin{tabular}{ccc}
+\begin{tabular}{ll}
 \toprule
-Innflutt málning & Tonn & 3150\\
-Hlutur innanhúss-málningar & \% & 37-73\\
- & Tonn & 1165-2300\\
-Plastefni & \% & 20\\
- & Tonn & 230-460\\
+Innflutt málning & 3.150 t\\
 \addlinespace
-Ónýtt málning & \% & 3-15\\
-Losun vegna skolunar & Tonn & 3,2-7,1\\
+\rowcolor{gray!6} Innanhúss-málning & 37-73 \%\\
+\rowcolor{gray!6}  & 1.165-2.300 t\\
+\addlinespace
+Hlutfall Plastefna & 20 \%\\
+Eftirstandandi & 230-460 t\\
+\addlinespace
+\rowcolor{gray!6} Ónýtt málning & 3-15 \%\\
+\rowcolor{gray!6}  Losun vegna skolunar & 3,6 \%\\
+\addlinespace
+Samtals & 3,2-7,1 t \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Áætluð heildarlosun örplasts frá innimálningu á ári \textbf{3,2-7,1 tonn}.
+\grattbox{Áætluð heildarlosun örplasts frá innimálningu á ári er \textbf{3,2 - 7,1 tonn}.}
 
 Ekki er öll málning með plastbindiefnum og einnig eru algeng bindiefni í málningu með vatnssækna eiginleika og brotna niður í náttúrunni á misjafnan máta. Til þess að fá nákvæmara mat á losun örplasts frá innimálningu er nauðsynlegt að hafa upplýsingar um ólík bindiefi í málningu og kannað verði til hlítar hve mikið af syntetískum fjölliðum til framleiðslu málningar er flutt inn í gegnum Tollstjóra. Einnig þyrfti að gera markaðsrannsókn þar sem kannað er hve mikill hluti málningar er seldur til fagfólks eða heimila þar sem að á heimilum eru verkfæri gjarnan skoluð oftar fyrir hvern lítra af málningu heldur en hjá fagfólki.
 
-\begin{figure}
+\begin{figure}[H]
 
-{\centering \includegraphics{OrplastHaf_files/figure-latex/unnamed-chunk-8-1} 
+{\centering \includegraphics{_bookdown_files/OrplastHaf_files/figure-latex/sank0-1} 
 
 }
 
-\caption{Áætluð árleg heildarlosun örplasts frá húsamálningu er 15,2-36,1 tonn.}\label{fig:unnamed-chunk-8}
+\caption{Áætluð árleg heildarlosun örplasts frá húsamálningu og skipting eftir afdrifum á land eða í haf.}\label{fig:unnamed-chunk-8}
 \end{figure}
 
 \hypertarget{skipamalning}{%
@@ -921,9 +929,9 @@ Ekki er öll málning með plastbindiefnum og einnig eru algeng bindiefni í má
 
 Fjórir stórir slippir eru á landinu, þar af þrír á SV-landi og einn á Akureyri. Minni slippir, eða dráttarbrautir sem geta tekið inn smærri báta, eru hér og þar um landið. Í slippum landsins eru nokkrir tugir skipa þjónustaðir árlega. Hver sem fær þjónustu hjá slippum getur haft sína hentisemi varðandi þykkt málningarlagsins og gerð málningar og sumir skaffa málningu sjálfir en aðrir kaupa af slippunum. Í stóru slippunum eru skip sprautumáluð en langflestir minni bátar eru málaðir með rúllum og penslum af eigendum þeirra. Þeir eru oft hífðir upp og málaðir nálægt bryggju. Mörg íslensk skip eru máluð í útlöndum og hérlendir slippir taka erlend skip á móti.
 
-\begin{figure}
+\begin{figure}[H]
 
-{\centering \includegraphics[width=1\linewidth]{myndir/slippurb} 
+{\centering \includegraphics[width=1\linewidth]{myndir/slippurb.jpg} 
 
 }
 
@@ -941,9 +949,9 @@ Málun er tíðust á botninum undir vatnslínunni og á þann flöt er notuð s
 
 (þar sem a = 15,8 ± 0,25 og b = 0,602 ± 0,002 og R\textsuperscript{2} = 0.92) frá Moser (2016)\textsuperscript{\protect\hyperlink{ref-Moser2016}{109}} en aðhvarfsjafnan er byggð á mælingum á um 28.000 skipum. Samkvæmt jöfnunni er heildarflötur íslenskra fiskiskipa undir vatnslínu um 169.000 m\textsuperscript{2}. Algengt er að í öryggisleiðbeiningum fyrir botnmálningu sé reiknað með um 7 m\textsuperscript{2}/L og því má áætla að um 20.000 L af botnmálningu þurfi á skipaflotann hérlendis eða um 36 tonn miðað við lauslega áætlun á þyngd málningarinnar um 1,5 kg/L. Aðhvarfsjafnan fellur misvel að bátum eftir lögun þeirra. Hún vanáætlar t.d. botnflöt lítilla plastbáta (s.s. Sómabáta) sem eru algengir hérlendis en út frá henni má þó sjá að meirihluti botnmálningar fer almennt á stór skip þó þau séu svo fá (sjá mynd \ref{fig:slippur}).
 
-\begin{figure}
+\begin{figure}[H]
 
-{\centering \includegraphics[width=0.5\linewidth]{OrplastHaf_files/figure-latex/slippur-1} \includegraphics[width=0.5\linewidth]{OrplastHaf_files/figure-latex/slippur-2} 
+{\centering \includegraphics[width=0.5\linewidth]{_bookdown_files/OrplastHaf_files/figure-latex/slippur-1} \includegraphics[width=0.5\linewidth]{_bookdown_files/OrplastHaf_files/figure-latex/slippur-2} 
 
 }
 
@@ -970,17 +978,21 @@ Líftími (tíminn milli þess sem skipið er málað) skipamálningar er almenn
 
 Í fyrrnefndri hollenskri rannsókn\textsuperscript{\protect\hyperlink{ref-Verschoor2016}{86}} var reiknað með því að aðeins 3\% af því sem fellur til við háþrýstiþvott í slippum berist í hafið en þar í landi voru reglur hertar árið 1985 sem urðu til þess að farið var að hreinsa affallsvatn í slippum. Hérlendis er óheimilt að losa þrávirk efni í hafið og því er viðbúið að þessum úrgangi sé fargað eftir réttum leiðum. Því er áætlað að losun örplasts í hafið frá fjórum stærstu slippum hérlendis sé svipuð og áætluð hjá (Verschoor, 2016)\textsuperscript{\protect\hyperlink{ref-Verschoor2016}{86}} allt að 2 - 7,8 tonn.
 
-Þar sem viðnám skipsbolsins við hafflötinn er mjög lítið er áætlað að aðeins um 1\% botnmálningar losni af vegna slits, aðallega við núning við bryggju\textsuperscript{\protect\hyperlink{ref-OECD2009}{5}}. Í tilfelli smábáta væri það mjög lág tala en fyrir þau 59 skip sem eru yfir 50 metrar á lengd og ætla má að yfir 10 tonn af málningu þurfi til að fullmála er 1\% slit um 6 t á 3 - 5 ára fresti. Því er áætlað að losun örplasts í hafið vegna skipamálningar geti verið á bilinu \textbf{3,2 - 10 t á ári}.
+Þar sem viðnám skipsbolsins við hafflötinn er mjög lítið er áætlað að aðeins um 1\% botnmálningar losni af vegna slits, aðallega við núning við bryggju\textsuperscript{\protect\hyperlink{ref-OECD2009}{5}}. Í tilfelli smábáta væri það mjög lág tala en fyrir þau 59 skip sem eru yfir 50 metrar á lengd og ætla má að yfir 10 tonn af málningu þurfi til að fullmála er 1\% slit um 6 t á 3 - 5 ára fresti. 
+
+\grattbox{Losun örplasts í hafið vegna skipamálningar er áætluð vera á bilinu \textbf{3,2 - 10 tonn} á ári.}
 
 \hypertarget{frumplast-i-plastframleislu}{%
 \section*{Frumplast í plastframleiðslu}\label{frumplast-i-plastframleislu}}
 \addcontentsline{toc}{section}{Frumplast í plastframleiðslu}
 
-Frumplast er ekki framleitt á Íslandi en er engu að síður flutt inn í þónokkru magni til framleiðslu á hinum ýmsu plasthlutum, t.d. fiskikörum, heitum pottum og trefjaplastbátum. Í þeim löndum þar sem frumplast er framleitt, t.d. Noregi og Svíþjóð, er gert ráð fyrir að losun í umhverfið sé í kringum 0,4\%\textsuperscript{\protect\hyperlink{ref-sundt2014sources}{32}} en aðrar forsendur eiga við í löndum þar sem frumplast er eingöngu innflutt\textsuperscript{\protect\hyperlink{ref-lassen2015microplastics}{76}}.
+Frumplast er ekki framleitt á Íslandi en er engu að síður flutt inn í þónokkru magni til framleiðslu á hinum ýmsu plasthlutum, t.d. fiskikörum, heitum pottum og trefjaplastbátum. Í þeim löndum þar sem frumplast er framleitt, t.d. Noregi og Svíþjóð, er gert ráð fyrir að losun í umhverfið sé í kringum 0,4\%\textsuperscript{\protect\hyperlink{ref-sundt2014sources}{32}} en aðrar forsendur eiga við í löndum þar sem frumplast er eingöngu innflutt\textsuperscript{\protect\hyperlink{ref-lassen2015microplastics}{78}}.
 
-Fyrirtæki sem stunda plastframleiðslu í Danmörku notast eingöngu við innflutt frumplast líkt og hérlendis, aðallega frá Þýskalandi. Nokkur fyrirtæki í plastframleiðslu í Danmörku sem tóku þátt í átaki til að sporna við sóun á plastefni í framleiðsluferli sínu svöruðu því til að um 0,04\% af þeirra hráefni færi til spillis en aðeins litlum hluta þess væri sópað í niðurföll eða 0,0013\% hið mesta og engin losun væri beint í umhverfið\textsuperscript{\protect\hyperlink{ref-lassen2015microplastics}{76}}. Það má því áætla að hérlendis sé losun vegna frumplasts í plastframleiðslu frá 0,0005\% (sem er um helmingur af þeirri tölu). Engin gögn eru tiltæk um losun plasts í frumgerðum hérlendis en viðmið OECD er að í versta falli fari um 0,01\% efnisins til spillis við aðstæður þar sem lítil hætta er á sóun líkt og búast má við á Íslandi, helst er viðbúið að eitthvað efni glatist við flutning og meðhöndlun\textsuperscript{\protect\hyperlink{ref-OECD2009}{5}}.
+Fyrirtæki sem stunda plastframleiðslu í Danmörku notast eingöngu við innflutt frumplast líkt og hérlendis, aðallega frá Þýskalandi. Nokkur fyrirtæki í plastframleiðslu í Danmörku sem tóku þátt í átaki til að sporna við sóun á plastefni í framleiðsluferli sínu svöruðu því til að um 0,04\% af þeirra hráefni færi til spillis en aðeins litlum hluta þess væri sópað í niðurföll eða 0,0013\% hið mesta og engin losun væri beint í umhverfið\textsuperscript{\protect\hyperlink{ref-lassen2015microplastics}{78}}. Það má því áætla að hérlendis sé losun vegna frumplasts í plastframleiðslu frá 0,0005\% (sem er um helmingur af þeirri tölu). Engin gögn eru tiltæk um losun plasts í frumgerðum hérlendis en viðmið OECD er að í versta falli fari um 0,01\% efnisins til spillis við aðstæður þar sem lítil hætta er á sóun líkt og búast má við á Íslandi, helst er viðbúið að eitthvað efni glatist við flutning og meðhöndlun\textsuperscript{\protect\hyperlink{ref-OECD2009}{5}}.
 
-Samkvæmt upplýsingum frá Tollstjóra fyrir árið 2017 og 2016 voru flutt inn um 12.600 tonn af plasti árlega í frumgerðum á borð við upplausnir, þeytur, deig eða önnur form (tollskrárnúmer 3901-3914). Það má því áætla að losun vegna frumplasts í plastframleiðslu sé frá 0,0005-0,01\% eða \textbf{0,06 - 1,3 tonn} árlega. Þó hefur ekki verið gerð könnun á því og matið er því annars vegar byggt á tölum sem framleiðendur í Danmörku gefa upp og hins vegar mati OECD frá iðnaði sem er mjög smár hér á landi. Þetta á bæði við um leka og sóun innandyra hjá framleiðslufyrirtækjunum og í flutningum og meðhöndlun.
+Samkvæmt upplýsingum frá Tollstjóra fyrir árið 2017 og 2016 voru flutt inn um 12.600 tonn af plasti árlega í frumgerðum á borð við upplausnir, þeytur, deig eða önnur form (tollskrárnúmer 3901-3914). Það má því áætla að losun vegna frumplasts í plastframleiðslu sé frá 0,0005-0,01\% eða 0,06 - 1,3 tonn árlega. Þó hefur ekki verið gerð könnun á því og matið er því annars vegar byggt á tölum sem framleiðendur í Danmörku gefa upp og hins vegar mati OECD frá iðnaði sem er mjög smár hér á landi. Þetta á bæði við um leka og sóun innandyra hjá framleiðslufyrirtækjunum og í flutningum og meðhöndlun.
+
+\grattbox{Losun örplasts í hafið vegna frumplasts í plastframleiðslu er áætluð vera á bilinu \textbf{0,06 - 1,3 tonn} á ári.}
 
 \hypertarget{utisvi}{%
 \section*{Útisvæði}\label{utisvi}}
@@ -992,21 +1004,31 @@ Samkvæmt upplýsingum frá Tollstjóra fyrir árið 2017 og 2016 voru flutt inn
 
 Örplastmengun frá gervigrasvöllum er tvenns konar. Annars vegar vegna slits gervigrassins sjálfs og hins vegar vegna innfyllingar. Innfylling er það kallað þegar bætt er á gúmmíkurlið í gervigrasinu. Nokkrar gerðir gervigúmmís eru notaðar sem innfyllingarefni, algengast er að notað sé dekkjakurl en einnig er notast við annars konar dýrara efni. Kurlið er fínna en 5 mm og telst því til örplasts miðað við tilgang þessarar skýrslu. Viss hluti þess dreifist í kringum vellina með vindi, undir skóm og í fatnaði og einnig með snjómokstri eða skolast burtu með affallsvatni\textsuperscript{\protect\hyperlink{ref-Wredh2014}{110}}.
 
-Allt að 140 tonn af gúmmíkurli geta verið í gervigrasinu á velli í fullri stærð\textsuperscript{\protect\hyperlink{ref-Wredh2014}{110}} en sé miðað við að um 30 mm lag af gúmmíkurli fínna en 5 mm vegi 426 kg/m\textsuperscript{3}\textsuperscript{\protect\hyperlink{ref-Gamalath2016}{111}} þá ættu að geta verið á milli 12 og 13 kg af gúmmíkurli á hverjum fermetra af gervigrasi. Misjafnt er eftir heimildum hve miklu innfyllingarefni er bætt á gervigrasvelli árlega en tölur frá 1 - 5\% liggja innan marka sem stuðst er við í þessari skýrslu\textsuperscript{\protect\hyperlink{ref-lassen2015microplastics}{76},\protect\hyperlink{ref-Hann2018}{103},\protect\hyperlink{ref-magnusson2016swedish}{112}}.
+Allt að 140 tonn af gúmmíkurli geta verið í gervigrasinu á velli í fullri stærð\textsuperscript{\protect\hyperlink{ref-Wredh2014}{110}} en sé miðað við að um 30 mm lag af gúmmíkurli fínna en 5 mm vegi 426 kg/m\textsuperscript{3}\textsuperscript{\protect\hyperlink{ref-Gamalath2016}{111}} þá ættu að geta verið á milli 12 og 13 kg af gúmmíkurli á hverjum fermetra af gervigrasi. Misjafnt er eftir heimildum hve miklu innfyllingarefni er bætt á gervigrasvelli árlega en tölur frá 1 - 5\% liggja innan marka sem stuðst er við í þessari skýrslu\textsuperscript{\protect\hyperlink{ref-lassen2015microplastics}{78},\protect\hyperlink{ref-Hann2018}{103},\protect\hyperlink{ref-magnusson2016swedish}{112}}.
 
 Samkvæmt Knattspyrnusambandi Íslands eru gervigrasvellir á Íslandi 197 talsins: 7 keppnishús, 26 keppnisvellir, 12 æfingavellir og smærri hús, 111 sparkvellir KSÍ og 43 aðrir sparkvellir. Alls eru þetta rúmlega 400.000 fermetrar, þar af um 13.000 m² með sandi sem innfyllingarefni en svart gúmmíkurl og annað iðnaðargúmmí er annars notað.
 
-Til að meta losun innfyllingarefnis (gúmmíkurls) væri best að hafa nákvæm gögn um árlega áfyllingu á öllum völlum landsins en þau gögn eru ekki fyrirliggjandi og er því hér stuðst við áætlaðar tölur. Skv. Magnussen o.fl. 2014\textsuperscript{\protect\hyperlink{ref-magnusson2014mikroskrap}{113}} er mælt með því að á keppnisvöllum sé árlega bætt við 3-5 tonnum af fylliefni (420-700g/m2/ár miðað við 106x71 m völl). Á flestum völlum eru þó ekki gerðar sömu kröfur og á keppnisvöllum og má því búast við að losun sé oft á bilinu 2-3 tonn á ári (þ.e. 280-420g/m2/ár) eða jafnvel minni, einkum á minna notuðum völlum\textsuperscript{\protect\hyperlink{ref-magnusson2016swedish}{112}}.
+Til að meta losun innfyllingarefnis (gúmmíkurls) væri best að hafa nákvæm gögn um árlega áfyllingu á öllum völlum landsins en þau gögn eru ekki fyrirliggjandi og er því hér stuðst við áætlaðar tölur. Skv. Magnussen o.fl. 2014\textsuperscript{\protect\hyperlink{ref-magnusson2014mikroskrap}{113}} er mælt með því að á keppnisvöllum sé árlega bætt við 3-5 tonnum af fylliefni (420-700g/m²/ár miðað við 106x71 m völl). Á flestum völlum eru þó ekki gerðar sömu kröfur og á keppnisvöllum og má því búast við að losun sé oft á bilinu 2-3 tonn á ári (þ.e. 280-420g/m²/ár) eða jafnvel minni, einkum á minna notuðum völlum\textsuperscript{\protect\hyperlink{ref-magnusson2016swedish}{112}}.
 
 Sumir vellir eru gerðir með gúmmímottu undir gervigrasinu sem minnkar þörfina á innfyllingu um allt að 50\% og þetta á við um helming íslenskra gervigrasvalla í fermetrum talið. Einnig er líklegt að kurlið þjappist niður í gervigrasið og því fer ekki allt innfyllingarefni til spillis út fyrir vellina.
 
 Árlegri notkun dekkjakurls er skipt niður eftir gerðum leikvalla og miðast við að mest fari á keppnisvelli árlega en engu sé bætt á litla sparkvelli þar sem þeir voru flestir byggðir fyrir tiltölulega stuttu síðan og í millitíðinni skapaðist mikil umræða um mögulega skaðsemi innfyllingarefna og því beðið með að bæta á flesta þessa velli. Æfingavellir og smærri hús eru með losunartölur þarna mitt á milli.
 
-Miðað við gögn frá Lassen\textsuperscript{\protect\hyperlink{ref-lassen2015microplastics}{76}} og FIFA tekin saman af\textsuperscript{\protect\hyperlink{ref-Hann2018}{103}} er gervigrasið sjálft u.þ.b. 0,8 - 1,4 kg/m2 og árlegt slit á bilinu 0.5 - 0.8\%. Sé miðað við 400.000 fermetra af gervigrasi á Íslandi er losun úr gervigrasinu sjálfu því undir hálfu tonni á ári.
+Miðað við gögn frá Lassen\textsuperscript{\protect\hyperlink{ref-lassen2015microplastics}{78}} og FIFA tekin saman af Hann (2008)\textsuperscript{\protect\hyperlink{ref-Hann2018}{103}} er gervigrasið sjálft u.þ.b. 0,8 - 1,4 kg/m² og árlegt slit á bilinu 0.5 - 0.8\%. Sé miðað við 400.000 fermetra af gervigrasi á Íslandi er losun úr gervigrasinu sjálfu því undir hálfu tonni á ári.
 
-\includegraphics{OrplastHaf_files/figure-latex/unnamed-chunk-11-1.pdf}
 
-Áætluð heildarlosun örplasts í umhverfið frá gervigrasvöllum á Íslandi árið 2017 er því 3-11 tonn, með þeim fyrirvara að matið byggir á almennum forsendum en ekki raunverulegum mælingum á áfyllingum gervigrasvalla á Íslandi. Erfitt er að meta hver afdrif þess eru og hve mikið fer í fráveitukerfi. Gúmmíkurlið festist í klæðnaði og undir skóm og getur borist í hafið í gegnum ræsi og frá affalli þvottavéla. Í breskri rannsókn\textsuperscript{\protect\hyperlink{ref-Hann2018}{103}} var áætlað að um 5\% innfyllingarefnis lendi í fráveitukerfum við vellina og önnur 5\% lendi í fráveitu frá búningsklefum og heimilum. Annars fari 90\% efnisins í förgun eða jarðveg. Miðað við þær forsendur má meta það sem svo að allt að 10\% geti borist með fráveitu í hafið eða \textbf{0,3 - 1,1 tonn}.
+\begin{figure}[H]
+
+{\centering \includegraphics{_bookdown_files/OrplastHaf_files/figure-latex/unnamed-chunk-11-1.pdf} 
+
+}
+
+\caption{Áætluð árleg uppspretta örplasts frá gervigrasvöllum.}\label{fig:unnamed-chunk-11-1}
+\end{figure}
+
+Áætluð heildarlosun örplasts í umhverfið frá gervigrasvöllum á Íslandi árið 2017 er því 3-11 tonn, með þeim fyrirvara að matið byggir á almennum forsendum en ekki raunverulegum mælingum á áfyllingum gervigrasvalla á Íslandi. Erfitt er að meta hver afdrif þess eru og hve mikið fer í fráveitukerfi. Gúmmíkurlið festist í klæðnaði og undir skóm og getur borist í hafið í gegnum ræsi og frá affalli þvottavéla. Í breskri rannsókn\textsuperscript{\protect\hyperlink{ref-Hann2018}{103}} var áætlað að um 5\% innfyllingarefnis lendi í fráveitukerfum við vellina og önnur 5\% lendi í fráveitu frá búningsklefum og heimilum. Annars fari 90\% efnisins í förgun eða jarðveg. Miðað við þær forsendur má meta það sem svo að allt að 10\% geti borist með fráveitu í hafið.
+
+\grattbox{Losun örplasts í hafið vegna gervigrasvalla er áætluð vera á bilinu \textbf{0,3 - 1,1 tonn} á ári.}
 
 \hypertarget{skolaloir-og-leiksvi}{%
 \subsection*{Skólalóðir og leiksvæði}\label{skolaloir-og-leiksvi}}
@@ -1017,8 +1039,8 @@ Frá aldamótum hefur orðið mikil aukning á því að skólalóðir, leikskó
 Samkvæmt upplýsingum frá skipulagssviði Reykjavíkurborgar eru 39 grunnskólar, 75 leikskólar og 256 opin leiksvæði á þeirra vegum og umfang fyrrgreindra gerviefna á skólalóðum sé um 400-800 m², leikskólalóðum um 200-400 m² og opnum leiksvæðum 150-300 m². Flatarmál gerviefna í Reykjavík er þ.a.l. 69.000-138.000 m² og miðað við íbúafjölda Reykjavíkur 1. janúar 2017 (námundað að tugþúsundi, þ.e. 120.000) eru þetta 0,58-1,15 m² á hvern íbúa. Sé þetta hlutfall heimfært á íbúafjölda Íslands 1. janúar 2017 (námundað að tugþúsundi, þ.e. 340.000), eru gerviefni skólalóða og leikvalla á landinu 195.500-391.000 m² en þetta eru ónákvæmar tölur þar sem ekki liggur fyrir hvort hlutfallið í Reykjavík eigi við um önnur sveitarfélög á landinu. Til að áætla losun örplasts frá skólalóðum og leiksvæðum þarf einnig að vita hversu mikið slitið er, annaðhvort á ársgrundvelli eða líftíma mismunandi gerða gúmmíundirlags, en þau gögn eru ekki fyrirliggjandi. Ef gervigras á knattspyrnuvöllum eyðist um 0,5 - 0,8\% vegna notkunar má ætla að á leiksvæðum sé hlutfallið af svipaðri stærðargráðu en þó lægra en á íþróttavöllum. Miðað við 0,1 - 0,5\% má áætla að slit á gúmmíundirlagi á leikvöllum sé \textbf{0,2 - 2 tonn} árlega.
 
 \hypertarget{neysluvara}{%
-\section*{Neysluvara}\label{neysluvara}}
-\addcontentsline{toc}{section}{Neysluvara}
+\section*{Neysluvörur}\label{neysluvara}}
+\addcontentsline{toc}{section}{Neysluvörur}
 
 \hypertarget{vottur-a-fatnai}{%
 \subsection*{Þvottur á fatnaði}\label{vottur-a-fatnai}}
@@ -1035,41 +1057,43 @@ Til að áætla örplastmengun frá fataþvotti til sjávar á Íslandi er íbú
 
 \begin{table}[t]
 
-\caption{\label{tab:unnamed-chunk-13}Áætluð árleg losun örplasts frá þvotti í hafið á Íslandi.}
+\caption{\label{tab:unnamed-chunk-12}Áætluð árleg losun örplasts frá þvotti í hafið á Íslandi.}
 \centering
 \begin{tabular}{lcc}
 \toprule
   &  & Eining\\
 \midrule
-Fjöldi þvotta á ári & 165 & Þvottar\\
+\rowcolor{gray!6} Fjöldi þvotta á ári & 165 & Þvottar\\
 Fjöldi heimila & 120.000 & Heimili\\
-Þyngd þvotta & 3-4 & kg\\
+\rowcolor{gray!6} Þyngd þvotta & 3-4 & kg\\
 Þyngd örplasts fyrir hvert kg gerviefna & 12-640 & mg\\
-Hlutfall gerviefna í þvotti & 30-50 & \% gerviefni\\
+\rowcolor{gray!6} Hlutfall gerviefna í þvotti & 30-50 & \% gerviefni\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Áætluð heildarlosun örplasts frá þvotti á Íslandi á ári er því \textbf{8,2-32 tonn}, með þeim fyrirvara að gögnin eru komin til ára sinna og gerviefni verða æ algengari í þvotti ásamt því að losun örplasts við hvern þvott er ekki föst stærð heldur breytileg eftir hversu notuð fötin eru. Tölurnar sem hér er stuðst við um örplastlosun frá þvotti á fatnaði eru frá því 2010\textsuperscript{\protect\hyperlink{ref-pakula2010electricity}{121}} en þar sem fatnaður úr náttúrulegum efnum er á undanhaldi og notkun gerviefna í fatnaði eykst ár hvert er líklegt að hér sé um vanmat að ræða.
+Áætluð heildarlosun örplasts frá þvotti á Íslandi á ári er því \textbf{8,2-32 tonn}, með þeim fyrirvara að gögnin eru komin til ára sinna og gerviefni verða æ algengari í þvotti ásamt því að losun örplasts við hvern þvott er ekki föst stærð heldur breytileg eftir hversu notuð fötin eru. Tölurnar sem hér er stuðst við um örplastlosun frá þvotti á fatnaði eru frá því 2010\textsuperscript{\protect\hyperlink{ref-pakula2010electricity}{130}} en þar sem fatnaður úr náttúrulegum efnum er á undanhaldi og notkun gerviefna í fatnaði eykst ár hvert er líklegt að hér sé um vanmat að ræða.
 
 Mikið af gerviefnum er á vinnustöðum og á heimilum fólks, alls konar vefnaður, teppi og mottur, áklæði utan um sófa og stóla, tuskudýr og fleira er innadyra sem ekki er minnst á í þessari skýrslu. Ryk innanhúss getur talist til uppsprettu örplasts í hafið, sérstaklega berist það með í niðurföll en ætla má að innanhúsryk endi að miklu leyti í sorpi.
+
+\grattbox{Losun örplasts í hafið frá þvotti er áætluð vera á bilinu \textbf{8,2 - 32 tonn} á ári.}
 
 \hypertarget{skosolar}{%
 \subsection*{Skósólar}\label{skosolar}}
 \addcontentsline{toc}{subsection}{Skósólar}
 
-Skósólar eru gerðir úr gervigúmmíblöndu (nánar til tekið elastómerum sem eru ekki alltaf taldar til plasts), pólývínyl klóríð (e. PVC) eða pólýúretani\textsuperscript{\protect\hyperlink{ref-karak2009fundamentals}{122}} sem slitna við notkun skónna. Í danskri samantekt\textsuperscript{\protect\hyperlink{ref-lassen2015microplastics}{76}} var gerð tilraun til að meta örplastlosun frá skósólum í umhverfið út frá evrópsku mati á losun þalata\textsuperscript{\protect\hyperlink{ref-Pakalin2008}{123}} og umreiknað fyrir pólývínylklóríð (sem er plastefni). Þar er gróflega áætlað að slit skósóla sé á bilinu 100-1000 tonn árlega í Danmörku. Miðað við að íbúafjöldi Íslands sé um 6\% af íbúafjölda Danmerkur má áætla gróflega heildarlosun örplasts frá skósólum á Íslandi en ólík menning og veðurfar gerir beinan samanburð erfiðan.
+Skósólar eru gerðir úr gervigúmmíblöndu (nánar til tekið elastómerum sem eru ekki alltaf taldar til plasts), pólývínyl klóríð (e. PVC) eða pólýúretani\textsuperscript{\protect\hyperlink{ref-karak2009fundamentals}{121}} sem slitna við notkun skónna. Í danskri samantekt\textsuperscript{\protect\hyperlink{ref-lassen2015microplastics}{78}} var gerð tilraun til að meta örplastlosun frá skósólum í umhverfið út frá evrópsku mati á losun þalata\textsuperscript{\protect\hyperlink{ref-Pakalin2008}{122}} og umreiknað fyrir pólývínylklóríð (sem er plastefni). Þar er gróflega áætlað að slit skósóla sé á bilinu 100-1000 tonn árlega í Danmörku. Miðað við að íbúafjöldi Íslands sé um 6\% af íbúafjölda Danmerkur má áætla gróflega heildarlosun örplasts frá skósólum á Íslandi. Þrátt fyrir að ólík menning og veðurfar geri beinan samanburð erfiðan má búast við því að hér sé um nokkur tonn að ræða sem geti borist til sjávar með ofanvatni.
 
 \hypertarget{snyrtivorur}{%
 \subsection*{Snyrtivörur}\label{snyrtivorur}}
 \addcontentsline{toc}{subsection}{Snyrtivörur}
 
 Örplast í snyrtivörum hefur verið talsvert í almennri umræðu á síðustu árum. Þekktustu áhrif sem fengin eru fram með örplastögnum í snyrtivörum eru skrúbbáhrif í sápum, andlitsskrúbbar og fótaskrúbbar. Þessar plastagnir hafa margskonar fleiri verkanir en engan möguleika á að vera endurunnar og berast að mestu beint í hafið eftir notkun. Það er þó svo að örplast í snyrtivörum telst aðeins vera smávægileg uppspretta á heildina litið.
-Hlutfall örplasts getur verið allt á milli 1\%-90\% í ýmsum vörum og svo dæmi séu tekin eru það raksápur, ungbarnavörur, svitalyktareyðir, kinnalitir, hárlitunarefni og sjampó\textsuperscript{\protect\hyperlink{ref-Leslie2014}{124}}.
+Hlutfall örplasts getur verið allt á milli 1\%-90\% í ýmsum vörum og svo dæmi séu tekin eru það raksápur, ungbarnavörur, svitalyktareyðir, kinnalitir, hárlitunarefni og sjampó\textsuperscript{\protect\hyperlink{ref-Leslie2014}{123}}.
 
-Í Evrópusambandsríkjunum er áætlað að um 800 tonnum af örplasti sé árlega bætt í snyrtivörur og þar af er um helmingur í handsápum sem eru ætlaðar til nota í iðnaði (t.d. á vélaverkstæðum)\textsuperscript{\protect\hyperlink{ref-Scudo2017}{125}}. Svipaðar tölur koma frá nokkrum skandinavískum samantektum eða undir 10 grömmum á ári á mann\textsuperscript{\protect\hyperlink{ref-sundt2014sources}{32},\protect\hyperlink{ref-lassen2015microplastics}{76},\protect\hyperlink{ref-magnusson2016swedish}{112}}.
+Í Evrópusambandsríkjunum er áætlað að um 800 tonnum af örplasti sé árlega bætt í snyrtivörur og þar af er um helmingur í handsápum sem eru ætlaðar til nota í iðnaði (t.d. á vélaverkstæðum)\textsuperscript{\protect\hyperlink{ref-Scudo2017}{124}}. Svipaðar tölur koma frá nokkrum skandinavískum samantektum eða undir 10 grömmum á ári á mann\textsuperscript{\protect\hyperlink{ref-sundt2014sources}{32},\protect\hyperlink{ref-lassen2015microplastics}{78},\protect\hyperlink{ref-magnusson2016swedish}{112}}.
 
-Áætluð heildarlosun örplasts í hafið frá snyrtivörum á Íslandi er því \textbf{0,34-3,4 tonn}.
+\grattbox{Áætluð losun örplasts í hafið frá snyrtivörum á Íslandi er því \textbf{0,34 - 3,4 tonn} árlega.}
 
 \hypertarget{haglaskot}{%
 \subsection*{Haglaskot}\label{haglaskot}}
@@ -1097,7 +1121,7 @@ Heildarmagn notaðra forhlaða árið 2017 var því 3,2 tonn en þar sem ákve�
 
 Veiðarfæri eru almennt úr plastefnum, hvort sem það eru línur, net, flotholt og eru því möguleg uppspretta örplastmengunar, annars vegar vegna slits við venjulega notkun og hins vegar vegna veiðarfæra sem tapast í hafið og veðrast. Í umhverfisskýrslu Samtaka fyrirtækja í sjávarútvegi er tekið fram að um 1.300 tonnum af veiðarfærum sé skilað til hafna og þaðan til endurvinnslu (eða viðeigandi förgunar). Ekki eru til upplýsingar um heildarmagn veiðarfæra í notkun á Íslandsmiðum. Magn veiðarfæra íslenska fiskveiðiflotans var gróflega áætlað um 7.313 tonn út frá heildarþyngd afla borið saman við önnur evrópuríki\textsuperscript{\protect\hyperlink{ref-Hann2018}{103}}. Samkvæmt sérfræðingi Hafrannsóknarstofnunar er sú tala allt of há þar sem hérlendis eru fáir bátar fyrir hvert veitt kíló af fiski, samanborið við aðrar fiskveiðiþjóðir, og því góð nýting á veiðarfærum.
 
-Losun örplasts fer eftir því hvernig veiðarfæri um ræðir en sum þeirra slitna og missa þræði við notkun í mismiklum mæli. Aðrar gerðir veiðarfæra líkt og grásleppunet og handfæralínur slitna ekki með þeim hætti. Í sænskri rannsókn var losun örplasts metin 1-10\% af heildarþyngd veiðarfæra sænskra fiskiskipa\textsuperscript{\protect\hyperlink{ref-Hann2018}{103}} með þeim fyrirvara að bæði tölurnar um heildarþyngd veiðarfæra og losun örplasts væru byggðar á veikum grunni. Það er nauðsynlegt að afla upplýsinga um magn veiðarfæra á íslenskum miðum áður en hægt er að leggja nákvæmt mat á hversu hátt hlutfall veiðarfæra fellur til við notkun á ársgrundvelli. Varðandi almenna veðrun veiðarfæra og slit er einnig þörf á frekari upplýsingum eða rannsóknum\textsuperscript{\protect\hyperlink{ref-Hann2018}{103}}.
+Losun örplasts fer eftir því hvernig veiðarfæri um ræðir en sum þeirra trosna og missa þræði við notkun í mismiklum mæli. Aðrar gerðir veiðarfæra líkt og grásleppunet og handfæralínur slitna ekki með þeim hætti. Í sænskri rannsókn var losun örplasts metin 1-10\% af heildarþyngd veiðarfæra sænskra fiskiskipa\textsuperscript{\protect\hyperlink{ref-Hann2018}{103}} með þeim fyrirvara að bæði tölurnar um heildarþyngd veiðarfæra og losun örplasts væru byggðar á veikum grunni. Miðað við 1-10\% slit við notkun á 7.000 tonnum af veiðarfærum þá er möguleg örplastlosun 70-700 tonn. Það er nauðsynlegt að afla upplýsinga um magn veiðarfæra á íslenskum miðum áður en hægt er að leggja nákvæmt mat á hversu hátt hlutfall veiðarfæra verður að örplasti við notkun á ársgrundvelli. Varðandi almenna veðrun veiðarfæra og slit er einnig þörf á frekari upplýsingum eða rannsóknum\textsuperscript{\protect\hyperlink{ref-Hann2018}{103}}.
 
 \hypertarget{sjokviaeldi}{%
 \subsection*{Sjókvíaeldi}\label{sjokviaeldi}}
@@ -1113,7 +1137,17 @@ Ekki er að svo stöddu hægt að áætla heildarlosun örplasts frá sjókvíae
 \addcontentsline{toc}{subsection}{Landbúnaður (heyrúlluplast)}
 
 Heyrúlluplast getur lent í umhverfinu og orðið að örplasti en erfitt er að áætla að hversu miklu leyti. Notkun er t.d. breytileg eftir árferði og innflutningstölur fyrir tiltekið ár því ekki endilega lýsandi, auk þess sem notuðu plasti getur verið skilað til móttökuaðila á öðru ári en það var notað. Til að taka mið af þessu er því hér byggt á meðaltali fyrir árin 2013-2017, bæði varðandi innflutning og magn sem skilað hefur verið til móttökuaðila. Samkvæmt Úrvinnslusjóði þarf hér að gera ráð fyrir því að heyrúlluplast geti við notkun þyngst um allt að 30\%, vegna raka og drullu, en almennt er gert ráð fyrir um 20-25\% þyngdaraukningu (Úrvinnslusjóður, munnleg heimild).
-Innflutningur heyrúlluplasts á árunum 2013-2018 var að meðaltali tæplega 2.000 tonn\textsuperscript{\protect\hyperlink{ref-Urvinnslusjouxf0ur2016}{126},\protect\hyperlink{ref-tollurinn}{127}} og má því ætla að árleg notkun sé af þeirri stærðargráðu. Á árunum 2013-2016 var að meðaltali skilað inn 2.094 tonnum af notuðu heyrúlluplasti\textsuperscript{\protect\hyperlink{ref-Urvinnslusjouxf0ur2016}{126}}, sem annaðhvort fór í endurvinnslu, var urðað eða fargað, og sé gert ráð fyrir 20-25\% þyngdaraukningu vegna raka og drullu má ætla að það hafi upprunalega verið í kringum 1.700 tonn. Sé tekið mið af þessum forsendum má gera ráð fyrir að árlega endi um 300 tonn af heyrúlluplasti annaðhvort í almennri urðun eða umhverfinu. En ekki hefur verið metið hversu mikið fer í almenna urðun annars vegar og umhverfið hins vegar.
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1\linewidth]{myndir/heyrullur.jpg} 
+
+}
+
+\caption{Heyrúlluplast sem slitnar getur borist í hafið með veðri og vindum.}\label{fig:heyrullur}
+\end{figure}
+
+Innflutningur heyrúlluplasts á árunum 2013-2018 var að meðaltali tæplega 2.000 tonn\textsuperscript{\protect\hyperlink{ref-Urvinnslusjouxf0ur2016}{125},\protect\hyperlink{ref-tollurinn}{126}} og má því ætla að árleg notkun sé af þeirri stærðargráðu. Á árunum 2013-2016 var að meðaltali skilað inn 2.094 tonnum af notuðu heyrúlluplasti\textsuperscript{\protect\hyperlink{ref-Urvinnslusjouxf0ur2016}{125}}, sem annaðhvort fór í endurvinnslu, var urðað eða fargað, og sé gert ráð fyrir 20-25\% þyngdaraukningu vegna raka og drullu má ætla að það hafi upprunalega verið í kringum 1.700 tonn. Sé tekið mið af þessum forsendum má gera ráð fyrir að árlega endi um 300 tonn af heyrúlluplasti annaðhvort í almennri urðun eða umhverfinu. En ekki hefur verið metið hversu mikið fer í almenna urðun annars vegar og umhverfið hins vegar.
 
 \hypertarget{umhverfi}{%
 \section*{Umhverfi}\label{umhverfi}}
@@ -1127,31 +1161,34 @@ Niðurbrot plastrusls gerist hve hraðast í orkumiklum kerfum líkt og fjörum 
 
 Skipulagðar hreinsanir á Íslandi eru framkvæmdar af félagasamtökunum Bláa hernum og fleirum. Samkvæmt talsmanni Bláa hersins er um eitt tonn af plastrusli á hverjum kílómetra af strandlengju sem þau hreinsa. Veiðarfæri og umbúðir úr plasti eru yfir 95\% af þyngd hlutanna sem finnast. Veiðarfærin geta verið stórar einingar upp á hundruð kílóa en umbúðirnar eru oft smærri ílát fyrir neysluvöru.
 
-\begin{figure}
+\begin{figure}[H]
 \centering
-\includegraphics{OrplastHaf_files/figure-latex/ospartafla-1.pdf}
+\includegraphics{_bookdown_files/OrplastHaf_files/figure-latex/ospartafla-1.pdf}
 \caption{\label{fig:ospartafla}Rusl í fjörum á Íslandi. Unnið eftir gögnum frá OSPAR.}
 \end{figure}
 
-Vaktanir á íslenskum fjörum eru gerðar eftir OSPAR samkomulaginu en þar eru 100 metra fjörukaflar teknir fyrir og skrásettur fjöldi hluta og hvers eðlis þeir eru en þeir eru ekki vigtaðir. Ábyggilegt er að við staðarval sé tekið mið af sjáanlegri mengun, sérstaklega hjá Bláa hernum en einnig hjá OSPAR og því eru gögnin þeirra skekkt í átt að meiri mengun en almennt finnst í íslenskum fjörum. Skráðar hafa verið 18 hreinsanir á fimm 100 metra strandlengjupörtum á Íslandi í \href{http://www.mcsuk.org/ospar/map}{OSPAR gagnagrunninn}\textsuperscript{\protect\hyperlink{ref-ospar2019}{128}}. Niðurstöður þeirra sýna að plast er meirihluti þeirra hluta sem finnast í fjörum eða um 83\% (sjá mynd \ref{fig:ospartafla}).
+Vaktanir á íslenskum fjörum eru gerðar eftir OSPAR samkomulaginu en þar eru 100 metra fjörukaflar teknir fyrir og skrásettur fjöldi hluta og hvers eðlis þeir eru en þeir eru ekki vigtaðir. Ábyggilegt er að við staðarval sé tekið mið af sjáanlegri mengun, sérstaklega hjá Bláa hernum en einnig hjá OSPAR og því eru gögnin þeirra skekkt í átt að meiri mengun en almennt finnst í íslenskum fjörum. Skráðar hafa verið 18 hreinsanir á fimm 100 metra strandlengjupörtum á Íslandi í \href{http://www.mcsuk.org/ospar/map}{OSPAR gagnagrunninn}\textsuperscript{\protect\hyperlink{ref-ospar2019}{127}}. Niðurstöður þeirra sýna að plast er meirihluti þeirra hluta sem finnast í fjörum eða um 83\% (sjá mynd \ref{fig:ospartafla}).
 
-Í flokkunum tengdum matvælaframleiðslu og umhverfi var hve minnstar upplýsingar að finna um uppsprettur örplasts. Þó svo að einhverjar rannsóknir á magni og niðurbroti plasts í sjávarumhverfinu hafi verið framkvæmdar\textsuperscript{\protect\hyperlink{ref-Andrady2017}{2}} þá er þekkingin til að meta örplastlosun í fjörum hérlendis enn ekki næg. Það er þó eflaust tilfinnanlegt magn. Svipaða sögu er að segja af heyrúlluplasti og veiðarfærum en magn þess sem er flutt inn og fært til endurvinnslu er ágætlega þekkt en afdrif þess sem lendir í umhverfinu eru ókunn enn.
+Í flokkunum tengdum matvælaframleiðslu og umhverfi var hve minnstar upplýsingar að finna um uppsprettur örplasts. Þó svo að einhverjar rannsóknir á magni og niðurbroti plasts í sjávarumhverfinu hafi verið framkvæmdar\textsuperscript{\protect\hyperlink{ref-Andrady2017}{2}} þá er þekkingin til að meta örplastlosun í fjörum hérlendis enn ekki næg. Það er þó eflaust tilfinnanlegt magn. Svipaða sögu er að segja af heyrúlluplasti og veiðarfærum en magn þess sem er flutt inn og fært til endurvinnslu er ágætlega þekkt en afdrif þess sem lendir í umhverfinu eru ókunn enn. 
 
 \hypertarget{sigvatn-fra-sorpurunarstovum}{%
 \subsection*{Sigvatn frá sorpurðunarstöðvum}\label{sigvatn-fra-sorpurunarstovum}}
 \addcontentsline{toc}{subsection}{Sigvatn frá sorpurðunarstöðvum}
 
-Urðaður heimilisúrgangur er um 60.000 tonn á ári\textsuperscript{\protect\hyperlink{ref-tollurinn2}{129}} á ýmsum urðunarstöðvum á Íslandi. Tugir urðunarstöðva eru vítt og breitt um landið, sumar þeirra eru ekki lengur í notkun en sigvatn rennur frá þeim engu að síður. Stærsta urðunarstöðin á Álfsnesi í Reykjavík er með leyfi til að taka við 120.000 tonnum á ári en aðrar stórar stöðvar eru í Glerárdal í Eyjafirði og í Stekkjavík við Húnaflóa (báðar um 20.000 tonn) en við Ölfusá var stöð þar til nýlega með leyfi fyrir 30.000 tonnum. Aðrar minni stöðvar hafa leyfi fyrir nokkrum hundruðum eða þúsundum tonna.
+Urðaður heimilisúrgangur er um 60.000 tonn á ári\textsuperscript{\protect\hyperlink{ref-tollurinn2}{128}} á ýmsum urðunarstöðvum á Íslandi. Tugir urðunarstöðva eru vítt og breitt um landið, sumar þeirra eru ekki lengur í notkun en sigvatn rennur frá þeim engu að síður. Stærsta urðunarstöðin á Álfsnesi í Reykjavík er með leyfi til að taka við 120.000 tonnum á ári en aðrar stórar stöðvar eru í Glerárdal í Eyjafirði og í Stekkjavík við Húnaflóa (báðar um 20.000 tonn) og við Ölfusá var stöð þar til nýlega með leyfi fyrir 30.000 tonnum. Aðrar minni stöðvar hafa leyfi fyrir nokkrum hundruðum eða nokkur þúsundum tonna.
 
-Rannsóknir á örplastinnihaldi í sigvatni benda ekki til þess að það sé mikilvæg uppspretta örplasts\textsuperscript{\protect\hyperlink{ref-Praagh1277395}{130}}. Talningar á örplastsögnum úr sigvatni nokkurra urðunarstöðva á Íslandi voru til dæmis lægri en talningar úr skólpi\textsuperscript{\protect\hyperlink{ref-Praagh1277395}{130}}. Í stærstu urðunarstöðinni á Álfsnesi mældist örplast í mestu magni (frá 50-5000 μm að stærð) og var árleg losun metin á bilinu \textbf{0,002 - 177 kg}\textsuperscript{\protect\hyperlink{ref-Praagh1277395}{130}}.
+Rannsóknir á örplastinnihaldi í sigvatni benda ekki til þess að það sé mikilvæg uppspretta örplasts\textsuperscript{\protect\hyperlink{ref-Praagh1277395}{129}}. Talningar á örplastsögnum úr sigvatni nokkurra urðunarstöðva á Íslandi voru til dæmis lægri en talningar úr skólpi\textsuperscript{\protect\hyperlink{ref-Praagh1277395}{129}}. Í stærstu urðunarstöðinni á Álfsnesi mældist örplast í mestu magni (frá 50-5000 µm að stærð) og var árleg losun metin á bilinu \textbf{0,002 - 177 kg}\textsuperscript{\protect\hyperlink{ref-Praagh1277395}{129}}.
 
-\hypertarget{niurlag}{%
-\section*{Niðurlag}\label{niurlag}}
-\addcontentsline{toc}{section}{Niðurlag}
+\grattbox{Losun örplasts í hafið með sigvatni er áætluð vera á bilinu \textbf{0,002 - 177 kíló} á ári.}
 
-Afdrif örplasts eru að miklu leyti enn ókunn. Það er vel þekkt að það tekur langan tíma fyrir plast að eyðast í umhverfinu og sérstaklega þar sem lítillar birtu gætir og hitastig er lágt. Sundrun plasts (í vatn og koltvísýring) er sjaldnast í það stórum stíl að vert sé á að minnast í skýrslu sem þessari. Það er þó talið að sólarljós geti valdið talsverðri sundrun á plastefnum í vegmerkingum og utanhússmálningu til dæmis svo að plastefnainnihald minnkar með tímanum. Það er vandmeðfarið að ætla að skilgreina örplastagnir út frá hlutfallslegu plastinnihaldi þeirra en það er þó ein af fjöldamörgum áskorunum sem rannsóknarfólk stendur frammi fyrir. Í þessari skýrslu er það gert varðandi málningu og vegmerkingar en ekki hjólbarða til dæmis.
+\hypertarget{samantekt-og-lokaor}{%
+\section*{Niðurlag}\label{samantekt-og-lokaor}}
+\addcontentsline{toc}{section}{Samantekt og lokaorð}
 
-Sumar uppsprettur var ekki hægt að leggja mat á vegna skorts á gögnum eða rannsóknum á því hvernig plastrusl í umhverfinu verður að örplasti. Þar ber hæst að nefna losun örplasts úr fjörum en erfitt er að áætla heildarmagn plasts í fjörum og hraða sundrunar þess í örplast. Fjörur geta verið líkt og mulningsvélar fyrir örplast ef stórt plastrusl er ekki fjarlægt úr þeim. Þá ber að nefna að þó svo að almennt sé talin minni hætta fyrir lífverur að innbyrða örplast miðað við stærra plast eru áhrif þess á lífverur og vistkerfi enn óráðin.
+Afdrif örplasts eru að miklu leyti enn ókunn. Það er vel þekkt að það tekur langan tíma fyrir plast að eyðast í umhverfinu og sérstaklega þar sem lítillar birtu gætir og hitastig er lágt. Sundrun plasts (í vatn og koltvísýring) er oftast ekki í það stórum stíl að vert sé á að minnast í skýrslu sem þessari. Sólarljós getur þó valdið talsverðri sundrun á plastefnum í vegmerkingum og utanhússmálningu svo að þær málningarflyksur sem staðið hafa úti í nokkurn tíma innihalda ekki það magn af plasti sem málningin innihélt upphaflega. Það er vandmeðfarið að ætla að skilgreina örplastagnir út frá hlutfallslegu plastinnihaldi þeirra en það er þó ein af fjöldamörgum áskorunum sem rannsóknarfólk stendur frammi fyrir. Í þessari skýrslu er það gert í tilfelli utanhússmálningar, vegna líftíma hennar, en ekki hjólbarða til dæmis.
+
+Sumar uppsprettur var ekki hægt að leggja mat á vegna skorts á gögnum eða rannsóknum á því hvernig plastrusl í umhverfinu verður að örplasti. Þar ber hæst að nefna losun örplasts frá veiðarfærum en einnig úr fjörum en erfitt er að áætla heildarmagn plasts í fjörum og hraða sundrunar þess í örplast. Fjörur geta verið líkt og mulningsvélar fyrir örplast ef stórt plastrusl er ekki fjarlægt úr þeim. Þá ber að nefna að þó svo að almennt sé talin minni hætta fyrir lífverur að innbyrða örplast miðað við stærra plast eru áhrif þess á lífverur og vistkerfi enn óráðin.
+
 
 \hypertarget{heimildir}{%
 \chapter*{Heimildir}\label{heimildir}}
@@ -1324,7 +1361,7 @@ Sumar uppsprettur var ekki hægt að leggja mat á vegna skorts á gögnum eða 
 55. Muthukumar T, Aravinthan A, Lakshmi K, Venkatesan R, Vedaprakash L, Doble M. Fouling and stability of polymers and composites in marine environment. \emph{International Biodeterioration \& Biodegradation}. 2011;65(2):276--284.
 
 \leavevmode\hypertarget{ref-RENNER201855}{}%
-56. Renner G, Schmidt TC, Schram J. Analytical methodologies for monitoring micro(nano)plastics: Which are fit for purpose? \emph{Current Opinion in Environmental Science \& Health}. 2018;1:55--61. doi:\href{https://doi.org/https://doi.org/10.1016/j.coesh.2017.11.001}{https://doi.org/10.1016/j.coesh.2017.11.001}
+56. Renner G, Schmidt TC, Schram J. Analytical methodologies for monitoring micro(nano)plastics: Which are fit for purpose? \emph{Current Opinion in Environmental Science \& Health}. 2018;1:55--61.\\ doi:\href{https://doi.org/10.1016/j.coesh.2017.11.001}{https://doi.org/10.1016/j.coesh.2017.11.001}
 
 \leavevmode\hypertarget{ref-lambert2016formation}{}%
 57. Lambert S, Wagner M. Formation of microscopic particles during the degradation of different polymers. \emph{Chemosphere}. 2016;161:510--517.
